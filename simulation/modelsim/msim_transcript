@@ -1,0 +1,67 @@
+# Reading pref.tcl
+# do MIPS_run_msim_gate_verilog.do
+# if {[file exists gate_work]} {
+# 	vdel -lib gate_work -all
+# }
+# vlib gate_work
+# vmap work gate_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work gate_work 
+# Copying C:/intelFPGA/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+. {MIPS.vo}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 19:59:00 on Aug 24,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+." MIPS.vo 
+# -- Compiling module MIPS
+# 
+# Top level modules:
+# 	MIPS
+# End time: 19:59:00 on Aug 24,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+C:/MIPS {C:/MIPS/MIPS.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 19:59:01 on Aug 24,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/MIPS" C:/MIPS/MIPS.v 
+# -- Compiling module MIPS
+# 
+# Top level modules:
+# 	MIPS
+# End time: 19:59:01 on Aug 24,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/MIPS {C:/MIPS/ram.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 19:59:01 on Aug 24,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/MIPS" C:/MIPS/ram.v 
+# End time: 19:59:01 on Aug 24,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/MIPS {C:/MIPS/ula.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 19:59:01 on Aug 24,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/MIPS" C:/MIPS/ula.v 
+# End time: 19:59:01 on Aug 24,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L altera_lnsim_ver -L cyclonev_ver -L lpm_ver -L sgate_ver -L cyclonev_hssi_ver -L altera_mf_ver -L cyclonev_pcie_hip_ver -L gate_work -L work -voptargs="+acc"  system_tb
+# vsim -t 1ps -L altera_ver -L altera_lnsim_ver -L cyclonev_ver -L lpm_ver -L sgate_ver -L cyclonev_hssi_ver -L altera_mf_ver -L cyclonev_pcie_hip_ver -L gate_work -L work -voptargs=""+acc"" system_tb 
+# Start time: 19:59:01 on Aug 24,2023
+# ** Error: (vsim-3170) Could not find 'system_tb'.
+#         Searched libraries:
+#             C:/intelFPGA/20.1/modelsim_ase/altera/verilog/altera
+#             C:/intelFPGA/20.1/modelsim_ase/altera/verilog/altera_lnsim
+#             C:/intelFPGA/20.1/modelsim_ase/altera/verilog/cyclonev
+#             C:/intelFPGA/20.1/modelsim_ase/altera/verilog/220model
+#             C:/intelFPGA/20.1/modelsim_ase/altera/verilog/sgate
+#             C:/intelFPGA/20.1/modelsim_ase/altera/verilog/cyclonev_hssi
+#             C:/intelFPGA/20.1/modelsim_ase/altera/verilog/altera_mf
+#             C:/intelFPGA/20.1/modelsim_ase/altera/verilog/cyclonev_pcie_hip
+#             C:/MIPS/simulation/modelsim/gate_work
+#             C:/MIPS/simulation/modelsim/gate_work
+# Error loading design
+# Error: Error loading design
+#        Pausing macro execution
+# MACRO ./MIPS_run_msim_gate_verilog.do PAUSED at line 14
+# End time: 19:59:25 on Aug 24,2023, Elapsed time: 0:00:24
+# Errors: 1, Warnings: 0

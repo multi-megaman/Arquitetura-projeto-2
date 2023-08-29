@@ -1,0 +1,8 @@
+module ula (In1, In2, OP, result, Zero_flag);
+
+	input wire [31:0] In1, In2;
+	input wire [4:0] OP;
+	output [31:0] result;
+	output Zero_flag;
+
+endmodule 

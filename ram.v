@@ -1,0 +1,49 @@
+////ram sincrona
+//module ram (clk, addr, data_in, data_out, memWrite, memRead);
+//	//Definindo o circuito
+//	input wire clk, memWrite, memRead;
+//	input wire [5:0] addr;
+//	input wire [7:0] data_in;
+//	output reg [7:0] data_out;
+//	
+//	reg [7:0] memoria [0:63]; //cada elemento da memoria tem 8 bits ([7:0] = 8 bits) e tem 64 espacos ([5:0] = 64 posicoes)
+//	
+//	always @ (posedge clk) begin
+//		if(memWrite == 1'b1) begin
+//			memoria[addr] = data_in;
+//		end
+//		
+//		if (memRead == 1'b1) begin
+//			data_out = memoria[addr];
+//		end
+//		else begin
+//			data_out = 8'bz; //8 em bioimpedancia 
+//		end
+//	end
+//
+//endmodule 
+
+////ram assincrona
+//module ram (addr, data_in, data_out, memWrite, memRead);
+//	//Definindo o circuito
+//	input wire memWrite, memRead;
+//	input wire [5:0] addr;
+//	input wire [7:0] data_in;
+//	output reg [7:0] data_out;
+//	
+//	reg [7:0] memoria [0:63]; //cada elemento da memoria tem 8 bits ([7:0] = 8 bits) e tem 64 espacos ([5:0] = 64 posicoes)
+//	
+//	always @ * begin
+//		if(memWrite == 1'b1) begin
+//			memoria[addr] = data_in;
+//		end
+//		
+//		if (memRead == 1'b1) begin
+//			data_out = memoria[addr];
+//		end
+//		else begin
+//			data_out = 8'bz; //8 em bioimpedancia 
+//		end
+//	end
+//
+//endmodule 
