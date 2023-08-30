@@ -8,52 +8,52 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/MIPS/simulation/qsim
+dC:/MIPS/simulation/qsim
 vMIPS
-Z1 !s110 1693332812
+Z0 !s110 1693424925
 !i10b 1
-!s100 JS0VdIBjS5aM9M<9Ia3010
-Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
-I]Z`^:1J[^KhbAQWBb5?a11
-Z3 VDg1SIo80bB@j0V0VzS_@n1
-R0
-w1693332810
+!s100 jz<K81LGB`MdSmoQ`HeA33
+Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IhLkbbk9QdZXmnFI:n9iN^3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 dD:/GitHub/Arquitetura-projeto-2/simulation/qsim
+w1693424924
 8MIPS.vo
 FMIPS.vo
-!i122 16
-L0 32 12884
+!i122 20
+L0 32 11175
 Z4 OV;L;2020.1;71
 r1
 !s85 0
 31
-!s108 1693332811.000000
+Z5 !s108 1693424925.000000
 !s107 MIPS.vo|
 !s90 -work|work|MIPS.vo|
 !i113 1
-Z5 o-work work
-Z6 tCvgOpt 0
+Z6 o-work work
+Z7 tCvgOpt 0
 n@m@i@p@s
 vMIPS_vlg_vec_tst
-R1
-!i10b 1
-!s100 [6FLgN>zB6obb3?]6E4Vd3
-R2
-IIb:>C1]=TZaOV5[j>cEm]2
-R3
 R0
-w1693332809
+!i10b 1
+!s100 5a0QSB>16Bik?]OdN5XJS0
+R1
+I;:VeVY1O^@[5FZiA26[@K2
+R2
+R3
+w1693424923
 8Waveform.vwf.vt
 FWaveform.vwf.vt
-!i122 17
-L0 30 364
+!i122 21
+L0 30 180
 R4
 r1
 !s85 0
 31
-!s108 1693332812.000000
+R5
 !s107 Waveform.vwf.vt|
 !s90 -work|work|Waveform.vwf.vt|
 !i113 1
-R5
 R6
+R7
 n@m@i@p@s_vlg_vec_tst

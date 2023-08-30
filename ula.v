@@ -1,6 +1,6 @@
 module ulaCore (In1, In2, OP, result, Zero_flag);
 
-	input wire [31:0] In1, In2; // In1 = $rt or imm or SingExt(imm)    In2 = $rs or $shamt
+	input wire [31:0] In1, In2; // In1 = $rt or SingExt(imm) or {16'b0, imm}    In2 = $rs or $shamt
 	input wire [4:0] OP;
 	output reg [31:0] result;
 	output Zero_flag;
@@ -24,9 +24,9 @@ module ulaCore (In1, In2, OP, result, Zero_flag);
 			4'b1001: result <= In2 | In1;       											// or  ($rs | $rt)   or ori($rs or {16'b0, imm})
 			4'b1010: result <= In2 ^ In1;       											// xor ($rs xor $rt) or xor($rs xor {16'b0, imm})
 			4'b1011: result <= ~((In2) | (In1));											// nor !($rs or $rt)
-			4'b1100: result <= $signed($signed(In2) < $signed(In1));       		// slt signed ($rs < $rt)    or slti signed    ($rs < {16'b0, imm})
-			4'b1101: result <= $unsigned($unsigned(In2) < $unsigned(In1));       // sltu unsigned ($rs < $rt) or sltui unsigned ($rs < {16'b0, imm})
-			4'b1110: result <= {In1, 16'b0};     											// lui
+			4'b1100: result <= $signed($signed(In2) < $signed(In1));       		// slt signed ($rs < $rt)    or slti signed    ($rs < SingExt(imm))
+			4'b1101: result <= $unsigned($unsigned(In2) < $unsigned(In1));       // sltu unsigned ($rs < $rt) or sltui unsigned ($rs < SingExt(imm))
+			4'b1110: result <= {In1[15:0], 16'b0};     									// lui
 			default: result <= 32'b0;
 		endcase
 	end
@@ -69,104 +69,5 @@ module ulaIn2Mux(ulaIn2Rs, ulaIn2Shamt, ulaIn2MuxController, ulaIn2MuxOut);
 
 endmodule 
 
-//Controlador da ALU
-module ulaControl(OPcode, func, in1Mux, in2Mux, aluOP)
-	
-	input wire [4:0] OPcode;
-	input wire [5:0] func;
-	output reg [1:0] in1Mux;
-	output reg       in2Mux;
-	output reg [3:0] aluOp;
-	
-	always @(*) begin
-		case (Opcode)
-			5'b00000: begin //Instrucoes do tipo R
-				case (func)
-					6'b000000:begin //sll
-						in1Mux <= 2'b00; //$rt
-						in2Mux <= 1'b1; //shamt
-						aluOp <= 4'b0000; //sll
-					end
-					6'b000010:begin //srl
-						in1Mux <= 2'b00; //$rt
-						in2Mux <= 1'b1; //shamt
-						aluOp <= 4'b0001; //srl
-					end
-					6'b000011:begin //sra
-						in1Mux <= 2'b00; //$rt
-						in2Mux <= 1'b1; //shamt
-						aluOp <= 4'b0010; //sra
-					end
-					6'b000100:begin //sllv
-						in1Mux <= 2'b00; //$rt
-						in2Mux <= 1'b0; //$rs
-						aluOp <= 4'b0011; //sllv				
-					end
-					6'b000110:begin //srlv
-						in1Mux <= 2'b00; //$rt
-						in2Mux <= 1'b0; //$rs
-						aluOp <= 4'b0100; //srlv
-					end
-					6'b000111:begin //srav
-						in1Mux <= 2'b00; //$rt
-						in2Mux <= 1'b0; //$rs
-						aluOp <= 4'b0101; //srav
-					end
-					6'b001000:begin //jr
-						in1Mux <= 2'b00; //$rt (don't care)
-						in2Mux <= 1'b0; //$rs (don't care)
-						aluOp <= 4'b0111; //sub (don't care)
-					end
-					6'b100000:begin  //add
-						in1Mux <= 2'b00; //$rt
-						in2Mux <= 1'b0; //$rs
-						aluOp <= 4'b0110; //add
-					end
-					6'b100010:begin //sub
-						in1Mux <= 2'b00; //$rt
-						in2Mux <= 1'b0; //$rs
-						aluOp <= 4'b0111; //sub
-					end
-					6'b100100:begin //and
-						in1Mux <= 2'b00; //$rt
-						in2Mux <= 1'b0; //$rs
-						aluOp <= 4'b1000; //and
-					end
-					6'b100101:begin //or
-						in1Mux <= 2'b00; //$rt
-						in2Mux <= 1'b0; //$rs
-						aluOp <= 4'b1001; //or
-					end
-					6'b100110:begin //xor
-						in1Mux <= 2'b00; //$rt
-						in2Mux <= 1'b0; //$rs
-						aluOp <= 4'b1010; //xor
-					end
-					6'b100111:begin //nor
-						in1Mux <= 2'b00; //$rt
-						in2Mux <= 1'b0; //$rs
-						aluOp <= 4'b1011; //nor
-					end
-					6'b101010:begin //slt
-						in1Mux <= 2'b00; //$rt
-						in2Mux <= 1'b0; //$rs
-						aluOp <= 4'b1100; //slt
-					end
-					6'b101011:begin //sltu
-						in1Mux <= 2'b00; //$rt
-						in2Mux <= 1'b0; //$rs
-						aluOp <= 4'b1101; //sltu
-					end
-					default:begin
-						in1Mux <= 2'b00; //$rt
-						in2Mux <= 1'b0; //$rs
-						aluOp <= 4'b0100; //srlv
-					end
-				endcase
-			end
-			
-		endcase
-	end
-	
-endmodule
+
 

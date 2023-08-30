@@ -1,0 +1,14 @@
+module dual_out_sign_extend (
+    imm, outExtended, outImm
+);
+
+input wire [15:0] in;
+output reg [31:0] outExtended;
+output reg [31:0] outImm;
+
+always @(*) begin
+    outExtended <= {{16{imm[15]}}, imm};
+	 outImm <= {16'b0, imm}
+end
+
+endmodule
