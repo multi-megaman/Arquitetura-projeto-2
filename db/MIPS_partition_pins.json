@@ -136,11 +136,15 @@
 					"strict" : false
 				},
 				{
-					"name" : "instruction[6]",
+					"name" : "instruction[10]",
 					"strict" : false
 				},
 				{
 					"name" : "instruction[7]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[6]",
 					"strict" : false
 				},
 				{
@@ -152,19 +156,15 @@
 					"strict" : false
 				},
 				{
-					"name" : "instruction[10]",
-					"strict" : false
-				},
-				{
-					"name" : "instruction[0]",
-					"strict" : false
-				},
-				{
 					"name" : "instruction[5]",
 					"strict" : false
 				},
 				{
 					"name" : "instruction[26]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[0]",
 					"strict" : false
 				},
 				{

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for MIPS
-Wed Aug 30 16:38:31 2023
+Wed Aug 30 22:00:32 2023
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -16,13 +16,15 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   8. User-Specified and Inferred Latches
   9. General Register Statistics
  10. Multiplexer Restructuring Statistics (Restructuring Performed)
- 11. Port Connectivity Checks: "ulaCore:ula"
- 12. Port Connectivity Checks: "ulaIn2Mux:ulaIn2"
+ 11. Parameter Settings for User Entity Instance: regmem:regmem
+ 12. Port Connectivity Checks: "ulaCore:ula"
  13. Port Connectivity Checks: "ulaIn1Mux:ulaIn1"
  14. Port Connectivity Checks: "dual_out_sign_extend:sign_extend"
- 15. Post-Synthesis Netlist Statistics for Top Partition
- 16. Elapsed Time Per Partition
- 17. Analysis & Synthesis Messages
+ 15. Port Connectivity Checks: "regmem:regmem"
+ 16. Port Connectivity Checks: "regMemMux:regMemWriteMux"
+ 17. Post-Synthesis Netlist Statistics for Top Partition
+ 18. Elapsed Time Per Partition
+ 19. Analysis & Synthesis Messages
 
 
 
@@ -49,7 +51,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed Aug 30 16:38:31 2023       ;
+; Analysis & Synthesis Status     ; Successful - Wed Aug 30 22:00:32 2023       ;
 ; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                   ; MIPS                                        ;
 ; Top-level Entity Name           ; MIPS                                        ;
@@ -182,6 +184,7 @@ https://fpgasoftware.intel.com/eula.
 ; ula.v                            ; yes             ; User Verilog HDL File  ; D:/GitHub/Arquitetura-projeto-2/ula.v              ;         ;
 ; control.v                        ; yes             ; User Verilog HDL File  ; D:/GitHub/Arquitetura-projeto-2/control.v          ;         ;
 ; dual_sign_extend.v               ; yes             ; User Verilog HDL File  ; D:/GitHub/Arquitetura-projeto-2/dual_sign_extend.v ;         ;
+; regMem.v                         ; yes             ; User Verilog HDL File  ; D:/GitHub/Arquitetura-projeto-2/regMem.v           ;         ;
 +----------------------------------+-----------------+------------------------+----------------------------------------------------+---------+
 
 
@@ -190,14 +193,14 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------------------------------+
 ; Resource                                    ; Usage                             ;
 +---------------------------------------------+-----------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 264                               ;
+; Estimate of Logic utilization (ALMs needed) ; 256                               ;
 ;                                             ;                                   ;
-; Combinational ALUT usage for logic          ; 389                               ;
-;     -- 7 input functions                    ; 7                                 ;
-;     -- 6 input functions                    ; 132                               ;
-;     -- 5 input functions                    ; 77                                ;
-;     -- 4 input functions                    ; 62                                ;
-;     -- <=3 input functions                  ; 111                               ;
+; Combinational ALUT usage for logic          ; 379                               ;
+;     -- 7 input functions                    ; 8                                 ;
+;     -- 6 input functions                    ; 124                               ;
+;     -- 5 input functions                    ; 74                                ;
+;     -- 4 input functions                    ; 50                                ;
+;     -- <=3 input functions                  ; 123                               ;
 ;                                             ;                                   ;
 ; Dedicated logic registers                   ; 0                                 ;
 ;                                             ;                                   ;
@@ -206,9 +209,9 @@ https://fpgasoftware.intel.com/eula.
 ; Total DSP Blocks                            ; 0                                 ;
 ;                                             ;                                   ;
 ; Maximum fan-out node                        ; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[16] ;
-; Maximum fan-out                             ; 125                               ;
-; Total fan-out                               ; 1887                              ;
-; Average fan-out                             ; 3.64                              ;
+; Maximum fan-out                             ; 83                                ;
+; Total fan-out                               ; 1824                              ;
+; Average fan-out                             ; 3.58                              ;
 +---------------------------------------------+-----------------------------------+
 
 
@@ -217,11 +220,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name    ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------+-------------+--------------+
-; |MIPS                      ; 389 (0)             ; 0 (0)                     ; 0                 ; 0          ; 65   ; 0            ; |MIPS                  ; MIPS        ; work         ;
+; |MIPS                      ; 379 (0)             ; 0 (0)                     ; 0                 ; 0          ; 65   ; 0            ; |MIPS                  ; MIPS        ; work         ;
 ;    |control:control|       ; 22 (22)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|control:control  ; control     ; work         ;
-;    |ulaCore:ula|           ; 327 (327)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|ulaCore:ula      ; ulaCore     ; work         ;
+;    |ulaCore:ula|           ; 318 (318)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|ulaCore:ula      ; ulaCore     ; work         ;
 ;    |ulaIn1Mux:ulaIn1|      ; 35 (35)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|ulaIn1Mux:ulaIn1 ; ulaIn1Mux   ; work         ;
-;    |ulaIn2Mux:ulaIn2|      ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|ulaIn2Mux:ulaIn2 ; ulaIn2Mux   ; work         ;
+;    |ulaIn2Mux:ulaIn2|      ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|ulaIn2Mux:ulaIn2 ; ulaIn2Mux   ; work         ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -231,8 +234,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------------------------------+--------------------------+------------------------+
 ; Latch Name                                          ; Latch Enable Signal      ; Free of Timing Hazards ;
 +-----------------------------------------------------+--------------------------+------------------------+
-; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[0]                    ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
 ; control:control|in2Mux                              ; control:control|WideOr16 ; yes                    ;
+; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[0]                    ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
 ; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[2]                    ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
 ; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[1]                    ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
 ; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[3]                    ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
@@ -290,30 +293,40 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |MIPS|ulaCore:ula|ShiftRight1   ;
-; 4:1                ; 49 bits   ; 98 LEs        ; 98 LEs               ; 0 LEs                  ; No         ; |MIPS|ulaCore:ula|ShiftLeft0    ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |MIPS|ulaCore:ula|ShiftLeft0    ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |MIPS|ulaCore:ula|ShiftLeft0    ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |MIPS|ulaCore:ula|ShiftLeft0    ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |MIPS|ulaCore:ula|ShiftRight1   ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |MIPS|ulaCore:ula|ShiftRight0   ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |MIPS|ulaIn1Mux:ulaIn1|Mux27    ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |MIPS|ulaIn1Mux:ulaIn1|Mux7     ;
-; 14:1               ; 4 bits    ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; No         ; |MIPS|control:control|Selector0 ;
-; 16:1               ; 2 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |MIPS|ulaCore:ula|Mux16         ;
-; 17:1               ; 4 bits    ; 44 LEs        ; 36 LEs               ; 8 LEs                  ; No         ; |MIPS|ulaCore:ula|Mux26         ;
-; 16:1               ; 2 bits    ; 20 LEs        ; 18 LEs               ; 2 LEs                  ; No         ; |MIPS|ulaCore:ula|Mux21         ;
-; 20:1               ; 9 bits    ; 117 LEs       ; 99 LEs               ; 18 LEs                 ; No         ; |MIPS|ulaCore:ula|Mux8          ;
-; 17:1               ; 3 bits    ; 33 LEs        ; 27 LEs               ; 6 LEs                  ; No         ; |MIPS|ulaCore:ula|Mux17         ;
-; 20:1               ; 3 bits    ; 39 LEs        ; 36 LEs               ; 3 LEs                  ; No         ; |MIPS|ulaCore:ula|Mux28         ;
-; 23:1               ; 3 bits    ; 45 LEs        ; 36 LEs               ; 9 LEs                  ; No         ; |MIPS|ulaCore:ula|Mux3          ;
-; 21:1               ; 2 bits    ; 28 LEs        ; 24 LEs               ; 4 LEs                  ; No         ; |MIPS|ulaCore:ula|Mux5          ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |MIPS|ulaCore:ula|ShiftLeft0     ;
+; 4:1                ; 49 bits   ; 98 LEs        ; 98 LEs               ; 0 LEs                  ; No         ; |MIPS|ulaCore:ula|ShiftLeft0     ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |MIPS|ulaCore:ula|ShiftLeft0     ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |MIPS|ulaCore:ula|ShiftLeft0     ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |MIPS|ulaCore:ula|ShiftLeft0     ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |MIPS|ulaCore:ula|ShiftRight1    ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |MIPS|ulaCore:ula|ShiftRight0    ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |MIPS|ulaIn1Mux:ulaIn1|Mux23     ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |MIPS|ulaIn1Mux:ulaIn1|Mux4      ;
+; 14:1               ; 4 bits    ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; No         ; |MIPS|control:control|Selector11 ;
+; 19:1               ; 5 bits    ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; No         ; |MIPS|ulaCore:ula|Mux23          ;
+; 22:1               ; 8 bits    ; 112 LEs       ; 104 LEs              ; 8 LEs                  ; No         ; |MIPS|ulaCore:ula|Mux14          ;
+; 21:1               ; 2 bits    ; 28 LEs        ; 24 LEs               ; 4 LEs                  ; No         ; |MIPS|ulaCore:ula|Mux21          ;
+; 19:1               ; 3 bits    ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; No         ; |MIPS|ulaCore:ula|Mux17          ;
+; 22:1               ; 3 bits    ; 42 LEs        ; 42 LEs               ; 0 LEs                  ; No         ; |MIPS|ulaCore:ula|Mux28          ;
+; 25:1               ; 3 bits    ; 48 LEs        ; 45 LEs               ; 3 LEs                  ; No         ; |MIPS|ulaCore:ula|Mux1           ;
+; 24:1               ; 2 bits    ; 32 LEs        ; 28 LEs               ; 4 LEs                  ; No         ; |MIPS|ulaCore:ula|Mux5           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: regmem:regmem ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; MEM_WIDTH      ; 32    ; Signed Integer                    ;
+; DATA_WIDTH     ; 32    ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -325,26 +338,13 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+---------------------------------------------------+
-; Port Connectivity Checks: "ulaIn2Mux:ulaIn2"      ;
-+-----------------+-------+----------+--------------+
-; Port            ; Type  ; Severity ; Details      ;
-+-----------------+-------+----------+--------------+
-; ulaIn2Rs[1..0]  ; Input ; Info     ; Stuck at VCC ;
-; ulaIn2Rs[31..2] ; Input ; Info     ; Stuck at GND ;
-+-----------------+-------+----------+--------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "ulaIn1Mux:ulaIn1"                                                                                                                                                                             ;
-+-----------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port            ; Type  ; Severity ; Details                                                                                                                                                                             ;
-+-----------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; ulaIn1Rt[31..2] ; Input ; Info     ; Stuck at GND                                                                                                                                                                        ;
-; ulaIn1Rt[1]     ; Input ; Info     ; Stuck at VCC                                                                                                                                                                        ;
-; ulaIn1Rt[0]     ; Input ; Info     ; Stuck at GND                                                                                                                                                                        ;
-; ulaIn1Imm       ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (16 bits) it drives.  The 16 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-+-----------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ulaIn1Mux:ulaIn1"                                                                                                                                                                       ;
++-----------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                                                                                                                                             ;
++-----------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; ulaIn1Imm ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (16 bits) it drives.  The 16 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++-----------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------+
@@ -356,28 +356,48 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
++----------------------------------------------------+
+; Port Connectivity Checks: "regmem:regmem"          ;
++------------------+-------+----------+--------------+
+; Port             ; Type  ; Severity ; Details      ;
++------------------+-------+----------+--------------+
+; writeData[4..0]  ; Input ; Info     ; Stuck at VCC ;
+; writeData[31..5] ; Input ; Info     ; Stuck at GND ;
+; canWrite         ; Input ; Info     ; Stuck at VCC ;
++------------------+-------+----------+--------------+
+
+
++------------------------------------------------------+
+; Port Connectivity Checks: "regMemMux:regMemWriteMux" ;
++---------+-------+----------+-------------------------+
+; Port    ; Type  ; Severity ; Details                 ;
++---------+-------+----------+-------------------------+
+; regDest ; Input ; Info     ; Stuck at GND            ;
++---------+-------+----------+-------------------------+
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_lcell_comb     ; 389                         ;
+; arriav_lcell_comb     ; 379                         ;
 ;     arith             ; 33                          ;
 ;         1 data inputs ; 1                           ;
 ;         2 data inputs ; 27                          ;
 ;         4 data inputs ; 5                           ;
-;     extend            ; 7                           ;
-;         7 data inputs ; 7                           ;
-;     normal            ; 349                         ;
-;         2 data inputs ; 21                          ;
-;         3 data inputs ; 62                          ;
-;         4 data inputs ; 57                          ;
-;         5 data inputs ; 77                          ;
-;         6 data inputs ; 132                         ;
+;     extend            ; 8                           ;
+;         7 data inputs ; 8                           ;
+;     normal            ; 338                         ;
+;         2 data inputs ; 16                          ;
+;         3 data inputs ; 79                          ;
+;         4 data inputs ; 45                          ;
+;         5 data inputs ; 74                          ;
+;         6 data inputs ; 124                         ;
 ; boundary_port         ; 65                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 8.00                        ;
-; Average LUT depth     ; 6.46                        ;
+; Max LUT depth         ; 7.30                        ;
+; Average LUT depth     ; 5.87                        ;
 +-----------------------+-----------------------------+
 
 
@@ -396,14 +416,14 @@ Note: All latches listed above may not be present at the end of synthesis due to
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Wed Aug 30 16:38:21 2023
+    Info: Processing started: Wed Aug 30 22:00:21 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off MIPS -c MIPS
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
 Warning (12019): Can't analyze file -- file ../quartus/ula.v is missing
 Warning (12019): Can't analyze file -- file ../quartus/ram.v is missing
 Info (12021): Found 1 design units, including 1 entities, in source file mips.v
-    Info (12023): Found entity 1: MIPS File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 9
+    Info (12023): Found entity 1: MIPS File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 2
 Info (12021): Found 3 design units, including 3 entities, in source file ula.v
     Info (12023): Found entity 1: ulaCore File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 1
     Info (12023): Found entity 2: ulaIn1Mux File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 38
@@ -413,8 +433,17 @@ Info (12021): Found 1 design units, including 1 entities, in source file control
     Info (12023): Found entity 1: control File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file dual_sign_extend.v
     Info (12023): Found entity 1: dual_out_sign_extend File: D:/GitHub/Arquitetura-projeto-2/dual_sign_extend.v Line: 2
+Warning (12019): Can't analyze file -- file Verilog1.v is missing
+Info (12021): Found 2 design units, including 2 entities, in source file regmem.v
+    Info (12023): Found entity 1: regmem File: D:/GitHub/Arquitetura-projeto-2/regMem.v Line: 2
+    Info (12023): Found entity 2: regMemMux File: D:/GitHub/Arquitetura-projeto-2/regMem.v Line: 37
 Info (12127): Elaborating entity "MIPS" for the top level hierarchy
-Info (12128): Elaborating entity "control" for hierarchy "control:control" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 28
+Warning (10036): Verilog HDL or VHDL warning at MIPS.v(17): object "rt" assigned a value but never read File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 17
+Warning (10036): Verilog HDL or VHDL warning at MIPS.v(18): object "rs" assigned a value but never read File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 18
+Warning (10036): Verilog HDL or VHDL warning at MIPS.v(21): object "rtMem" assigned a value but never read File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 21
+Warning (10036): Verilog HDL or VHDL warning at MIPS.v(22): object "rsMem" assigned a value but never read File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 22
+Warning (10036): Verilog HDL or VHDL warning at MIPS.v(23): object "rdMem" assigned a value but never read File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 23
+Info (12128): Elaborating entity "control" for hierarchy "control:control" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 35
 Warning (10270): Verilog HDL Case Statement warning at control.v(11): incomplete case statement has no default case item File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
 Warning (10240): Verilog HDL Always Construct warning at control.v(11): inferring latch(es) for variable "in1Mux", which holds its previous value in one or more paths through the always construct File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
 Warning (10240): Verilog HDL Always Construct warning at control.v(11): inferring latch(es) for variable "in2Mux", which holds its previous value in one or more paths through the always construct File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
@@ -426,8 +455,12 @@ Info (10041): Inferred latch for "aluOp[3]" at control.v(11) File: D:/GitHub/Arq
 Info (10041): Inferred latch for "in2Mux" at control.v(11) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
 Info (10041): Inferred latch for "in1Mux[0]" at control.v(11) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
 Info (10041): Inferred latch for "in1Mux[1]" at control.v(11) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Info (12128): Elaborating entity "dual_out_sign_extend" for hierarchy "dual_out_sign_extend:sign_extend" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 33
-Info (12128): Elaborating entity "ulaIn1Mux" for hierarchy "ulaIn1Mux:ulaIn1" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 37
+Info (12128): Elaborating entity "regMemMux" for hierarchy "regMemMux:regMemWriteMux" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 40
+Info (12128): Elaborating entity "regmem" for hierarchy "regmem:regmem" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 41
+Warning (10235): Verilog HDL Always Construct warning at regMem.v(29): variable "canWrite" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/GitHub/Arquitetura-projeto-2/regMem.v Line: 29
+Warning (10235): Verilog HDL Always Construct warning at regMem.v(30): variable "writeReg" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/GitHub/Arquitetura-projeto-2/regMem.v Line: 30
+Info (12128): Elaborating entity "dual_out_sign_extend" for hierarchy "dual_out_sign_extend:sign_extend" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 47
+Info (12128): Elaborating entity "ulaIn1Mux" for hierarchy "ulaIn1Mux:ulaIn1" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 51
 Warning (10270): Verilog HDL Case Statement warning at ula.v(46): incomplete case statement has no default case item File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
 Warning (10240): Verilog HDL Always Construct warning at ula.v(46): inferring latch(es) for variable "ulaIn1MuxOut", which holds its previous value in one or more paths through the always construct File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
 Info (10041): Inferred latch for "ulaIn1MuxOut[0]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
@@ -462,30 +495,30 @@ Info (10041): Inferred latch for "ulaIn1MuxOut[28]" at ula.v(46) File: D:/GitHub
 Info (10041): Inferred latch for "ulaIn1MuxOut[29]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
 Info (10041): Inferred latch for "ulaIn1MuxOut[30]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
 Info (10041): Inferred latch for "ulaIn1MuxOut[31]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (12128): Elaborating entity "ulaIn2Mux" for hierarchy "ulaIn2Mux:ulaIn2" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 41
-Info (12128): Elaborating entity "ulaCore" for hierarchy "ulaCore:ula" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 43
+Info (12128): Elaborating entity "ulaIn2Mux" for hierarchy "ulaIn2Mux:ulaIn2" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 55
+Info (12128): Elaborating entity "ulaCore" for hierarchy "ulaCore:ula" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 58
 Warning (10764): Verilog HDL warning at ula.v(18): converting signed shift amount to unsigned File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 18
 Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
-    Info (13026): Duplicate LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[27]" merged with LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[16]" File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Info (13026): Duplicate LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[17]" merged with LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[16]" File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
     Info (13026): Duplicate LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[18]" merged with LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[16]" File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Info (13026): Duplicate LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[24]" merged with LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[16]" File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Info (13026): Duplicate LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[26]" merged with LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[16]" File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Info (13026): Duplicate LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[25]" merged with LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[16]" File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Info (13026): Duplicate LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[31]" merged with LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[16]" File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Info (13026): Duplicate LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[29]" merged with LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[16]" File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Info (13026): Duplicate LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[30]" merged with LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[16]" File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Info (13026): Duplicate LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[28]" merged with LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[16]" File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
+    Info (13026): Duplicate LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[17]" merged with LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[16]" File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
     Info (13026): Duplicate LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[19]" merged with LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[16]" File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
     Info (13026): Duplicate LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[20]" merged with LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[16]" File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
     Info (13026): Duplicate LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[22]" merged with LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[16]" File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
     Info (13026): Duplicate LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[21]" merged with LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[16]" File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
     Info (13026): Duplicate LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[23]" merged with LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[16]" File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
+    Info (13026): Duplicate LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[24]" merged with LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[16]" File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
+    Info (13026): Duplicate LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[26]" merged with LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[16]" File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
+    Info (13026): Duplicate LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[25]" merged with LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[16]" File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
+    Info (13026): Duplicate LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[27]" merged with LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[16]" File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
+    Info (13026): Duplicate LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[28]" merged with LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[16]" File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
+    Info (13026): Duplicate LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[30]" merged with LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[16]" File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
+    Info (13026): Duplicate LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[29]" merged with LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[16]" File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
+    Info (13026): Duplicate LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[31]" merged with LATCH primitive "ulaIn1Mux:ulaIn1|ulaIn1MuxOut[16]" File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
+Warning (13012): Latch control:control|in2Mux has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 7
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instruction[26] File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 10
 Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[0] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
     Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (13012): Latch control:control|in2Mux has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 7
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instruction[26] File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 16
 Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[2] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
     Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
 Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[1] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
@@ -519,39 +552,39 @@ Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[15] has unsafe behavior Fil
 Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[16] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
     Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
 Warning (13012): Latch control:control|aluOp[0] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instruction[28] File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instruction[28] File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 10
 Warning (13012): Latch control:control|aluOp[1] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instruction[28] File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instruction[28] File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 10
 Warning (13012): Latch control:control|aluOp[2] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instruction[28] File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instruction[28] File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 10
 Warning (13012): Latch control:control|aluOp[3] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instruction[29] File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instruction[29] File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 10
 Warning (13012): Latch control:control|in1Mux[0] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instruction[30] File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instruction[30] File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 10
 Warning (13012): Latch control:control|in1Mux[1] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instruction[28] File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instruction[28] File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 10
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 10 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "instruction[16]" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 16
-    Warning (15610): No output dependent on input pin "instruction[17]" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 16
-    Warning (15610): No output dependent on input pin "instruction[18]" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 16
-    Warning (15610): No output dependent on input pin "instruction[19]" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 16
-    Warning (15610): No output dependent on input pin "instruction[20]" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 16
-    Warning (15610): No output dependent on input pin "instruction[21]" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 16
-    Warning (15610): No output dependent on input pin "instruction[22]" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 16
-    Warning (15610): No output dependent on input pin "instruction[23]" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 16
-    Warning (15610): No output dependent on input pin "instruction[24]" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 16
-    Warning (15610): No output dependent on input pin "instruction[25]" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 16
-Info (21057): Implemented 454 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "instruction[21]" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 10
+    Warning (15610): No output dependent on input pin "instruction[22]" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 10
+    Warning (15610): No output dependent on input pin "instruction[23]" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 10
+    Warning (15610): No output dependent on input pin "instruction[24]" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 10
+    Warning (15610): No output dependent on input pin "instruction[25]" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 10
+    Warning (15610): No output dependent on input pin "instruction[16]" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 10
+    Warning (15610): No output dependent on input pin "instruction[17]" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 10
+    Warning (15610): No output dependent on input pin "instruction[18]" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 10
+    Warning (15610): No output dependent on input pin "instruction[19]" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 10
+    Warning (15610): No output dependent on input pin "instruction[20]" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 10
+Info (21057): Implemented 444 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 32 input pins
     Info (21059): Implemented 33 output pins
-    Info (21061): Implemented 389 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 70 warnings
-    Info: Peak virtual memory: 4881 megabytes
-    Info: Processing ended: Wed Aug 30 16:38:31 2023
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:19
+    Info (21061): Implemented 379 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 78 warnings
+    Info: Peak virtual memory: 4863 megabytes
+    Info: Processing ended: Wed Aug 30 22:00:32 2023
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:23
 
 

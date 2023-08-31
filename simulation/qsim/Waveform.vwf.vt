@@ -19,7 +19,7 @@
 // the top level entity of the current Quartus project .The user can use this   
 // testbench to simulate his design using a third-party simulation tool .       
 // *****************************************************************************
-// Generated on "08/30/2023 16:48:42"
+// Generated on "08/30/2023 21:54:27"
                                                                                 
 // Verilog Test Bench (with test vectors) for design :                          MIPS
 // 
@@ -79,22 +79,22 @@ end
 // instruction[ 25 ]
 initial
 begin
-	instruction[25] = 1'b1;
+	instruction[25] = 1'b0;
 end 
 // instruction[ 24 ]
 initial
 begin
-	instruction[24] = 1'b1;
+	instruction[24] = 1'b0;
 end 
 // instruction[ 23 ]
 initial
 begin
-	instruction[23] = 1'b1;
+	instruction[23] = 1'b0;
 end 
 // instruction[ 22 ]
 initial
 begin
-	instruction[22] = 1'b1;
+	instruction[22] = 1'b0;
 end 
 // instruction[ 21 ]
 initial
@@ -119,7 +119,7 @@ end
 // instruction[ 17 ]
 initial
 begin
-	instruction[17] = 1'b0;
+	instruction[17] = 1'b1;
 end 
 // instruction[ 16 ]
 initial
