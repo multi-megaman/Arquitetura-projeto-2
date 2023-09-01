@@ -19,7 +19,7 @@
 // the top level entity of the current Quartus project .The user can use this   
 // testbench to simulate his design using a third-party simulation tool .       
 // *****************************************************************************
-// Generated on "09/01/2023 18:41:43"
+// Generated on "09/01/2023 19:39:57"
                                                                                 
 // Verilog Test Bench (with test vectors) for design :                          MIPS
 // 
@@ -35,178 +35,22 @@ reg [31:0] instruction;
 // wires                                               
 wire Zero_flag;
 wire [31:0] aluResult;
+wire canWriteReg;
+wire [31:0] regWriteData;
 
 // assign statements (if any)                          
 MIPS i1 (
 // port map - connection between master ports and signals/registers   
 	.Zero_flag(Zero_flag),
 	.aluResult(aluResult),
+	.canWriteReg(canWriteReg),
 	.clock(clock),
-	.instruction(instruction)
+	.instruction(instruction),
+	.regWriteData(regWriteData)
 );
 initial 
 begin 
 #1000000 $finish;
-end 
-// instruction[ 31 ]
-initial
-begin
-	instruction[31] = 1'b0;
-end 
-// instruction[ 30 ]
-initial
-begin
-	instruction[30] = 1'b0;
-end 
-// instruction[ 29 ]
-initial
-begin
-	instruction[29] = 1'b0;
-end 
-// instruction[ 28 ]
-initial
-begin
-	instruction[28] = 1'b0;
-end 
-// instruction[ 27 ]
-initial
-begin
-	instruction[27] = 1'b0;
-end 
-// instruction[ 26 ]
-initial
-begin
-	instruction[26] = 1'b0;
-end 
-// instruction[ 25 ]
-initial
-begin
-	instruction[25] = 1'b0;
-end 
-// instruction[ 24 ]
-initial
-begin
-	instruction[24] = 1'b0;
-end 
-// instruction[ 23 ]
-initial
-begin
-	instruction[23] = 1'b0;
-end 
-// instruction[ 22 ]
-initial
-begin
-	instruction[22] = 1'b0;
-end 
-// instruction[ 21 ]
-initial
-begin
-	instruction[21] = 1'b1;
-end 
-// instruction[ 20 ]
-initial
-begin
-	instruction[20] = 1'b0;
-end 
-// instruction[ 19 ]
-initial
-begin
-	instruction[19] = 1'b0;
-end 
-// instruction[ 18 ]
-initial
-begin
-	instruction[18] = 1'b0;
-end 
-// instruction[ 17 ]
-initial
-begin
-	instruction[17] = 1'b1;
-end 
-// instruction[ 16 ]
-initial
-begin
-	instruction[16] = 1'b0;
-end 
-// instruction[ 15 ]
-initial
-begin
-	instruction[15] = 1'b1;
-end 
-// instruction[ 14 ]
-initial
-begin
-	instruction[14] = 1'b1;
-end 
-// instruction[ 13 ]
-initial
-begin
-	instruction[13] = 1'b1;
-end 
-// instruction[ 12 ]
-initial
-begin
-	instruction[12] = 1'b1;
-end 
-// instruction[ 11 ]
-initial
-begin
-	instruction[11] = 1'b1;
-end 
-// instruction[ 10 ]
-initial
-begin
-	instruction[10] = 1'b0;
-end 
-// instruction[ 9 ]
-initial
-begin
-	instruction[9] = 1'b1;
-end 
-// instruction[ 8 ]
-initial
-begin
-	instruction[8] = 1'b0;
-end 
-// instruction[ 7 ]
-initial
-begin
-	instruction[7] = 1'b1;
-end 
-// instruction[ 6 ]
-initial
-begin
-	instruction[6] = 1'b0;
-end 
-// instruction[ 5 ]
-initial
-begin
-	instruction[5] = 1'b1;
-end 
-// instruction[ 4 ]
-initial
-begin
-	instruction[4] = 1'b0;
-end 
-// instruction[ 3 ]
-initial
-begin
-	instruction[3] = 1'b0;
-end 
-// instruction[ 2 ]
-initial
-begin
-	instruction[2] = 1'b0;
-end 
-// instruction[ 1 ]
-initial
-begin
-	instruction[1] = 1'b0;
-end 
-// instruction[ 0 ]
-initial
-begin
-	instruction[0] = 1'b0;
 end 
 
 // clock
@@ -215,6 +59,285 @@ begin
 	clock = 1'b0;
 	clock = #50000 1'b1;
 	#50000;
+end 
+// instruction[ 31 ]
+initial
+begin
+	instruction[31] = 1'b0;
+	instruction[31] = #300000 1'b1;
+	instruction[31] = #400000 1'b0;
+	instruction[31] = #100000 1'b1;
+end 
+// instruction[ 30 ]
+initial
+begin
+	instruction[30] = 1'b0;
+	instruction[30] = #400000 1'b1;
+	instruction[30] = #300000 1'b0;
+	instruction[30] = #100000 1'b1;
+	instruction[30] = #100000 1'b0;
+end 
+// instruction[ 29 ]
+initial
+begin
+	instruction[29] = 1'b1;
+	instruction[29] = #200000 1'b0;
+	instruction[29] = #100000 1'b1;
+	instruction[29] = #400000 1'b0;
+	instruction[29] = #100000 1'b1;
+	instruction[29] = #100000 1'b0;
+end 
+// instruction[ 28 ]
+initial
+begin
+	instruction[28] = 1'b1;
+	instruction[28] = #200000 1'b0;
+	instruction[28] = #100000 1'b1;
+	instruction[28] = #100000 1'b0;
+	instruction[28] = #100000 1'b1;
+	instruction[28] = #200000 1'b0;
+	instruction[28] = #100000 1'b1;
+end 
+// instruction[ 27 ]
+initial
+begin
+	instruction[27] = 1'b1;
+	instruction[27] = #200000 1'b0;
+	instruction[27] = #100000 1'b1;
+	instruction[27] = #100000 1'b0;
+	instruction[27] = #100000 1'b1;
+	instruction[27] = #200000 1'b0;
+end 
+// instruction[ 26 ]
+initial
+begin
+	instruction[26] = 1'b1;
+	instruction[26] = #200000 1'b0;
+	instruction[26] = #200000 1'b1;
+	instruction[26] = #100000 1'b0;
+	instruction[26] = #200000 1'b1;
+end 
+// instruction[ 25 ]
+initial
+begin
+	instruction[25] = 1'b0;
+	instruction[25] = #700000 1'b1;
+end 
+// instruction[ 24 ]
+initial
+begin
+	instruction[24] = 1'b0;
+	instruction[24] = #400000 1'b1;
+	instruction[24] = #100000 1'b0;
+	instruction[24] = #400000 1'b1;
+end 
+// instruction[ 23 ]
+initial
+begin
+	instruction[23] = 1'b0;
+	instruction[23] = #400000 1'b1;
+	instruction[23] = #100000 1'b0;
+	instruction[23] = #100000 1'b1;
+	instruction[23] = #200000 1'b0;
+end 
+// instruction[ 22 ]
+initial
+begin
+	instruction[22] = 1'b0;
+	instruction[22] = #400000 1'b1;
+	instruction[22] = #100000 1'b0;
+	instruction[22] = #300000 1'b1;
+end 
+// instruction[ 21 ]
+initial
+begin
+	instruction[21] = 1'b0;
+	instruction[21] = #100000 1'b1;
+	instruction[21] = #200000 1'b0;
+	instruction[21] = #100000 1'b1;
+	instruction[21] = #200000 1'b0;
+	instruction[21] = #100000 1'b1;
+end 
+// instruction[ 20 ]
+initial
+begin
+	instruction[20] = 1'b0;
+	instruction[20] = #300000 1'b1;
+	instruction[20] = #400000 1'b0;
+	instruction[20] = #200000 1'b1;
+end 
+// instruction[ 19 ]
+initial
+begin
+	instruction[19] = 1'b0;
+	instruction[19] = #500000 1'b1;
+	instruction[19] = #200000 1'b0;
+end 
+// instruction[ 18 ]
+initial
+begin
+	instruction[18] = 1'b0;
+	instruction[18] = #500000 1'b1;
+	instruction[18] = #200000 1'b0;
+end 
+// instruction[ 17 ]
+initial
+begin
+	instruction[17] = 1'b0;
+	instruction[17] = #300000 1'b1;
+	instruction[17] = #100000 1'b0;
+	instruction[17] = #200000 1'b1;
+	instruction[17] = #100000 1'b0;
+	instruction[17] = #200000 1'b1;
+end 
+// instruction[ 16 ]
+initial
+begin
+	instruction[16] = 1'b0;
+	instruction[16] = #100000 1'b1;
+	instruction[16] = #100000 1'b0;
+	instruction[16] = #100000 1'b1;
+	instruction[16] = #200000 1'b0;
+	instruction[16] = #100000 1'b1;
+	instruction[16] = #100000 1'b0;
+	instruction[16] = #100000 1'b1;
+end 
+// instruction[ 15 ]
+initial
+begin
+	instruction[15] = 1'b0;
+	instruction[15] = #500000 1'b1;
+end 
+// instruction[ 14 ]
+initial
+begin
+	instruction[14] = 1'b0;
+	instruction[14] = #300000 1'b1;
+	instruction[14] = #500000 1'b0;
+	instruction[14] = #100000 1'b1;
+end 
+// instruction[ 13 ]
+initial
+begin
+	instruction[13] = 1'b0;
+	instruction[13] = #300000 1'b1;
+	instruction[13] = #200000 1'b0;
+	instruction[13] = #200000 1'b1;
+	instruction[13] = #100000 1'b0;
+	instruction[13] = #100000 1'b1;
+end 
+// instruction[ 12 ]
+initial
+begin
+	instruction[12] = 1'b0;
+	instruction[12] = #200000 1'b1;
+	instruction[12] = #100000 1'b0;
+	instruction[12] = #200000 1'b1;
+	instruction[12] = #200000 1'b0;
+	instruction[12] = #100000 1'b1;
+	instruction[12] = #100000 1'b0;
+end 
+// instruction[ 11 ]
+initial
+begin
+	instruction[11] = 1'b0;
+	instruction[11] = #500000 1'b1;
+	instruction[11] = #100000 1'b0;
+	instruction[11] = #200000 1'b1;
+end 
+// instruction[ 10 ]
+initial
+begin
+	instruction[10] = 1'b0;
+	instruction[10] = #300000 1'b1;
+	instruction[10] = #500000 1'b0;
+	instruction[10] = #100000 1'b1;
+end 
+// instruction[ 9 ]
+initial
+begin
+	instruction[9] = 1'b0;
+	instruction[9] = #200000 1'b1;
+	instruction[9] = #300000 1'b0;
+	instruction[9] = #300000 1'b1;
+	instruction[9] = #100000 1'b0;
+end 
+// instruction[ 8 ]
+initial
+begin
+	instruction[8] = 1'b0;
+	instruction[8] = #300000 1'b1;
+end 
+// instruction[ 7 ]
+initial
+begin
+	instruction[7] = 1'b0;
+	instruction[7] = #200000 1'b1;
+	instruction[7] = #200000 1'b0;
+	instruction[7] = #100000 1'b1;
+	instruction[7] = #400000 1'b0;
+end 
+// instruction[ 6 ]
+initial
+begin
+	instruction[6] = 1'b0;
+	instruction[6] = #300000 1'b1;
+	instruction[6] = #200000 1'b0;
+	instruction[6] = #200000 1'b1;
+end 
+// instruction[ 5 ]
+initial
+begin
+	instruction[5] = 1'b0;
+	instruction[5] = #200000 1'b1;
+	instruction[5] = #100000 1'b0;
+	instruction[5] = #100000 1'b1;
+	instruction[5] = #100000 1'b0;
+	instruction[5] = #200000 1'b1;
+	instruction[5] = #100000 1'b0;
+end 
+// instruction[ 4 ]
+initial
+begin
+	instruction[4] = 1'b0;
+	instruction[4] = #800000 1'b1;
+	instruction[4] = #100000 1'b0;
+end 
+// instruction[ 3 ]
+initial
+begin
+	instruction[3] = 1'b0;
+	instruction[3] = #400000 1'b1;
+	instruction[3] = #100000 1'b0;
+end 
+// instruction[ 2 ]
+initial
+begin
+	instruction[2] = 1'b0;
+	instruction[2] = #100000 1'b1;
+	instruction[2] = #100000 1'b0;
+	instruction[2] = #300000 1'b1;
+	instruction[2] = #100000 1'b0;
+	instruction[2] = #100000 1'b1;
+	instruction[2] = #200000 1'b0;
+end 
+// instruction[ 1 ]
+initial
+begin
+	instruction[1] = 1'b1;
+	instruction[1] = #100000 1'b0;
+	instruction[1] = #800000 1'b1;
+end 
+// instruction[ 0 ]
+initial
+begin
+	instruction[0] = 1'b1;
+	instruction[0] = #200000 1'b0;
+	instruction[0] = #100000 1'b1;
+	instruction[0] = #100000 1'b0;
+	instruction[0] = #200000 1'b1;
+	instruction[0] = #200000 1'b0;
+	instruction[0] = #100000 1'b1;
 end 
 endmodule
 

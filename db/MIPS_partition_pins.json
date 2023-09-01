@@ -136,6 +136,138 @@
 					"strict" : false
 				},
 				{
+					"name" : "regWriteData[0]",
+					"strict" : false
+				},
+				{
+					"name" : "regWriteData[1]",
+					"strict" : false
+				},
+				{
+					"name" : "regWriteData[2]",
+					"strict" : false
+				},
+				{
+					"name" : "regWriteData[3]",
+					"strict" : false
+				},
+				{
+					"name" : "regWriteData[4]",
+					"strict" : false
+				},
+				{
+					"name" : "regWriteData[5]",
+					"strict" : false
+				},
+				{
+					"name" : "regWriteData[6]",
+					"strict" : false
+				},
+				{
+					"name" : "regWriteData[7]",
+					"strict" : false
+				},
+				{
+					"name" : "regWriteData[8]",
+					"strict" : false
+				},
+				{
+					"name" : "regWriteData[9]",
+					"strict" : false
+				},
+				{
+					"name" : "regWriteData[10]",
+					"strict" : false
+				},
+				{
+					"name" : "regWriteData[11]",
+					"strict" : false
+				},
+				{
+					"name" : "regWriteData[12]",
+					"strict" : false
+				},
+				{
+					"name" : "regWriteData[13]",
+					"strict" : false
+				},
+				{
+					"name" : "regWriteData[14]",
+					"strict" : false
+				},
+				{
+					"name" : "regWriteData[15]",
+					"strict" : false
+				},
+				{
+					"name" : "regWriteData[16]",
+					"strict" : false
+				},
+				{
+					"name" : "regWriteData[17]",
+					"strict" : false
+				},
+				{
+					"name" : "regWriteData[18]",
+					"strict" : false
+				},
+				{
+					"name" : "regWriteData[19]",
+					"strict" : false
+				},
+				{
+					"name" : "regWriteData[20]",
+					"strict" : false
+				},
+				{
+					"name" : "regWriteData[21]",
+					"strict" : false
+				},
+				{
+					"name" : "regWriteData[22]",
+					"strict" : false
+				},
+				{
+					"name" : "regWriteData[23]",
+					"strict" : false
+				},
+				{
+					"name" : "regWriteData[24]",
+					"strict" : false
+				},
+				{
+					"name" : "regWriteData[25]",
+					"strict" : false
+				},
+				{
+					"name" : "regWriteData[26]",
+					"strict" : false
+				},
+				{
+					"name" : "regWriteData[27]",
+					"strict" : false
+				},
+				{
+					"name" : "regWriteData[28]",
+					"strict" : false
+				},
+				{
+					"name" : "regWriteData[29]",
+					"strict" : false
+				},
+				{
+					"name" : "regWriteData[30]",
+					"strict" : false
+				},
+				{
+					"name" : "regWriteData[31]",
+					"strict" : false
+				},
+				{
+					"name" : "canWriteReg",
+					"strict" : false
+				},
+				{
 					"name" : "instruction[10]",
 					"strict" : false
 				},
@@ -156,11 +288,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "instruction[5]",
+					"name" : "instruction[26]",
 					"strict" : false
 				},
 				{
-					"name" : "instruction[4]",
+					"name" : "instruction[30]",
 					"strict" : false
 				},
 				{
@@ -176,15 +308,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "instruction[26]",
-					"strict" : false
-				},
-				{
-					"name" : "instruction[30]",
-					"strict" : false
-				},
-				{
 					"name" : "instruction[31]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[4]",
 					"strict" : false
 				},
 				{
@@ -201,6 +329,10 @@
 				},
 				{
 					"name" : "instruction[3]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[5]",
 					"strict" : false
 				},
 				{
