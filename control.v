@@ -1,5 +1,5 @@
 //Controlador central + controlador da ALU
-module control(OPcode, func, in1Mux, in2Mux, aluOp);
+module aluControl(OPcode, func, in1Mux, in2Mux, aluOp);
 	
 	input wire [5:0] OPcode;
 	input wire [5:0] func;

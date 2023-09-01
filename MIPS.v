@@ -1,5 +1,5 @@
 
-module MIPS (instruction, aluResult, Zero_flag);
+module MIPS (clock, instruction, aluResult, Zero_flag);
 	// OPcode =  instruction [31:26]
 	// func = instruction [5:0]
 	// rt = instruction [20:16]
@@ -7,6 +7,7 @@ module MIPS (instruction, aluResult, Zero_flag);
 	// rd = instruction [15:11]
 	// shamt = instruction [10:6]
 	// imm = instruction [15:0]
+	input wire clock;
 	input wire [31:0] instruction ; //instrucao de 32 bits (por agora eh apenas para testar a ALU)
 	output wire [31:0] aluResult ;
 	output Zero_flag ;
@@ -24,24 +25,26 @@ module MIPS (instruction, aluResult, Zero_flag);
 	wire [31:0] regWriteData;
 	
 	//testes para sinais do controlador
-	wire 		  canWriteReg = 1'b1; //1 = true
-	wire       regDest =  1'b0; //0 = rt
-	wire		  memWrite = 1'b0; //0 = false
-	wire		  memRead = 1'b1; //1 = true
-	wire		  memToReg = 1'b1; //1 = readData
+	wire 		  branch;
+	wire 		  canWriteReg ; //1 = true
+	wire       regDest ; //0 = rt
+	wire		  memWrite; //0 = false
+	wire		  memRead ; //1 = true
+	wire		  memToReg; //1 = readData
 	
 	
 	//Controlador central (controlador do MIPS e da ULA)
 	wire [1:0] aluIn1MuxController ;
 	wire       aluIn2MuxController ;
 	wire [3:0] aluOP ;
-	control control( instruction[31:26] , instruction[5:0] , aluIn1MuxController, aluIn2MuxController , aluOP ); //entrada, entrada, saida, saida, saida
+	aluControl aluControl( instruction[31:26] , instruction[5:0] , aluIn1MuxController, aluIn2MuxController , aluOP ); //entrada, entrada, saida, saida, saida
+	control control(instruction[31:26] , instruction[5:0] , memToReg , memRead , memWrite , regDest , canWriteReg, branch);
 	
 	//Banco de registradores
 	wire [31:0] regMemOut1, regMemOut2;
 	wire [4:0] regMemWriteMuxOutput;
 	regMemMux regMemWriteMux (instruction [20:16] /*rt*/, instruction [15:11]/*rd*/, regDest, regMemWriteMuxOutput ); //entrada, entrada, entrada, saida
-	regmem regmem( instruction [20:16]/*rt*/ , instruction [25:21] /*rs*/ , regMemWriteMuxOutput , regWriteData , canWriteReg , regMemOut1 , regMemOut2  ); //entrada, entrada, entrada, entrada, entrada, saida, saida
+	regmem regmem(clock, instruction [20:16]/*rt*/ , instruction [25:21] /*rs*/ , regMemWriteMuxOutput , regWriteData , canWriteReg , regMemOut1 , regMemOut2  ); //entrada, entrada, entrada, entrada, entrada, saida, saida
 	
 	
 	//dual output extensor de sinal
@@ -62,7 +65,7 @@ module MIPS (instruction, aluResult, Zero_flag);
 	
 	//dataMem
 	wire [31:0] readData;
-	dataMem dataMem( aluResult, regMemOut1/*rt*/, memWrite , memRead , readData );
+	dataMem dataMem(clock, aluResult, regMemOut1/*rt*/, memWrite , memRead , readData );
 	
 	//memToReg mux
 	memToRegMux memToRegMux ( readData ,  aluResult , memToReg , regWriteData );

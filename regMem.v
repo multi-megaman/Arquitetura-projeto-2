@@ -1,11 +1,12 @@
 //banco de registradores (por motivos de "eu inverti as entradas da ULA" o readReg1 fica com o $rs e o readReg2 fica com o $rt)
-module regmem( readReg1 , readReg2 , writeReg , writeData , canWrite , outputData1 , outputData2 );
+module regmem(clk, readReg1 , readReg2 , writeReg , writeData , canWrite , outputData1 , outputData2 );
 	parameter MEM_WIDTH = 32;
 	parameter DATA_WIDTH = 32;
 	
 	input wire [4:0]  readReg1, readReg2, writeReg;
 	input wire [31:0] writeData;
 	input wire        canWrite;
+	input wire 			clk;
 	output reg [31:0] outputData1, outputData2;
 	
 	reg [(DATA_WIDTH - 1): 0] regMemory [0: (MEM_WIDTH - 1)];
@@ -19,13 +20,13 @@ module regmem( readReg1 , readReg2 , writeReg , writeData , canWrite , outputDat
 //	end
 	
 	
-	always @(readReg1, readReg2) begin
+	always @(posedge clk) begin
 		outputData1 <= regMemory[ readReg1 ];
 		outputData2 <= regMemory[ readReg2 ];
 
 	end
 	
-	always @(writeData) begin
+	always @(posedge clk) begin
 		if (canWrite) begin
 			regMemory[writeReg] <= writeData;
 		end
