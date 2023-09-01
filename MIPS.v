@@ -13,8 +13,13 @@ module MIPS (clock, instruction, aluResult, Zero_flag);
 	output Zero_flag ;
 	
 	//Valores de testes
-	//instrucao de exemplo de add $rs + $rt     = 000000 00001 00010 11111 010101 00000 -> resultado deve ser a soma de de R[$rs] com R[$rt]
+	//instrucao de exemplo de add $rs + $rt     = 000000 00001 00010 11111 01010 100000 -> resultado deve ser a soma de de R[$rs] com R[$rt]
 	//instrucao de exemplo de lui {imm, 0x0000} = 001111 11111 00000 1001001011000011 -> resultado deve ser os 16 ultimos bits + 16'b0
+	
+	//teste supremo
+	//instrucao de exemplo 1 de lui {imm, 0x0000} = 001111 11111 00000 0000000000000011 -> resultado deve ser os 16 ultimos bits + 16'b0
+	//instrucao de exemplo 1 de lui {imm, 0x0000} = 001111 11111 00001 0000000000000101 -> resultado deve ser os 16 ultimos bits + 16'b0
+	//instrucao de exemplo de add $rs + $rt     = 000000 00001 00000 00010 01010 100000 -> resultado deve ser a soma de de R[$rs] com R[$rt]
 	wire [31:0] rt = 32'b00000000000000000000000000000010 ;
 	wire [31:0] rs = 32'b00000000000000000000000000000011 ; 
 	
@@ -37,8 +42,8 @@ module MIPS (clock, instruction, aluResult, Zero_flag);
 	wire [1:0] aluIn1MuxController ;
 	wire       aluIn2MuxController ;
 	wire [3:0] aluOP ;
-	aluControl aluControl( instruction[31:26] , instruction[5:0] , aluIn1MuxController, aluIn2MuxController , aluOP ); //entrada, entrada, saida, saida, saida
-	control control(instruction[31:26] , instruction[5:0] , memToReg , memRead , memWrite , regDest , canWriteReg, branch);
+	control control( instruction[31:26] , instruction[5:0] , aluIn1MuxController, aluIn2MuxController , aluOP, memToReg, memRead, memWrite, regDst, regWrite, branch); //entrada, entrada, saida, saida, saida
+	
 	
 	//Banco de registradores
 	wire [31:0] regMemOut1, regMemOut2;

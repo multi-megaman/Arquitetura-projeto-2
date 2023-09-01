@@ -3,147 +3,147 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1100mV 85C Model Setup 'clock'
-Slack : -10.759
-TNS   : -679.333
+Slack : -10.624
+TNS   : -329.988
 
-Type  : Slow 1100mV 85C Model Setup 'aluControl:aluControl|in1Mux[0]'
-Slack : -8.889
-TNS   : -255.729
+Type  : Slow 1100mV 85C Model Setup 'control:control|in1Mux[0]'
+Slack : -9.759
+TNS   : -269.950
 
 Type  : Slow 1100mV 85C Model Setup 'instruction[26]'
-Slack : -4.807
-TNS   : -22.796
+Slack : -5.164
+TNS   : -18.086
 
-Type  : Slow 1100mV 85C Model Hold 'aluControl:aluControl|in1Mux[0]'
-Slack : 0.300
+Type  : Slow 1100mV 85C Model Hold 'control:control|in1Mux[0]'
+Slack : 0.455
 TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Hold 'clock'
-Slack : 0.780
+Slack : 0.741
 TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Hold 'instruction[26]'
-Slack : 1.583
+Slack : 1.740
 TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clock'
-Slack : -4.555
-TNS   : -546.479
+Slack : -3.166
+TNS   : -430.822
 
-Type  : Slow 1100mV 85C Model Minimum Pulse Width 'aluControl:aluControl|in1Mux[0]'
-Slack : 0.019
-TNS   : 0.000
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'control:control|in1Mux[0]'
+Slack : -0.013
+TNS   : -0.013
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'instruction[26]'
-Slack : 0.144
+Slack : 0.078
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Setup 'clock'
-Slack : -10.876
-TNS   : -681.800
+Slack : -10.684
+TNS   : -330.690
 
-Type  : Slow 1100mV 0C Model Setup 'aluControl:aluControl|in1Mux[0]'
-Slack : -9.091
-TNS   : -264.539
+Type  : Slow 1100mV 0C Model Setup 'control:control|in1Mux[0]'
+Slack : -9.851
+TNS   : -275.684
 
 Type  : Slow 1100mV 0C Model Setup 'instruction[26]'
-Slack : -4.739
-TNS   : -22.466
+Slack : -5.062
+TNS   : -17.390
 
-Type  : Slow 1100mV 0C Model Hold 'aluControl:aluControl|in1Mux[0]'
-Slack : 0.085
+Type  : Slow 1100mV 0C Model Hold 'control:control|in1Mux[0]'
+Slack : 0.284
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Hold 'clock'
-Slack : 0.526
+Slack : 0.507
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Hold 'instruction[26]'
-Slack : 1.554
+Slack : 1.593
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clock'
-Slack : -4.555
-TNS   : -545.984
+Slack : -3.166
+TNS   : -430.429
 
-Type  : Slow 1100mV 0C Model Minimum Pulse Width 'aluControl:aluControl|in1Mux[0]'
-Slack : 0.061
-TNS   : 0.000
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'control:control|in1Mux[0]'
+Slack : -0.053
+TNS   : -0.053
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'instruction[26]'
-Slack : 0.141
+Slack : 0.082
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Setup 'clock'
-Slack : -4.956
-TNS   : -306.887
+Slack : -4.745
+TNS   : -144.095
 
-Type  : Fast 1100mV 85C Model Setup 'aluControl:aluControl|in1Mux[0]'
-Slack : -3.969
-TNS   : -107.564
+Type  : Fast 1100mV 85C Model Setup 'control:control|in1Mux[0]'
+Slack : -4.107
+TNS   : -106.887
 
 Type  : Fast 1100mV 85C Model Setup 'instruction[26]'
-Slack : -1.863
-TNS   : -7.797
+Slack : -2.176
+TNS   : -6.496
 
-Type  : Fast 1100mV 85C Model Hold 'aluControl:aluControl|in1Mux[0]'
-Slack : 0.099
+Type  : Fast 1100mV 85C Model Hold 'control:control|in1Mux[0]'
+Slack : 0.160
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Hold 'clock'
-Slack : 0.235
+Slack : 0.298
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Hold 'instruction[26]'
-Slack : 0.695
+Slack : 0.849
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clock'
-Slack : -2.636
-TNS   : -318.952
+Slack : -2.174
+TNS   : -283.594
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'instruction[26]'
-Slack : -0.183
-TNS   : -2.302
+Slack : -0.204
+TNS   : -1.690
 
-Type  : Fast 1100mV 85C Model Minimum Pulse Width 'aluControl:aluControl|in1Mux[0]'
-Slack : 0.300
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'control:control|in1Mux[0]'
+Slack : 0.252
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Setup 'clock'
-Slack : -4.367
-TNS   : -271.367
+Slack : -4.192
+TNS   : -127.389
 
-Type  : Fast 1100mV 0C Model Setup 'aluControl:aluControl|in1Mux[0]'
-Slack : -3.644
-TNS   : -99.955
+Type  : Fast 1100mV 0C Model Setup 'control:control|in1Mux[0]'
+Slack : -3.749
+TNS   : -99.659
 
 Type  : Fast 1100mV 0C Model Setup 'instruction[26]'
-Slack : -1.520
-TNS   : -6.417
+Slack : -1.812
+TNS   : -5.431
 
-Type  : Fast 1100mV 0C Model Hold 'clock'
-Slack : 0.066
+Type  : Fast 1100mV 0C Model Hold 'control:control|in1Mux[0]'
+Slack : 0.142
 TNS   : 0.000
 
-Type  : Fast 1100mV 0C Model Hold 'aluControl:aluControl|in1Mux[0]'
-Slack : 0.072
+Type  : Fast 1100mV 0C Model Hold 'clock'
+Slack : 0.154
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Hold 'instruction[26]'
-Slack : 0.560
+Slack : 0.750
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clock'
-Slack : -2.636
-TNS   : -318.954
+Slack : -2.174
+TNS   : -283.629
 
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'instruction[26]'
-Slack : -0.140
-TNS   : -1.720
+Slack : -0.157
+TNS   : -1.200
 
-Type  : Fast 1100mV 0C Model Minimum Pulse Width 'aluControl:aluControl|in1Mux[0]'
-Slack : 0.339
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'control:control|in1Mux[0]'
+Slack : 0.275
 TNS   : 0.000
 
 ------------------------------------------------------------

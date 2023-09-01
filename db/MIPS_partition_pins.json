@@ -164,22 +164,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "instruction[0]",
-					"strict" : false
-				},
-				{
-					"name" : "instruction[1]",
-					"strict" : false
-				},
-				{
-					"name" : "instruction[2]",
-					"strict" : false
-				},
-				{
-					"name" : "instruction[3]",
-					"strict" : false
-				},
-				{
 					"name" : "instruction[29]",
 					"strict" : false
 				},
@@ -204,11 +188,23 @@
 					"strict" : false
 				},
 				{
-					"name" : "clock",
+					"name" : "instruction[0]",
 					"strict" : false
 				},
 				{
-					"name" : "instruction[11]",
+					"name" : "instruction[1]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[2]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[3]",
+					"strict" : false
+				},
+				{
+					"name" : "clock",
 					"strict" : false
 				},
 				{
@@ -216,15 +212,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "instruction[12]",
-					"strict" : false
-				},
-				{
 					"name" : "instruction[17]",
-					"strict" : false
-				},
-				{
-					"name" : "instruction[13]",
 					"strict" : false
 				},
 				{
@@ -232,15 +220,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "instruction[14]",
-					"strict" : false
-				},
-				{
 					"name" : "instruction[19]",
-					"strict" : false
-				},
-				{
-					"name" : "instruction[15]",
 					"strict" : false
 				},
 				{
@@ -265,6 +245,26 @@
 				},
 				{
 					"name" : "instruction[25]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[15]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[11]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[12]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[14]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[13]",
 					"strict" : false
 				}
 			]

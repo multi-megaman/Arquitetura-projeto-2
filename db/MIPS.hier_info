@@ -1,11 +1,11 @@
 |MIPS
 clock => clock.IN2
-instruction[0] => instruction[0].IN3
-instruction[1] => instruction[1].IN3
-instruction[2] => instruction[2].IN3
-instruction[3] => instruction[3].IN3
-instruction[4] => instruction[4].IN3
-instruction[5] => instruction[5].IN3
+instruction[0] => instruction[0].IN2
+instruction[1] => instruction[1].IN2
+instruction[2] => instruction[2].IN2
+instruction[3] => instruction[3].IN2
+instruction[4] => instruction[4].IN2
+instruction[5] => instruction[5].IN2
 instruction[6] => instruction[6].IN2
 instruction[7] => instruction[7].IN2
 instruction[8] => instruction[8].IN2
@@ -26,12 +26,12 @@ instruction[22] => instruction[22].IN1
 instruction[23] => instruction[23].IN1
 instruction[24] => instruction[24].IN1
 instruction[25] => instruction[25].IN1
-instruction[26] => instruction[26].IN2
-instruction[27] => instruction[27].IN2
-instruction[28] => instruction[28].IN2
-instruction[29] => instruction[29].IN2
-instruction[30] => instruction[30].IN2
-instruction[31] => instruction[31].IN2
+instruction[26] => instruction[26].IN1
+instruction[27] => instruction[27].IN1
+instruction[28] => instruction[28].IN1
+instruction[29] => instruction[29].IN1
+instruction[30] => instruction[30].IN1
+instruction[31] => instruction[31].IN1
 aluResult[0] << aluResult[0].DB_MAX_OUTPUT_PORT_TYPE
 aluResult[1] << aluResult[1].DB_MAX_OUTPUT_PORT_TYPE
 aluResult[2] << aluResult[2].DB_MAX_OUTPUT_PORT_TYPE
@@ -67,7 +67,7 @@ aluResult[31] << aluResult[31].DB_MAX_OUTPUT_PORT_TYPE
 Zero_flag << ulaCore:ula.port4
 
 
-|MIPS|aluControl:aluControl
+|MIPS|control:control
 OPcode[0] => Decoder1.IN5
 OPcode[1] => Decoder1.IN4
 OPcode[2] => Decoder1.IN3
@@ -87,24 +87,9 @@ aluOp[0] <= aluOp[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
 aluOp[1] <= aluOp[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
 aluOp[2] <= aluOp[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
 aluOp[3] <= aluOp[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|MIPS|control:control
-OPcode[0] => Decoder0.IN5
-OPcode[1] => Decoder0.IN4
-OPcode[2] => Decoder0.IN3
-OPcode[3] => Decoder0.IN2
-OPcode[4] => Decoder0.IN1
-OPcode[5] => Decoder0.IN0
-func[0] => Equal0.IN11
-func[1] => Equal0.IN10
-func[2] => Equal0.IN9
-func[3] => Equal0.IN8
-func[4] => Equal0.IN7
-func[5] => Equal0.IN6
-memToReg <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-memRead <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-memWrite <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+memToReg <= Decoder1.DB_MAX_OUTPUT_PORT_TYPE
+memRead <= Decoder1.DB_MAX_OUTPUT_PORT_TYPE
+memWrite <= Decoder1.DB_MAX_OUTPUT_PORT_TYPE
 regDst <= regDst$latch.DB_MAX_OUTPUT_PORT_TYPE
 regWrite <= regWrite$latch.DB_MAX_OUTPUT_PORT_TYPE
 branch <= branch$latch.DB_MAX_OUTPUT_PORT_TYPE
