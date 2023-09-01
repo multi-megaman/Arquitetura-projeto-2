@@ -3,99 +3,99 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1100mV 85C Model Setup 'control:control|in1Mux[0]'
-Slack : -7.100
-TNS   : -109.354
+Slack : -7.003
+TNS   : -109.669
 
 Type  : Slow 1100mV 85C Model Setup 'instruction[26]'
-Slack : -4.384
-TNS   : -16.636
+Slack : -4.236
+TNS   : -16.475
 
 Type  : Slow 1100mV 85C Model Hold 'control:control|in1Mux[0]'
-Slack : 0.619
+Slack : 0.737
 TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Hold 'instruction[26]'
-Slack : 1.897
+Slack : 1.552
 TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'control:control|in1Mux[0]'
-Slack : 0.248
+Slack : 0.212
 TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'instruction[26]'
-Slack : 0.271
+Slack : 0.311
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Setup 'control:control|in1Mux[0]'
-Slack : -7.127
-TNS   : -109.447
+Slack : -7.165
+TNS   : -110.188
 
 Type  : Slow 1100mV 0C Model Setup 'instruction[26]'
-Slack : -4.365
-TNS   : -16.204
+Slack : -4.161
+TNS   : -16.095
 
 Type  : Slow 1100mV 0C Model Hold 'control:control|in1Mux[0]'
-Slack : 0.704
+Slack : 0.612
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Hold 'instruction[26]'
-Slack : 1.839
-TNS   : 0.000
-
-Type  : Slow 1100mV 0C Model Minimum Pulse Width 'instruction[26]'
-Slack : 0.271
+Slack : 1.330
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'control:control|in1Mux[0]'
+Slack : 0.151
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'instruction[26]'
 Slack : 0.284
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Setup 'control:control|in1Mux[0]'
-Slack : -3.060
-TNS   : -46.817
+Slack : -3.130
+TNS   : -49.640
 
 Type  : Fast 1100mV 85C Model Setup 'instruction[26]'
-Slack : -1.612
-TNS   : -5.499
+Slack : -1.454
+TNS   : -5.301
 
 Type  : Fast 1100mV 85C Model Hold 'control:control|in1Mux[0]'
-Slack : 0.201
+Slack : 0.268
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Hold 'instruction[26]'
-Slack : 0.937
+Slack : 0.717
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'instruction[26]'
-Slack : -0.026
-TNS   : -0.142
+Slack : -0.058
+TNS   : -0.452
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'control:control|in1Mux[0]'
-Slack : 0.413
+Slack : 0.344
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Setup 'control:control|in1Mux[0]'
-Slack : -2.903
-TNS   : -44.737
+Slack : -2.956
+TNS   : -46.944
 
 Type  : Fast 1100mV 0C Model Setup 'instruction[26]'
-Slack : -1.328
-TNS   : -4.541
+Slack : -1.183
+TNS   : -4.336
 
 Type  : Fast 1100mV 0C Model Hold 'control:control|in1Mux[0]'
-Slack : 0.202
+Slack : 0.247
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Hold 'instruction[26]'
-Slack : 0.766
+Slack : 0.577
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'instruction[26]'
-Slack : -0.015
-TNS   : -0.060
+Slack : -0.045
+TNS   : -0.198
 
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'control:control|in1Mux[0]'
-Slack : 0.425
+Slack : 0.356
 TNS   : 0.000
 
 ------------------------------------------------------------

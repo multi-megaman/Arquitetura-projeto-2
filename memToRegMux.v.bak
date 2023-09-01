@@ -1,0 +1,5 @@
+module memToRegMux(readData, aluResult, memToReg, memToRegOutput);
+
+	
+
+endmodule 

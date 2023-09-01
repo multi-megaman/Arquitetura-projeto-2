@@ -1,5 +1,5 @@
 
-module MIPS (instruction, result, Zero_flag);
+module MIPS (instruction, aluResult, Zero_flag);
 	// OPcode =  instruction [31:26]
 	// func = instruction [5:0]
 	// rt = instruction [20:16]
@@ -8,7 +8,7 @@ module MIPS (instruction, result, Zero_flag);
 	// shamt = instruction [10:6]
 	// imm = instruction [15:0]
 	input wire [31:0] instruction ; //instrucao de 32 bits (por agora eh apenas para testar a ALU)
-	output wire [31:0] result ;
+	output wire [31:0] aluResult ;
 	output Zero_flag ;
 	
 	//Valores de testes
@@ -21,11 +21,14 @@ module MIPS (instruction, result, Zero_flag);
 	wire [4:0] rtMem = 5'b00101;
 	wire [4:0] rsMem = 5'b00001;
 	wire [4:0] rdMem = 5'b00010;
-	wire [31:0] writeData = 32'b00000000000000000000000000011111 ;
+	wire [31:0] regWriteData;
 	
 	//testes para sinais do controlador
-	wire 		  canWrite = 1'b1; //1 = true
+	wire 		  canWriteReg = 1'b1; //1 = true
 	wire       regDest =  1'b0; //0 = rt
+	wire		  memWrite = 1'b0; //0 = false
+	wire		  memRead = 1'b1; //1 = true
+	wire		  memToReg = 1'b1; //1 = readData
 	
 	
 	//Controlador central (controlador do MIPS e da ULA)
@@ -38,7 +41,7 @@ module MIPS (instruction, result, Zero_flag);
 	wire [31:0] regMemOut1, regMemOut2;
 	wire [4:0] regMemWriteMuxOutput;
 	regMemMux regMemWriteMux (instruction [20:16] /*rt*/, instruction [15:11]/*rd*/, regDest, regMemWriteMuxOutput ); //entrada, entrada, entrada, saida
-	regmem regmem( instruction [20:16]/*rt*/ , instruction [25:21] /*rs*/ , regMemWriteMuxOutput , writeData , canWrite , regMemOut1 , regMemOut2  ); //entrada, entrada, entrada, entrada, entrada, saida, saida
+	regmem regmem( instruction [20:16]/*rt*/ , instruction [25:21] /*rs*/ , regMemWriteMuxOutput , regWriteData , canWriteReg , regMemOut1 , regMemOut2  ); //entrada, entrada, entrada, entrada, entrada, saida, saida
 	
 	
 	//dual output extensor de sinal
@@ -54,6 +57,13 @@ module MIPS (instruction, result, Zero_flag);
 	wire [31:0] aluIn2MuxOut ;
 	ulaIn2Mux ulaIn2(regMemOut2/*$rs*/ , instruction [10:6] , aluIn2MuxController , aluIn2MuxOut ); //entrada, entrada, entrada, saida
 	
-
-	ulaCore ula( aluIn1MuxOut , aluIn2MuxOut , aluOP , result , Zero_flag ); // entrada, entrada, entrada, saida, saida
+	//Ula
+	ulaCore ula( aluIn1MuxOut , aluIn2MuxOut , aluOP , aluResult , Zero_flag ); // entrada, entrada, entrada, saida, saida
+	
+	//dataMem
+	wire [31:0] readData;
+	dataMem dataMem( aluResult, regMemOut1/*rt*/, memWrite , memRead , readData );
+	
+	//memToReg mux
+	memToRegMux memToRegMux ( readData ,  aluResult , memToReg , regWriteData );
 endmodule 

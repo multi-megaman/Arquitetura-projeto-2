@@ -12,6 +12,7 @@ module control(OPcode, func, in1Mux, in2Mux, aluOp);
 		
 			//Instrucoes do tipo R
 			6'b000000: begin 
+				
 				case (func)
 					6'b000000:begin //sll
 						in1Mux <= 2'b00; //$rt
