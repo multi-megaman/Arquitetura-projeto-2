@@ -3,147 +3,147 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1100mV 85C Model Setup 'clock'
-Slack : -10.920
-TNS   : -662.940
+Slack : -11.787
+TNS   : -817.097
 
 Type  : Slow 1100mV 85C Model Setup 'control:control|in1Mux[0]'
-Slack : -9.137
-TNS   : -273.510
+Slack : -9.083
+TNS   : -241.957
 
-Type  : Slow 1100mV 85C Model Setup 'instruction[26]'
-Slack : -4.142
-TNS   : -14.938
-
-Type  : Slow 1100mV 85C Model Hold 'clock'
-Slack : 0.081
-TNS   : 0.000
+Type  : Slow 1100mV 85C Model Setup 'intMem:intMem|instruction[26]'
+Slack : -8.055
+TNS   : -55.570
 
 Type  : Slow 1100mV 85C Model Hold 'control:control|in1Mux[0]'
-Slack : 1.017
+Slack : -0.128
+TNS   : -0.397
+
+Type  : Slow 1100mV 85C Model Hold 'clock'
+Slack : 0.574
 TNS   : 0.000
 
-Type  : Slow 1100mV 85C Model Hold 'instruction[26]'
-Slack : 1.087
+Type  : Slow 1100mV 85C Model Hold 'intMem:intMem|instruction[26]'
+Slack : 1.000
 TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clock'
 Slack : -4.555
-TNS   : -546.434
-
-Type  : Slow 1100mV 85C Model Minimum Pulse Width 'instruction[26]'
-Slack : 0.089
-TNS   : 0.000
+TNS   : -606.192
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'control:control|in1Mux[0]'
-Slack : 0.130
+Slack : 0.105
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'intMem:intMem|instruction[26]'
+Slack : 0.286
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Setup 'clock'
-Slack : -11.130
-TNS   : -667.568
+Slack : -11.871
+TNS   : -815.510
 
 Type  : Slow 1100mV 0C Model Setup 'control:control|in1Mux[0]'
-Slack : -9.442
-TNS   : -281.944
+Slack : -9.267
+TNS   : -254.523
 
-Type  : Slow 1100mV 0C Model Setup 'instruction[26]'
-Slack : -4.063
-TNS   : -14.557
-
-Type  : Slow 1100mV 0C Model Hold 'clock'
-Slack : -0.166
-TNS   : -0.203
+Type  : Slow 1100mV 0C Model Setup 'intMem:intMem|instruction[26]'
+Slack : -8.117
+TNS   : -56.730
 
 Type  : Slow 1100mV 0C Model Hold 'control:control|in1Mux[0]'
-Slack : 0.810
+Slack : -0.170
+TNS   : -0.595
+
+Type  : Slow 1100mV 0C Model Hold 'clock'
+Slack : 0.285
 TNS   : 0.000
 
-Type  : Slow 1100mV 0C Model Hold 'instruction[26]'
-Slack : 0.944
+Type  : Slow 1100mV 0C Model Hold 'intMem:intMem|instruction[26]'
+Slack : 0.894
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clock'
 Slack : -4.555
-TNS   : -546.025
-
-Type  : Slow 1100mV 0C Model Minimum Pulse Width 'instruction[26]'
-Slack : 0.011
-TNS   : 0.000
+TNS   : -605.778
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'control:control|in1Mux[0]'
-Slack : 0.174
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'intMem:intMem|instruction[26]'
+Slack : 0.330
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Setup 'clock'
-Slack : -5.084
-TNS   : -310.966
+Slack : -5.040
+TNS   : -314.060
 
 Type  : Fast 1100mV 85C Model Setup 'control:control|in1Mux[0]'
-Slack : -3.973
-TNS   : -114.316
+Slack : -3.760
+TNS   : -89.791
 
-Type  : Fast 1100mV 85C Model Setup 'instruction[26]'
-Slack : -1.288
-TNS   : -4.290
-
-Type  : Fast 1100mV 85C Model Hold 'clock'
-Slack : 0.137
-TNS   : 0.000
+Type  : Fast 1100mV 85C Model Setup 'intMem:intMem|instruction[26]'
+Slack : -3.169
+TNS   : -20.982
 
 Type  : Fast 1100mV 85C Model Hold 'control:control|in1Mux[0]'
-Slack : 0.373
+Slack : -0.166
+TNS   : -1.392
+
+Type  : Fast 1100mV 85C Model Hold 'clock'
+Slack : 0.226
 TNS   : 0.000
 
-Type  : Fast 1100mV 85C Model Hold 'instruction[26]'
-Slack : 0.392
+Type  : Fast 1100mV 85C Model Hold 'intMem:intMem|instruction[26]'
+Slack : 0.360
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clock'
 Slack : -2.636
-TNS   : -318.870
-
-Type  : Fast 1100mV 85C Model Minimum Pulse Width 'instruction[26]'
-Slack : -0.259
-TNS   : -2.591
+TNS   : -323.527
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'control:control|in1Mux[0]'
-Slack : 0.291
+Slack : 0.351
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'intMem:intMem|instruction[26]'
+Slack : 0.365
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Setup 'clock'
-Slack : -4.507
-TNS   : -274.880
+Slack : -4.455
+TNS   : -276.950
 
 Type  : Fast 1100mV 0C Model Setup 'control:control|in1Mux[0]'
-Slack : -3.633
-TNS   : -105.695
+Slack : -3.504
+TNS   : -86.364
 
-Type  : Fast 1100mV 0C Model Setup 'instruction[26]'
-Slack : -1.043
-TNS   : -3.427
-
-Type  : Fast 1100mV 0C Model Hold 'clock'
-Slack : -0.004
-TNS   : -0.004
-
-Type  : Fast 1100mV 0C Model Hold 'instruction[26]'
-Slack : 0.335
-TNS   : 0.000
+Type  : Fast 1100mV 0C Model Setup 'intMem:intMem|instruction[26]'
+Slack : -2.933
+TNS   : -19.731
 
 Type  : Fast 1100mV 0C Model Hold 'control:control|in1Mux[0]'
-Slack : 0.345
+Slack : -0.100
+TNS   : -0.823
+
+Type  : Fast 1100mV 0C Model Hold 'clock'
+Slack : 0.212
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'intMem:intMem|instruction[26]'
+Slack : 0.331
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clock'
 Slack : -2.636
-TNS   : -318.958
-
-Type  : Fast 1100mV 0C Model Minimum Pulse Width 'instruction[26]'
-Slack : -0.213
-TNS   : -2.130
+TNS   : -323.634
 
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'control:control|in1Mux[0]'
-Slack : 0.329
+Slack : 0.356
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'intMem:intMem|instruction[26]'
+Slack : 0.385
 TNS   : 0.000
 
 ------------------------------------------------------------

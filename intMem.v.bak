@@ -1,0 +1,13 @@
+module intMem (clk, address, i_out);
+   parameter MEM_WIDTH = 64;
+	parameter DATA_WIDTH = 32;
+	
+	reg [(DATA_WIDTH - 1): 0] regMemory [0: (MEM_WIDTH - 1)];
+	
+	//	// Iniciando alguns registradores com alguns valores (PARA TESTES APENAS) (se for testar isso, comentar a parte de escrever na memoria, esse procedimento so pode ser feito em uma ROM, nao em uma RAM)
+	//	initial begin
+	//		$readmemb("D:/GitHub/Arquitetura-projeto-2/regMemTest.list", regMemory);
+	//
+	//	end
+
+endmodule

@@ -1,12 +1,12 @@
-Fitter Status : Successful - Fri Sep 01 19:47:14 2023
+Fitter Status : Successful - Fri Sep 01 21:21:04 2023
 Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 Revision Name : MIPS
 Top-level Entity Name : MIPS
 Family : Cyclone V
 Device : 5CGXFC7C7F23C8
 Timing Models : Final
-Logic utilization (in ALMs) : 427 / 56,480 ( < 1 % )
-Total registers : 0
+Logic utilization (in ALMs) : 471 / 56,480 ( < 1 % )
+Total registers : 54
 Total pins : 99 / 268 ( 37 % )
 Total virtual pins : 0
 Total block memory bits : 2,048 / 7,024,640 ( < 1 % )

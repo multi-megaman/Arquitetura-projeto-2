@@ -1,5 +1,5 @@
 Analysis & Synthesis report for MIPS
-Fri Sep 01 19:44:17 2023
+Fri Sep 01 21:19:40 2023
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -15,22 +15,24 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis RAM Summary
   9. User-Specified and Inferred Latches
- 10. General Register Statistics
- 11. Registers Packed Into Inferred Megafunctions
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Source assignments for regmem:regmem|altsyncram:regMemory_rtl_0|altsyncram_u2n1:auto_generated
- 14. Source assignments for regmem:regmem|altsyncram:regMemory_rtl_1|altsyncram_u2n1:auto_generated
- 15. Parameter Settings for User Entity Instance: regmem:regmem
- 16. Parameter Settings for Inferred Entity Instance: regmem:regmem|altsyncram:regMemory_rtl_0
- 17. Parameter Settings for Inferred Entity Instance: regmem:regmem|altsyncram:regMemory_rtl_1
- 18. altsyncram Parameter Settings by Entity Instance
- 19. Port Connectivity Checks: "ulaCore:ula"
- 20. Port Connectivity Checks: "ulaIn1Mux:ulaIn1"
- 21. Port Connectivity Checks: "dual_out_sign_extend:sign_extend"
- 22. Port Connectivity Checks: "control:control"
- 23. Post-Synthesis Netlist Statistics for Top Partition
- 24. Elapsed Time Per Partition
- 25. Analysis & Synthesis Messages
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Registers Packed Into Inferred Megafunctions
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Source assignments for regmem:regmem|altsyncram:regMemory_rtl_0|altsyncram_u2n1:auto_generated
+ 15. Source assignments for regmem:regmem|altsyncram:regMemory_rtl_1|altsyncram_u2n1:auto_generated
+ 16. Parameter Settings for User Entity Instance: intMem:intMem
+ 17. Parameter Settings for User Entity Instance: regmem:regmem
+ 18. Parameter Settings for Inferred Entity Instance: regmem:regmem|altsyncram:regMemory_rtl_0
+ 19. Parameter Settings for Inferred Entity Instance: regmem:regmem|altsyncram:regMemory_rtl_1
+ 20. altsyncram Parameter Settings by Entity Instance
+ 21. Port Connectivity Checks: "ulaCore:ula"
+ 22. Port Connectivity Checks: "ulaIn1Mux:ulaIn1"
+ 23. Port Connectivity Checks: "dual_out_sign_extend:sign_extend"
+ 24. Port Connectivity Checks: "control:control"
+ 25. Post-Synthesis Netlist Statistics for Top Partition
+ 26. Elapsed Time Per Partition
+ 27. Analysis & Synthesis Messages
 
 
 
@@ -57,13 +59,13 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri Sep 01 19:44:17 2023       ;
+; Analysis & Synthesis Status     ; Successful - Fri Sep 01 21:19:40 2023       ;
 ; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                   ; MIPS                                        ;
 ; Top-level Entity Name           ; MIPS                                        ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 0                                           ;
+; Total registers                 ; 41                                          ;
 ; Total pins                      ; 99                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 2,048                                       ;
@@ -177,33 +179,43 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-12        ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processor 8            ;   0.0%      ;
+;     Processors 9-12        ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                     ;
-+----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                 ; Library ;
-+----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
-; MIPS.v                           ; yes             ; User Verilog HDL File        ; D:/GitHub/Arquitetura-projeto-2/MIPS.v                                       ;         ;
-; ula.v                            ; yes             ; User Verilog HDL File        ; D:/GitHub/Arquitetura-projeto-2/ula.v                                        ;         ;
-; control.v                        ; yes             ; User Verilog HDL File        ; D:/GitHub/Arquitetura-projeto-2/control.v                                    ;         ;
-; dual_sign_extend.v               ; yes             ; User Verilog HDL File        ; D:/GitHub/Arquitetura-projeto-2/dual_sign_extend.v                           ;         ;
-; regMem.v                         ; yes             ; User Verilog HDL File        ; D:/GitHub/Arquitetura-projeto-2/regMem.v                                     ;         ;
-; dataMem.v                        ; yes             ; User Verilog HDL File        ; D:/GitHub/Arquitetura-projeto-2/dataMem.v                                    ;         ;
-; memToRegMux.v                    ; yes             ; User Verilog HDL File        ; D:/GitHub/Arquitetura-projeto-2/memToRegMux.v                                ;         ;
-; altsyncram.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
-; stratix_ram_block.inc            ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
-; lpm_mux.inc                      ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
-; lpm_decode.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
-; aglobal201.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc        ;         ;
-; a_rdenreg.inc                    ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
-; altrom.inc                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altrom.inc            ;         ;
-; altram.inc                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altram.inc            ;         ;
-; altdpram.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
-; db/altsyncram_u2n1.tdf           ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Arquitetura-projeto-2/db/altsyncram_u2n1.tdf                       ;         ;
-+----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                      ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                  ; Library ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------+---------+
+; MIPS.v                           ; yes             ; User Verilog HDL File        ; C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/MIPS.v                 ;         ;
+; ula.v                            ; yes             ; User Verilog HDL File        ; C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v                  ;         ;
+; control.v                        ; yes             ; User Verilog HDL File        ; C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v              ;         ;
+; dual_sign_extend.v               ; yes             ; User Verilog HDL File        ; C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/dual_sign_extend.v     ;         ;
+; regMem.v                         ; yes             ; User Verilog HDL File        ; C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/regMem.v               ;         ;
+; dataMem.v                        ; yes             ; User Verilog HDL File        ; C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/dataMem.v              ;         ;
+; memToRegMux.v                    ; yes             ; User Verilog HDL File        ; C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/memToRegMux.v          ;         ;
+; intMem.v                         ; yes             ; User Verilog HDL File        ; C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/intMem.v               ;         ;
+; PC.v                             ; yes             ; User Verilog HDL File        ; C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/PC.v                   ;         ;
+; instruction.list                 ; yes             ; Auto-Found Unspecified File  ; C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/instruction.list       ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf         ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/stratix_ram_block.inc  ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mux.inc            ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_decode.inc         ;         ;
+; aglobal201.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc         ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/a_rdenreg.inc          ;         ;
+; altrom.inc                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altrom.inc             ;         ;
+; altram.inc                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altram.inc             ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altdpram.inc           ;         ;
+; db/altsyncram_u2n1.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/db/altsyncram_u2n1.tdf ;         ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------+---------+
 
 
 +----------------------------------------------------------------------+
@@ -211,16 +223,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+------------------------+
 ; Resource                                    ; Usage                  ;
 +---------------------------------------------+------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 441                    ;
+; Estimate of Logic utilization (ALMs needed) ; 484                    ;
 ;                                             ;                        ;
-; Combinational ALUT usage for logic          ; 616                    ;
-;     -- 7 input functions                    ; 9                      ;
-;     -- 6 input functions                    ; 257                    ;
-;     -- 5 input functions                    ; 131                    ;
-;     -- 4 input functions                    ; 121                    ;
-;     -- <=3 input functions                  ; 98                     ;
+; Combinational ALUT usage for logic          ; 663                    ;
+;     -- 7 input functions                    ; 6                      ;
+;     -- 6 input functions                    ; 298                    ;
+;     -- 5 input functions                    ; 132                    ;
+;     -- 4 input functions                    ; 115                    ;
+;     -- <=3 input functions                  ; 112                    ;
 ;                                             ;                        ;
-; Dedicated logic registers                   ; 0                      ;
+; Dedicated logic registers                   ; 41                     ;
 ;                                             ;                        ;
 ; I/O pins                                    ; 99                     ;
 ; Total MLAB memory bits                      ; 0                      ;
@@ -229,9 +241,9 @@ https://fpgasoftware.intel.com/eula.
 ; Total DSP Blocks                            ; 0                      ;
 ;                                             ;                        ;
 ; Maximum fan-out node                        ; control:control|in2Mux ;
-; Maximum fan-out                             ; 117                    ;
-; Total fan-out                               ; 3889                   ;
-; Average fan-out                             ; 4.43                   ;
+; Maximum fan-out                             ; 118                    ;
+; Total fan-out                               ; 4237                   ;
+; Average fan-out                             ; 4.39                   ;
 +---------------------------------------------+------------------------+
 
 
@@ -240,15 +252,17 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                           ; Entity Name     ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------+-----------------+--------------+
-; |MIPS                                     ; 616 (0)             ; 0 (0)                     ; 2048              ; 0          ; 99   ; 0            ; |MIPS                                                                         ; MIPS            ; work         ;
-;    |control:control|                      ; 25 (25)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|control:control                                                         ; control         ; work         ;
-;    |memToRegMux:memToRegMux|              ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|memToRegMux:memToRegMux                                                 ; memToRegMux     ; work         ;
+; |MIPS                                     ; 663 (0)             ; 41 (0)                    ; 2048              ; 0          ; 99   ; 0            ; |MIPS                                                                         ; MIPS            ; work         ;
+;    |PC:pc|                                ; 6 (6)               ; 11 (11)                   ; 0                 ; 0          ; 0    ; 0            ; |MIPS|PC:pc                                                                   ; PC              ; work         ;
+;    |control:control|                      ; 26 (26)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|control:control                                                         ; control         ; work         ;
+;    |intMem:intMem|                        ; 31 (31)             ; 30 (30)                   ; 0                 ; 0          ; 0    ; 0            ; |MIPS|intMem:intMem                                                           ; intMem          ; work         ;
+;    |memToRegMux:memToRegMux|              ; 33 (33)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|memToRegMux:memToRegMux                                                 ; memToRegMux     ; work         ;
 ;    |regmem:regmem|                        ; 0 (0)               ; 0 (0)                     ; 2048              ; 0          ; 0    ; 0            ; |MIPS|regmem:regmem                                                           ; regmem          ; work         ;
 ;       |altsyncram:regMemory_rtl_0|        ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |MIPS|regmem:regmem|altsyncram:regMemory_rtl_0                                ; altsyncram      ; work         ;
 ;          |altsyncram_u2n1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |MIPS|regmem:regmem|altsyncram:regMemory_rtl_0|altsyncram_u2n1:auto_generated ; altsyncram_u2n1 ; work         ;
 ;       |altsyncram:regMemory_rtl_1|        ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |MIPS|regmem:regmem|altsyncram:regMemory_rtl_1                                ; altsyncram      ; work         ;
 ;          |altsyncram_u2n1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |MIPS|regmem:regmem|altsyncram:regMemory_rtl_1|altsyncram_u2n1:auto_generated ; altsyncram_u2n1 ; work         ;
-;    |ulaCore:ula|                          ; 485 (485)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|ulaCore:ula                                                             ; ulaCore         ; work         ;
+;    |ulaCore:ula|                          ; 493 (493)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|ulaCore:ula                                                             ; ulaCore         ; work         ;
 ;    |ulaIn1Mux:ulaIn1|                     ; 65 (65)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|ulaIn1Mux:ulaIn1                                                        ; ulaIn1Mux       ; work         ;
 ;    |ulaIn2Mux:ulaIn2|                     ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|ulaIn2Mux:ulaIn2                                                        ; ulaIn2Mux       ; work         ;
 +-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------+-----------------+--------------+
@@ -315,13 +329,26 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
++-----------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                ;
++----------------------------------------+------------------------------------------+
+; Register name                          ; Reason for Removal                       ;
++----------------------------------------+------------------------------------------+
+; PC:pc|PC_out[0]                        ; Merged with PC:pc|memPosition[0]         ;
+; intMem:intMem|instruction[9]           ; Merged with intMem:intMem|instruction[8] ;
+; intMem:intMem|instruction[30]          ; Stuck at GND due to stuck port data_in   ;
+; PC:pc|memPosition[6..31]               ; Lost fanout                              ;
+; Total Number of Removed Registers = 29 ;                                          ;
++----------------------------------------+------------------------------------------+
+
+
 +------------------------------------------------------+
 ; General Register Statistics                          ;
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
+; Total registers                              ; 41    ;
+; Number of registers using Synchronous Clear  ; 1     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
@@ -381,6 +408,17 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +---------------------------------+--------------------+------+----------------------------------+
 ; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                ;
 +---------------------------------+--------------------+------+----------------------------------+
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: intMem:intMem ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; MEM_WIDTH      ; 64    ; Signed Integer                    ;
+; DATA_WIDTH     ; 32    ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +------------------------------------------------------------+
@@ -589,24 +627,30 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_lcell_comb     ; 616                         ;
-;     arith             ; 33                          ;
-;         1 data inputs ; 1                           ;
+; arriav_ff             ; 41                          ;
+;     SCLR              ; 1                           ;
+;     plain             ; 40                          ;
+; arriav_lcell_comb     ; 664                         ;
+;     arith             ; 38                          ;
+;         1 data inputs ; 5                           ;
+;         2 data inputs ; 1                           ;
 ;         4 data inputs ; 27                          ;
 ;         5 data inputs ; 5                           ;
-;     extend            ; 9                           ;
-;         7 data inputs ; 9                           ;
-;     normal            ; 574                         ;
-;         2 data inputs ; 16                          ;
-;         3 data inputs ; 81                          ;
-;         4 data inputs ; 94                          ;
-;         5 data inputs ; 126                         ;
-;         6 data inputs ; 257                         ;
+;     extend            ; 6                           ;
+;         7 data inputs ; 6                           ;
+;     normal            ; 620                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 23                          ;
+;         3 data inputs ; 82                          ;
+;         4 data inputs ; 88                          ;
+;         5 data inputs ; 127                         ;
+;         6 data inputs ; 298                         ;
 ; boundary_port         ; 99                          ;
 ; stratixv_ram_block    ; 64                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 8.00                        ;
-; Average LUT depth     ; 6.21                        ;
+; Average LUT depth     ; 5.94                        ;
 +-----------------------+-----------------------------+
 
 
@@ -615,7 +659,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:03     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -625,104 +669,115 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Fri Sep 01 19:44:04 2023
+    Info: Processing started: Fri Sep 01 21:19:33 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off MIPS -c MIPS
-Critical Warning (138067): Current license file does not support incremental compilation. The Quartus Prime software removes all the user-specified design partitions in the design automatically.
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
 Warning (12019): Can't analyze file -- file ../quartus/ula.v is missing
 Warning (12019): Can't analyze file -- file ../quartus/ram.v is missing
 Info (12021): Found 1 design units, including 1 entities, in source file mips.v
-    Info (12023): Found entity 1: MIPS File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 2
+    Info (12023): Found entity 1: MIPS File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/MIPS.v Line: 2
 Info (12021): Found 3 design units, including 3 entities, in source file ula.v
-    Info (12023): Found entity 1: ulaCore File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 1
-    Info (12023): Found entity 2: ulaIn1Mux File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 38
-    Info (12023): Found entity 3: ulaIn2Mux File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 56
+    Info (12023): Found entity 1: ulaCore File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 1
+    Info (12023): Found entity 2: ulaIn1Mux File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 38
+    Info (12023): Found entity 3: ulaIn2Mux File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 56
 Info (12021): Found 0 design units, including 0 entities, in source file ram.v
 Info (12021): Found 1 design units, including 1 entities, in source file control.v
-    Info (12023): Found entity 1: control File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 2
+    Info (12023): Found entity 1: control File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file dual_sign_extend.v
-    Info (12023): Found entity 1: dual_out_sign_extend File: D:/GitHub/Arquitetura-projeto-2/dual_sign_extend.v Line: 2
+    Info (12023): Found entity 1: dual_out_sign_extend File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/dual_sign_extend.v Line: 2
 Warning (12019): Can't analyze file -- file Verilog1.v is missing
 Info (12021): Found 2 design units, including 2 entities, in source file regmem.v
-    Info (12023): Found entity 1: regmem File: D:/GitHub/Arquitetura-projeto-2/regMem.v Line: 2
-    Info (12023): Found entity 2: regMemMux File: D:/GitHub/Arquitetura-projeto-2/regMem.v Line: 38
+    Info (12023): Found entity 1: regmem File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/regMem.v Line: 2
+    Info (12023): Found entity 2: regMemMux File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/regMem.v Line: 38
 Info (12021): Found 1 design units, including 1 entities, in source file datamem.v
-    Info (12023): Found entity 1: dataMem File: D:/GitHub/Arquitetura-projeto-2/dataMem.v Line: 1
+    Info (12023): Found entity 1: dataMem File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/dataMem.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file memtoregmux.v
-    Info (12023): Found entity 1: memToRegMux File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 1
+    Info (12023): Found entity 1: memToRegMux File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/memToRegMux.v Line: 1
 Warning (12019): Can't analyze file -- file mipsControl.v is missing
-Warning (10236): Verilog HDL Implicit Net warning at MIPS.v(45): created implicit net for "regDst" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 45
+Info (12021): Found 1 design units, including 1 entities, in source file intmem.v
+    Info (12023): Found entity 1: intMem File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/intMem.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file pc.v
+    Info (12023): Found entity 1: PC File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/PC.v Line: 1
+Warning (10236): Verilog HDL Implicit Net warning at MIPS.v(52): created implicit net for "regDst" File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/MIPS.v Line: 52
 Info (12127): Elaborating entity "MIPS" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at MIPS.v(23): object "rt" assigned a value but never read File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 23
-Warning (10036): Verilog HDL or VHDL warning at MIPS.v(24): object "rs" assigned a value but never read File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 24
-Warning (10036): Verilog HDL or VHDL warning at MIPS.v(27): object "rtMem" assigned a value but never read File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 27
-Warning (10036): Verilog HDL or VHDL warning at MIPS.v(28): object "rsMem" assigned a value but never read File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 28
-Warning (10036): Verilog HDL or VHDL warning at MIPS.v(29): object "rdMem" assigned a value but never read File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 29
-Info (12128): Elaborating entity "control" for hierarchy "control:control" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 45
-Warning (10270): Verilog HDL Case Statement warning at control.v(15): incomplete case statement has no default case item File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 15
-Warning (10240): Verilog HDL Always Construct warning at control.v(11): inferring latch(es) for variable "in1Mux", which holds its previous value in one or more paths through the always construct File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (10240): Verilog HDL Always Construct warning at control.v(11): inferring latch(es) for variable "in2Mux", which holds its previous value in one or more paths through the always construct File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (10240): Verilog HDL Always Construct warning at control.v(11): inferring latch(es) for variable "aluOp", which holds its previous value in one or more paths through the always construct File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (10240): Verilog HDL Always Construct warning at control.v(11): inferring latch(es) for variable "regDst", which holds its previous value in one or more paths through the always construct File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (10240): Verilog HDL Always Construct warning at control.v(11): inferring latch(es) for variable "branch", which holds its previous value in one or more paths through the always construct File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (10240): Verilog HDL Always Construct warning at control.v(11): inferring latch(es) for variable "regWrite", which holds its previous value in one or more paths through the always construct File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Info (10041): Inferred latch for "regWrite" at control.v(11) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Info (10041): Inferred latch for "branch" at control.v(11) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Info (10041): Inferred latch for "regDst" at control.v(11) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Info (10041): Inferred latch for "aluOp[0]" at control.v(11) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Info (10041): Inferred latch for "aluOp[1]" at control.v(11) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Info (10041): Inferred latch for "aluOp[2]" at control.v(11) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Info (10041): Inferred latch for "aluOp[3]" at control.v(11) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Info (10041): Inferred latch for "in2Mux" at control.v(11) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Info (10041): Inferred latch for "in1Mux[0]" at control.v(11) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Info (10041): Inferred latch for "in1Mux[1]" at control.v(11) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Info (12128): Elaborating entity "regMemMux" for hierarchy "regMemMux:regMemWriteMux" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 51
-Info (12128): Elaborating entity "regmem" for hierarchy "regmem:regmem" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 52
-Info (12128): Elaborating entity "dual_out_sign_extend" for hierarchy "dual_out_sign_extend:sign_extend" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 58
-Info (12128): Elaborating entity "ulaIn1Mux" for hierarchy "ulaIn1Mux:ulaIn1" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 62
-Warning (10270): Verilog HDL Case Statement warning at ula.v(46): incomplete case statement has no default case item File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Warning (10240): Verilog HDL Always Construct warning at ula.v(46): inferring latch(es) for variable "ulaIn1MuxOut", which holds its previous value in one or more paths through the always construct File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (10041): Inferred latch for "ulaIn1MuxOut[0]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (10041): Inferred latch for "ulaIn1MuxOut[1]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (10041): Inferred latch for "ulaIn1MuxOut[2]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (10041): Inferred latch for "ulaIn1MuxOut[3]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (10041): Inferred latch for "ulaIn1MuxOut[4]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (10041): Inferred latch for "ulaIn1MuxOut[5]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (10041): Inferred latch for "ulaIn1MuxOut[6]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (10041): Inferred latch for "ulaIn1MuxOut[7]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (10041): Inferred latch for "ulaIn1MuxOut[8]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (10041): Inferred latch for "ulaIn1MuxOut[9]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (10041): Inferred latch for "ulaIn1MuxOut[10]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (10041): Inferred latch for "ulaIn1MuxOut[11]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (10041): Inferred latch for "ulaIn1MuxOut[12]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (10041): Inferred latch for "ulaIn1MuxOut[13]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (10041): Inferred latch for "ulaIn1MuxOut[14]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (10041): Inferred latch for "ulaIn1MuxOut[15]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (10041): Inferred latch for "ulaIn1MuxOut[16]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (10041): Inferred latch for "ulaIn1MuxOut[17]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (10041): Inferred latch for "ulaIn1MuxOut[18]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (10041): Inferred latch for "ulaIn1MuxOut[19]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (10041): Inferred latch for "ulaIn1MuxOut[20]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (10041): Inferred latch for "ulaIn1MuxOut[21]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (10041): Inferred latch for "ulaIn1MuxOut[22]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (10041): Inferred latch for "ulaIn1MuxOut[23]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (10041): Inferred latch for "ulaIn1MuxOut[24]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (10041): Inferred latch for "ulaIn1MuxOut[25]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (10041): Inferred latch for "ulaIn1MuxOut[26]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (10041): Inferred latch for "ulaIn1MuxOut[27]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (10041): Inferred latch for "ulaIn1MuxOut[28]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (10041): Inferred latch for "ulaIn1MuxOut[29]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (10041): Inferred latch for "ulaIn1MuxOut[30]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (10041): Inferred latch for "ulaIn1MuxOut[31]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (12128): Elaborating entity "ulaIn2Mux" for hierarchy "ulaIn2Mux:ulaIn2" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 66
-Info (12128): Elaborating entity "ulaCore" for hierarchy "ulaCore:ula" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 69
-Warning (10764): Verilog HDL warning at ula.v(18): converting signed shift amount to unsigned File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 18
-Info (12128): Elaborating entity "dataMem" for hierarchy "dataMem:dataMem" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 73
-Warning (10036): Verilog HDL or VHDL warning at dataMem.v(6): object "mainMemory" assigned a value but never read File: D:/GitHub/Arquitetura-projeto-2/dataMem.v Line: 6
-Warning (10034): Output port "readData" at dataMem.v(5) has no driver File: D:/GitHub/Arquitetura-projeto-2/dataMem.v Line: 5
-Info (12128): Elaborating entity "memToRegMux" for hierarchy "memToRegMux:memToRegMux" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 76
-Critical Warning (138067): Current license file does not support incremental compilation. The Quartus Prime software removes all the user-specified design partitions in the design automatically.
+Warning (10036): Verilog HDL or VHDL warning at MIPS.v(23): object "rt" assigned a value but never read File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/MIPS.v Line: 23
+Warning (10036): Verilog HDL or VHDL warning at MIPS.v(24): object "rs" assigned a value but never read File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/MIPS.v Line: 24
+Warning (10036): Verilog HDL or VHDL warning at MIPS.v(27): object "rtMem" assigned a value but never read File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/MIPS.v Line: 27
+Warning (10036): Verilog HDL or VHDL warning at MIPS.v(28): object "rsMem" assigned a value but never read File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/MIPS.v Line: 28
+Warning (10036): Verilog HDL or VHDL warning at MIPS.v(29): object "rdMem" assigned a value but never read File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/MIPS.v Line: 29
+Info (12128): Elaborating entity "PC" for hierarchy "PC:pc" File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/MIPS.v Line: 43
+Info (12128): Elaborating entity "intMem" for hierarchy "intMem:intMem" File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/MIPS.v Line: 46
+Warning (10850): Verilog HDL warning at intMem.v(13): number of words (62) in memory file does not match the number of elements in the address range [0:63] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/intMem.v Line: 13
+Warning (10030): Net "intMemory.data_a" at intMem.v(9) has no driver or initial value, using a default initial value '0' File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/intMem.v Line: 9
+Warning (10030): Net "intMemory.waddr_a" at intMem.v(9) has no driver or initial value, using a default initial value '0' File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/intMem.v Line: 9
+Warning (10030): Net "intMemory.we_a" at intMem.v(9) has no driver or initial value, using a default initial value '0' File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/intMem.v Line: 9
+Info (12128): Elaborating entity "control" for hierarchy "control:control" File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/MIPS.v Line: 52
+Warning (10270): Verilog HDL Case Statement warning at control.v(15): incomplete case statement has no default case item File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 15
+Warning (10240): Verilog HDL Always Construct warning at control.v(11): inferring latch(es) for variable "in1Mux", which holds its previous value in one or more paths through the always construct File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (10240): Verilog HDL Always Construct warning at control.v(11): inferring latch(es) for variable "in2Mux", which holds its previous value in one or more paths through the always construct File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (10240): Verilog HDL Always Construct warning at control.v(11): inferring latch(es) for variable "aluOp", which holds its previous value in one or more paths through the always construct File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (10240): Verilog HDL Always Construct warning at control.v(11): inferring latch(es) for variable "regDst", which holds its previous value in one or more paths through the always construct File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (10240): Verilog HDL Always Construct warning at control.v(11): inferring latch(es) for variable "branch", which holds its previous value in one or more paths through the always construct File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (10240): Verilog HDL Always Construct warning at control.v(11): inferring latch(es) for variable "regWrite", which holds its previous value in one or more paths through the always construct File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Info (10041): Inferred latch for "regWrite" at control.v(11) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Info (10041): Inferred latch for "branch" at control.v(11) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Info (10041): Inferred latch for "regDst" at control.v(11) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Info (10041): Inferred latch for "aluOp[0]" at control.v(11) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Info (10041): Inferred latch for "aluOp[1]" at control.v(11) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Info (10041): Inferred latch for "aluOp[2]" at control.v(11) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Info (10041): Inferred latch for "aluOp[3]" at control.v(11) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Info (10041): Inferred latch for "in2Mux" at control.v(11) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Info (10041): Inferred latch for "in1Mux[0]" at control.v(11) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Info (10041): Inferred latch for "in1Mux[1]" at control.v(11) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Info (12128): Elaborating entity "regMemMux" for hierarchy "regMemMux:regMemWriteMux" File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/MIPS.v Line: 58
+Info (12128): Elaborating entity "regmem" for hierarchy "regmem:regmem" File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/MIPS.v Line: 59
+Info (12128): Elaborating entity "dual_out_sign_extend" for hierarchy "dual_out_sign_extend:sign_extend" File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/MIPS.v Line: 65
+Info (12128): Elaborating entity "ulaIn1Mux" for hierarchy "ulaIn1Mux:ulaIn1" File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/MIPS.v Line: 69
+Warning (10270): Verilog HDL Case Statement warning at ula.v(46): incomplete case statement has no default case item File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+Warning (10240): Verilog HDL Always Construct warning at ula.v(46): inferring latch(es) for variable "ulaIn1MuxOut", which holds its previous value in one or more paths through the always construct File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+Info (10041): Inferred latch for "ulaIn1MuxOut[0]" at ula.v(46) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+Info (10041): Inferred latch for "ulaIn1MuxOut[1]" at ula.v(46) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+Info (10041): Inferred latch for "ulaIn1MuxOut[2]" at ula.v(46) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+Info (10041): Inferred latch for "ulaIn1MuxOut[3]" at ula.v(46) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+Info (10041): Inferred latch for "ulaIn1MuxOut[4]" at ula.v(46) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+Info (10041): Inferred latch for "ulaIn1MuxOut[5]" at ula.v(46) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+Info (10041): Inferred latch for "ulaIn1MuxOut[6]" at ula.v(46) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+Info (10041): Inferred latch for "ulaIn1MuxOut[7]" at ula.v(46) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+Info (10041): Inferred latch for "ulaIn1MuxOut[8]" at ula.v(46) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+Info (10041): Inferred latch for "ulaIn1MuxOut[9]" at ula.v(46) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+Info (10041): Inferred latch for "ulaIn1MuxOut[10]" at ula.v(46) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+Info (10041): Inferred latch for "ulaIn1MuxOut[11]" at ula.v(46) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+Info (10041): Inferred latch for "ulaIn1MuxOut[12]" at ula.v(46) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+Info (10041): Inferred latch for "ulaIn1MuxOut[13]" at ula.v(46) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+Info (10041): Inferred latch for "ulaIn1MuxOut[14]" at ula.v(46) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+Info (10041): Inferred latch for "ulaIn1MuxOut[15]" at ula.v(46) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+Info (10041): Inferred latch for "ulaIn1MuxOut[16]" at ula.v(46) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+Info (10041): Inferred latch for "ulaIn1MuxOut[17]" at ula.v(46) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+Info (10041): Inferred latch for "ulaIn1MuxOut[18]" at ula.v(46) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+Info (10041): Inferred latch for "ulaIn1MuxOut[19]" at ula.v(46) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+Info (10041): Inferred latch for "ulaIn1MuxOut[20]" at ula.v(46) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+Info (10041): Inferred latch for "ulaIn1MuxOut[21]" at ula.v(46) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+Info (10041): Inferred latch for "ulaIn1MuxOut[22]" at ula.v(46) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+Info (10041): Inferred latch for "ulaIn1MuxOut[23]" at ula.v(46) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+Info (10041): Inferred latch for "ulaIn1MuxOut[24]" at ula.v(46) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+Info (10041): Inferred latch for "ulaIn1MuxOut[25]" at ula.v(46) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+Info (10041): Inferred latch for "ulaIn1MuxOut[26]" at ula.v(46) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+Info (10041): Inferred latch for "ulaIn1MuxOut[27]" at ula.v(46) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+Info (10041): Inferred latch for "ulaIn1MuxOut[28]" at ula.v(46) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+Info (10041): Inferred latch for "ulaIn1MuxOut[29]" at ula.v(46) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+Info (10041): Inferred latch for "ulaIn1MuxOut[30]" at ula.v(46) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+Info (10041): Inferred latch for "ulaIn1MuxOut[31]" at ula.v(46) File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+Info (12128): Elaborating entity "ulaIn2Mux" for hierarchy "ulaIn2Mux:ulaIn2" File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/MIPS.v Line: 73
+Info (12128): Elaborating entity "ulaCore" for hierarchy "ulaCore:ula" File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/MIPS.v Line: 76
+Warning (10764): Verilog HDL warning at ula.v(18): converting signed shift amount to unsigned File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 18
+Info (12128): Elaborating entity "dataMem" for hierarchy "dataMem:dataMem" File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/MIPS.v Line: 80
+Warning (10036): Verilog HDL or VHDL warning at dataMem.v(6): object "mainMemory" assigned a value but never read File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/dataMem.v Line: 6
+Warning (10034): Output port "readData" at dataMem.v(5) has no driver File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/dataMem.v Line: 5
+Info (12128): Elaborating entity "memToRegMux" for hierarchy "memToRegMux:memToRegMux" File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/MIPS.v Line: 83
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276004): RAM logic "intMem:intMem|intMemory" is uninferred due to inappropriate RAM size File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/intMem.v Line: 9
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/db/MIPS.ram0_intMem_dc5c2df9.hdl.mif" contains "don't care" values -- overwriting them with 0s
 Info (19000): Inferred 2 megafunctions from design logic
     Info (276029): Inferred altsyncram megafunction from the following design logic: "regmem:regmem|regMemory_rtl_0" 
         Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
@@ -774,101 +829,103 @@ Info (12133): Instantiated megafunction "regmem:regmem|altsyncram:regMemory_rtl_
     Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
     Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_u2n1.tdf
-    Info (12023): Found entity 1: altsyncram_u2n1 File: D:/GitHub/Arquitetura-projeto-2/db/altsyncram_u2n1.tdf Line: 28
+    Info (12023): Found entity 1: altsyncram_u2n1 File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/db/altsyncram_u2n1.tdf Line: 28
 Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Warning (13012): Latch control:control|aluOp[0] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instruction[28] File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 11
-Warning (13012): Latch control:control|aluOp[1] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instruction[28] File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 11
-Warning (13012): Latch control:control|in2Mux has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 7
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instruction[26] File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 11
-Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[0] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[2] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[1] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[3] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[4] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[6] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[5] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[7] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[8] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[10] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[9] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[11] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[12] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[14] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[13] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[15] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[16] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[1] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[18] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[1] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[17] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[1] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[19] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[1] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[20] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[1] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[22] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[1] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[21] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[1] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[23] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[1] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[24] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[1] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[26] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[1] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[25] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[1] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[27] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[1] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[28] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[1] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[30] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[1] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[29] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[1] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[31] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[1] File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Warning (13012): Latch control:control|aluOp[2] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instruction[28] File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 11
-Warning (13012): Latch control:control|aluOp[3] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instruction[29] File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 11
-Warning (13012): Latch control:control|regWrite has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 7
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instruction[29] File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 11
-Warning (13012): Latch control:control|in1Mux[0] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instruction[30] File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 11
-Warning (13012): Latch control:control|in1Mux[1] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instruction[28] File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 11
+Warning (13012): Latch control:control|aluOp[0] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal intMem:intMem|instruction[28] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/intMem.v Line: 19
+Warning (13012): Latch control:control|aluOp[1] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal intMem:intMem|instruction[28] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/intMem.v Line: 19
+Warning (13012): Latch control:control|in2Mux has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 7
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal intMem:intMem|instruction[26] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/intMem.v Line: 19
+Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[0] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[2] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[1] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[3] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[4] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[6] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[5] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[7] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[8] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[10] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[9] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[11] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[12] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[14] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[13] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[15] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[0] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[16] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[1] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[18] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[1] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[17] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[1] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[19] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[1] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[20] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[1] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[22] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[1] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[21] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[1] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[23] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[1] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[24] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[1] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[26] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[1] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[25] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[1] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[27] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[1] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[28] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[1] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[30] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[1] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[29] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[1] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (13012): Latch ulaIn1Mux:ulaIn1|ulaIn1MuxOut[31] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/ula.v Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control:control|in1Mux[1] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+Warning (13012): Latch control:control|aluOp[2] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal intMem:intMem|instruction[29] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/intMem.v Line: 19
+Warning (13012): Latch control:control|aluOp[3] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal intMem:intMem|instruction[29] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/intMem.v Line: 19
+Warning (13012): Latch control:control|regWrite has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 7
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal intMem:intMem|instruction[29] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/intMem.v Line: 19
+Warning (13012): Latch control:control|in1Mux[0] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal intMem:intMem|instruction[31] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/intMem.v Line: 19
+Warning (13012): Latch control:control|in1Mux[1] has unsafe behavior File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/control.v Line: 11
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal intMem:intMem|instruction[29] File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/intMem.v Line: 19
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "instruction[30]" is stuck at GND File: C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/MIPS.v Line: 11
 Info (286030): Timing-Driven Synthesis is running
-Critical Warning (138067): Current license file does not support incremental compilation. The Quartus Prime software removes all the user-specified design partitions in the design automatically.
+Info (17049): 26 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 779 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 33 input pins
-    Info (21059): Implemented 66 output pins
-    Info (21061): Implemented 616 logic cells
+Info (21057): Implemented 831 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 1 input pins
+    Info (21059): Implemented 98 output pins
+    Info (21061): Implemented 668 logic cells
     Info (21064): Implemented 64 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 107 warnings
-    Info: Peak virtual memory: 4897 megabytes
-    Info: Processing ended: Fri Sep 01 19:44:17 2023
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:25
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 111 warnings
+    Info: Peak virtual memory: 4895 megabytes
+    Info: Processing ended: Fri Sep 01 21:19:40 2023
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:13
 
 
