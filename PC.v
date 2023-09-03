@@ -1,16 +1,27 @@
 module PC (clk, PC_next, PC_out);
 
 input wire clk;
-reg [31:0] memPosition = 0;
 input wire [31:0] PC_next;
 output reg [31:0] PC_out;
 
 
 
 always @(posedge clk) begin
-    PC_out <= memPosition;
+    PC_out <= PC_next;
 	 
-	 memPosition <= memPosition + 1;
 end
 
+endmodule
+
+module PCNext(actualPC,nextPC);
+	
+	input wire [31:0] actualPC;
+	output reg [31:0] nextPC;
+	
+	always @(actualPC) begin
+		
+		nextPC <= actualPC + 1;
+		
+	end
+	
 endmodule

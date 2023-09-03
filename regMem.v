@@ -20,8 +20,12 @@ module regmem(clk, readReg1 , readReg2 , writeReg , writeData , canWrite , outpu
 //	end
 	
 	
-	always @(posedge clk) begin
+	always @(readReg1 or clk) begin
 		outputData1 <= regMemory[ readReg1 ];
+
+	end
+	
+	always @(readReg2 or clk) begin
 		outputData2 <= regMemory[ readReg2 ];
 
 	end

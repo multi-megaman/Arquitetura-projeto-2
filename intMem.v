@@ -10,8 +10,8 @@ module intMem (clk, address, instruction);
 	
 	//	// Iniciando alguns registradores com alguns valores (PARA TESTES APENAS) (se for testar isso, comentar a parte de escrever na memoria, esse procedimento so pode ser feito em uma ROM, nao em uma RAM)
 		initial begin
-			$readmemb("C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/instruction.list", intMemory);
-			//$readmemb("D:/GitHub/Arquitetura-projeto-2/regMemTest.list", intMemory);
+//			$readmemb("C:/Users/ricar/Desktop/Faculdade/Arquitetura-projeto-2/instruction.list", intMemory);
+			$readmemb("D:/GitHub/Arquitetura-projeto-2/instruction.list", intMemory);
 	
 		end
 	

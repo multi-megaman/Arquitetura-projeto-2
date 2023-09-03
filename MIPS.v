@@ -1,5 +1,5 @@
 
-module MIPS (clock, instruction, aluResult, Zero_flag, regWriteData, canWriteReg);
+module MIPS (clock, nextPC, instruction, aluResult, Zero_flag, regWriteData, canWriteReg);
 	// OPcode =  instruction [31:26]
 	// func = instruction [5:0]
 	// rt = instruction [20:16]
@@ -8,7 +8,8 @@ module MIPS (clock, instruction, aluResult, Zero_flag, regWriteData, canWriteReg
 	// shamt = instruction [10:6]
 	// imm = instruction [15:0]
 	input wire clock;
-	output wire [31:0] instruction ; //instrucao de 32 bits (por agora eh apenas para testar a ALU)
+	output wire [31:0] nextPC;
+	output wire [31:0] instruction ;
 	output wire [31:0] aluResult ;
 	output Zero_flag ;
 	
@@ -40,7 +41,8 @@ module MIPS (clock, instruction, aluResult, Zero_flag, regWriteData, canWriteReg
 	//Contador de Programa (PC)
 	wire [31:0] PC_next;
 	wire [31:0] PC_out;
-	PC pc(clock, PC_next, PC_out);
+	PC pc(clock, nextPC, PC_out);
+	PCNext nextInstruction(PC_out, nextPC);
 	
 	//Memória de instrução (intMem)
 	intMem intMem(clock, PC_out, instruction);
