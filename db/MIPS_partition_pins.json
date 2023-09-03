@@ -520,7 +520,267 @@
 					"strict" : false
 				},
 				{
+					"name" : "regMemOut1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut1[3]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut1[4]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut1[5]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut1[6]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut1[7]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut1[8]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut1[9]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut1[10]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut1[11]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut1[12]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut1[13]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut1[14]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut1[15]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut1[16]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut1[17]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut1[18]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut1[19]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut1[20]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut1[21]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut1[22]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut1[23]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut1[24]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut1[25]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut1[26]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut1[27]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut1[28]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut1[29]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut1[30]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut1[31]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut2[3]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut2[4]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut2[5]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut2[6]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut2[7]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut2[8]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut2[9]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut2[10]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut2[11]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut2[12]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut2[13]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut2[14]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut2[15]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut2[16]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut2[17]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut2[18]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut2[19]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut2[20]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut2[21]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut2[22]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut2[23]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut2[24]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut2[25]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut2[26]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut2[27]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut2[28]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut2[29]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut2[30]",
+					"strict" : false
+				},
+				{
+					"name" : "regMemOut2[31]",
+					"strict" : false
+				},
+				{
 					"name" : "clock",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
 					"strict" : false
 				}
 			]

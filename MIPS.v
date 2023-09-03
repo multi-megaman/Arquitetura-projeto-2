@@ -1,5 +1,5 @@
 
-module MIPS (clock, nextPC, instruction, aluResult, Zero_flag, regWriteData, canWriteReg);
+module MIPS (clock, nextPC, instruction, aluResult, Zero_flag, regWriteData, canWriteReg, reset, regMemOut1, regMemOut2);
 	// OPcode =  instruction [31:26]
 	// func = instruction [5:0]
 	// rt = instruction [20:16]
@@ -7,7 +7,7 @@ module MIPS (clock, nextPC, instruction, aluResult, Zero_flag, regWriteData, can
 	// rd = instruction [15:11]
 	// shamt = instruction [10:6]
 	// imm = instruction [15:0]
-	input wire clock;
+	input wire clock, reset;
 	output wire [31:0] nextPC;
 	output wire [31:0] instruction ;
 	output wire [31:0] aluResult ;
@@ -51,14 +51,14 @@ module MIPS (clock, nextPC, instruction, aluResult, Zero_flag, regWriteData, can
 	wire [1:0] aluIn1MuxController ;
 	wire       aluIn2MuxController ;
 	wire [3:0] aluOP ;
-	control control( instruction[31:26] , instruction[5:0] , aluIn1MuxController, aluIn2MuxController , aluOP, memToReg, memRead, memWrite, regDst, canWriteReg, branch); //entrada, entrada, saida, saida, saida
+	control control( instruction[31:26] , instruction[5:0] , aluIn1MuxController, aluIn2MuxController , aluOP, memToReg, memRead, memWrite, regDest, canWriteReg, branch); //entrada, entrada, saida, saida, saida
 	
 	
 	//Banco de registradores
-	wire [31:0] regMemOut1, regMemOut2;
+	output wire [31:0] regMemOut1, regMemOut2;
 	wire [4:0] regMemWriteMuxOutput;
 	regMemMux regMemWriteMux (instruction [20:16] /*rt*/, instruction [15:11]/*rd*/, regDest, regMemWriteMuxOutput ); //entrada, entrada, entrada, saida
-	regmem regmem(clock, instruction [20:16]/*rt*/ , instruction [25:21] /*rs*/ , regMemWriteMuxOutput , regWriteData , canWriteReg , regMemOut1 , regMemOut2  ); //entrada, entrada, entrada, entrada, entrada, saida, saida
+	regmem regmem(clock, instruction [20:16]/*rt*/ , instruction [25:21] /*rs*/ , regMemWriteMuxOutput , regWriteData , canWriteReg , regMemOut1 , regMemOut2, reset  ); //entrada, entrada, entrada, entrada, entrada, saida, saida
 	
 	
 	//dual output extensor de sinal
