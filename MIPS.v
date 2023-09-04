@@ -1,5 +1,5 @@
 
-module MIPS (clock, nextPC, instruction, aluResult, Zero_flag, regWriteData, canWriteReg, reset, regMemOut1, regMemOut2);
+module MIPS (clock, PC_out,nextPC, instruction, aluResult, Zero_flag, regWriteData, canWriteReg, reset, regMemOut1, regMemOut2);
 	// OPcode =  instruction [31:26]
 	// func = instruction [5:0]
 	// rt = instruction [20:16]
@@ -8,7 +8,7 @@ module MIPS (clock, nextPC, instruction, aluResult, Zero_flag, regWriteData, can
 	// shamt = instruction [10:6]
 	// imm = instruction [15:0]
 	input wire clock, reset;
-	output wire [31:0] nextPC;
+   output wire [31:0] nextPC;
 	output wire [31:0] instruction ;
 	output wire [31:0] aluResult ;
 	output Zero_flag ;
@@ -36,13 +36,23 @@ module MIPS (clock, nextPC, instruction, aluResult, Zero_flag, regWriteData, can
 	wire       regDest ; //0 = rt
 	wire		  memWrite; //0 = false
 	wire		  memRead ; //1 = true
-	wire [1:0] memToReg, jump; //1 = readData mudei aqui
+	wire [1:0] memToReg, jump_Wire; //1 = readData mudei aqui
 	
 	//Contador de Programa (PC)
 	wire [31:0] PC_next;
-	wire [31:0] PC_out;
-	PC pc(clock, nextPC, PC_out);
+	output wire [31:0] PC_out;
+	PC pc(clock, PC_out, jump_Result);
 	PCNext nextInstruction(PC_out, nextPC);
+	
+	
+	//modulo que serve como mutiplexador para instruções de jump
+	wire [31:0] jump_Result;
+	jump jump (PC_next, instruction, jump_Result, jump_Wire, regMemOut2, zeroFillImm, branch_Result);
+	
+	//modulo que faz a verificação das instruções de branch
+	wire 			branch_Result;
+	branch_module b_module (branch, aluResult, branch_Result, instruction[31:26]);
+	
 	
 	//Memória de instrução (intMem)
 	intMem intMem(clock, PC_out, instruction);
@@ -51,7 +61,7 @@ module MIPS (clock, nextPC, instruction, aluResult, Zero_flag, regWriteData, can
 	wire [1:0] aluIn1MuxController ;
 	wire       aluIn2MuxController ;
 	wire [3:0] aluOP ;
-	control control( instruction[31:26] , instruction[5:0] , aluIn1MuxController, aluIn2MuxController , aluOP, memToReg, memRead, memWrite, regDest, canWriteReg, branch, jump); //entrada, entrada, saida, saida, saida
+	control control( instruction[31:26] , instruction[5:0] , aluIn1MuxController, aluIn2MuxController , aluOP, memToReg, memRead, memWrite, regDest, canWriteReg, branch, jump_Wire); //entrada, entrada, saida, saida, saida
 	
 	
 	//Banco de registradores

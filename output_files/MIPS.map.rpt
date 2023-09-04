@@ -1,5 +1,5 @@
 Analysis & Synthesis report for MIPS
-Mon Sep 04 17:47:58 2023
+Mon Sep 04 19:51:06 2023
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -22,13 +22,10 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
  14. Port Connectivity Checks: "memToRegMux:memToRegMux"
  15. Port Connectivity Checks: "ulaCore:ula"
  16. Port Connectivity Checks: "ulaIn1Mux:ulaIn1"
- 17. Port Connectivity Checks: "dual_out_sign_extend:sign_extend"
- 18. Port Connectivity Checks: "regMemMux:regMemWriteMux"
- 19. Port Connectivity Checks: "control:control"
- 20. Port Connectivity Checks: "PC:pc"
- 21. Post-Synthesis Netlist Statistics for Top Partition
- 22. Elapsed Time Per Partition
- 23. Analysis & Synthesis Messages
+ 17. Port Connectivity Checks: "regMemMux:regMemWriteMux"
+ 18. Post-Synthesis Netlist Statistics for Top Partition
+ 19. Elapsed Time Per Partition
+ 20. Analysis & Synthesis Messages
 
 
 
@@ -55,14 +52,14 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Sep 04 17:47:58 2023       ;
+; Analysis & Synthesis Status     ; Successful - Mon Sep 04 19:51:06 2023       ;
 ; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                   ; MIPS                                        ;
 ; Top-level Entity Name           ; MIPS                                        ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
 ; Total registers                 ; 1054                                        ;
-; Total pins                      ; 196                                         ;
+; Total pins                      ; 228                                         ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
 ; Total DSP Blocks                ; 0                                           ;
@@ -175,9 +172,9 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processor 3            ;   0.0%      ;
-;     Processor 4            ;   0.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
 +----------------------------+-------------+
 
 
@@ -195,6 +192,8 @@ https://fpgasoftware.intel.com/eula.
 ; memToRegMux.v                    ; yes             ; User Verilog HDL File        ; D:/GitHub/Arquitetura-projeto-2/memToRegMux.v      ;         ;
 ; intMem.v                         ; yes             ; User Verilog HDL File        ; D:/GitHub/Arquitetura-projeto-2/intMem.v           ;         ;
 ; PC.v                             ; yes             ; User Verilog HDL File        ; D:/GitHub/Arquitetura-projeto-2/PC.v               ;         ;
+; jump.v                           ; yes             ; User Verilog HDL File        ; D:/GitHub/Arquitetura-projeto-2/jump.v             ;         ;
+; branch_module.v                  ; yes             ; User Verilog HDL File        ; D:/GitHub/Arquitetura-projeto-2/branch_module.v    ;         ;
 ; instruction.list                 ; yes             ; Auto-Found Unspecified File  ; D:/GitHub/Arquitetura-projeto-2/instruction.list   ;         ;
 +----------------------------------+-----------------+------------------------------+----------------------------------------------------+---------+
 
@@ -204,96 +203,99 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimate of Logic utilization (ALMs needed) ; 1308        ;
+; Estimate of Logic utilization (ALMs needed) ; 1313        ;
 ;                                             ;             ;
-; Combinational ALUT usage for logic          ; 1493        ;
-;     -- 7 input functions                    ; 9           ;
-;     -- 6 input functions                    ; 951         ;
-;     -- 5 input functions                    ; 257         ;
-;     -- 4 input functions                    ; 71          ;
-;     -- <=3 input functions                  ; 205         ;
+; Combinational ALUT usage for logic          ; 1519        ;
+;     -- 7 input functions                    ; 7           ;
+;     -- 6 input functions                    ; 948         ;
+;     -- 5 input functions                    ; 272         ;
+;     -- 4 input functions                    ; 82          ;
+;     -- <=3 input functions                  ; 210         ;
 ;                                             ;             ;
 ; Dedicated logic registers                   ; 1054        ;
 ;                                             ;             ;
-; I/O pins                                    ; 196         ;
+; I/O pins                                    ; 228         ;
 ;                                             ;             ;
 ; Total DSP Blocks                            ; 0           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; clock~input ;
 ; Maximum fan-out                             ; 1054        ;
-; Total fan-out                               ; 12391       ;
-; Average fan-out                             ; 4.22        ;
+; Total fan-out                               ; 12631       ;
+; Average fan-out                             ; 4.17        ;
 +---------------------------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                  ;
-+-------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------+-------------+--------------+
-; Compilation Hierarchy Node    ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name            ; Entity Name ; Library Name ;
-+-------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------+-------------+--------------+
-; |MIPS                         ; 1493 (0)            ; 1054 (0)                  ; 0                 ; 0          ; 196  ; 0            ; |MIPS                          ; MIPS        ; work         ;
-;    |PC:pc|                    ; 0 (0)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |MIPS|PC:pc                    ; PC          ; work         ;
-;    |PCNext:nextInstruction|   ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|PCNext:nextInstruction   ; PCNext      ; work         ;
-;    |control:control|          ; 29 (29)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|control:control          ; control     ; work         ;
-;    |intMem:intMem|            ; 31 (31)             ; 30 (30)                   ; 0                 ; 0          ; 0    ; 0            ; |MIPS|intMem:intMem            ; intMem      ; work         ;
-;    |memToRegMux:memToRegMux|  ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|memToRegMux:memToRegMux  ; memToRegMux ; work         ;
-;    |regMemMux:regMemWriteMux| ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|regMemMux:regMemWriteMux ; regMemMux   ; work         ;
-;    |regmem:regmem|            ; 742 (742)           ; 992 (992)                 ; 0                 ; 0          ; 0    ; 0            ; |MIPS|regmem:regmem            ; regmem      ; work         ;
-;    |ulaCore:ula|              ; 545 (545)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|ulaCore:ula              ; ulaCore     ; work         ;
-;    |ulaIn1Mux:ulaIn1|         ; 65 (65)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|ulaIn1Mux:ulaIn1         ; ulaIn1Mux   ; work         ;
-;    |ulaIn2Mux:ulaIn2|         ; 13 (13)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|ulaIn2Mux:ulaIn2         ; ulaIn2Mux   ; work         ;
-+-------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------+-------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                    ;
++-------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------+---------------+--------------+
+; Compilation Hierarchy Node    ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name            ; Entity Name   ; Library Name ;
++-------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------+---------------+--------------+
+; |MIPS                         ; 1519 (0)            ; 1054 (0)                  ; 0                 ; 0          ; 228  ; 0            ; |MIPS                          ; MIPS          ; work         ;
+;    |PC:pc|                    ; 3 (3)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |MIPS|PC:pc                    ; PC            ; work         ;
+;    |PCNext:nextInstruction|   ; 31 (31)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|PCNext:nextInstruction   ; PCNext        ; work         ;
+;    |branch_module:b_module|   ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|branch_module:b_module   ; branch_module ; work         ;
+;    |control:control|          ; 29 (29)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|control:control          ; control       ; work         ;
+;    |intMem:intMem|            ; 31 (31)             ; 30 (30)                   ; 0                 ; 0          ; 0    ; 0            ; |MIPS|intMem:intMem            ; intMem        ; work         ;
+;    |jump:jump|                ; 11 (11)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|jump:jump                ; jump          ; work         ;
+;    |memToRegMux:memToRegMux|  ; 33 (33)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|memToRegMux:memToRegMux  ; memToRegMux   ; work         ;
+;    |regMemMux:regMemWriteMux| ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|regMemMux:regMemWriteMux ; regMemMux     ; work         ;
+;    |regmem:regmem|            ; 742 (742)           ; 992 (992)                 ; 0                 ; 0          ; 0    ; 0            ; |MIPS|regmem:regmem            ; regmem        ; work         ;
+;    |ulaCore:ula|              ; 553 (553)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|ulaCore:ula              ; ulaCore       ; work         ;
+;    |ulaIn1Mux:ulaIn1|         ; 65 (65)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|ulaIn1Mux:ulaIn1         ; ulaIn1Mux     ; work         ;
+;    |ulaIn2Mux:ulaIn2|         ; 13 (13)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|ulaIn2Mux:ulaIn2         ; ulaIn2Mux     ; work         ;
++-------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------+---------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+---------------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                     ;
-+-----------------------------------------------------+--------------------------+------------------------+
-; Latch Name                                          ; Latch Enable Signal      ; Free of Timing Hazards ;
-+-----------------------------------------------------+--------------------------+------------------------+
-; control:control|aluOp[0]                            ; control:control|WideOr16 ; yes                    ;
-; control:control|aluOp[1]                            ; control:control|WideOr16 ; yes                    ;
-; control:control|in2Mux                              ; control:control|WideOr16 ; yes                    ;
-; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[0]                    ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
-; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[1]                    ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
-; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[2]                    ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
-; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[3]                    ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
-; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[4]                    ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
-; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[5]                    ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
-; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[6]                    ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
-; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[7]                    ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
-; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[8]                    ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
-; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[9]                    ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
-; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[10]                   ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
-; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[11]                   ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
-; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[12]                   ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
-; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[13]                   ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
-; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[14]                   ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
-; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[15]                   ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
-; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[16]                   ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
-; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[17]                   ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
-; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[18]                   ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
-; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[19]                   ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
-; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[20]                   ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
-; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[21]                   ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
-; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[22]                   ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
-; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[23]                   ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
-; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[24]                   ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
-; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[25]                   ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
-; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[26]                   ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
-; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[27]                   ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
-; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[28]                   ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
-; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[30]                   ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
-; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[29]                   ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
-; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[31]                   ; ulaIn1Mux:ulaIn1|Mux32   ; yes                    ;
-; control:control|aluOp[3]                            ; control:control|WideOr16 ; yes                    ;
-; control:control|aluOp[2]                            ; control:control|WideOr16 ; yes                    ;
-; control:control|regWrite                            ; control:control|WideOr16 ; yes                    ;
-; control:control|regDst                              ; control:control|WideOr16 ; yes                    ;
-; control:control|in1Mux[0]                           ; control:control|WideOr16 ; yes                    ;
-; control:control|in1Mux[1]                           ; control:control|WideOr16 ; yes                    ;
-; Number of user-specified and inferred latches = 41  ;                          ;                        ;
-+-----------------------------------------------------+--------------------------+------------------------+
++----------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                            ;
++-----------------------------------------------------+---------------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal             ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------------------+------------------------+
+; control:control|aluOp[0]                            ; control:control|WideOr16        ; yes                    ;
+; control:control|aluOp[1]                            ; control:control|WideOr16        ; yes                    ;
+; control:control|in2Mux                              ; control:control|WideOr16        ; yes                    ;
+; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[0]                    ; ulaIn1Mux:ulaIn1|Mux32          ; yes                    ;
+; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[1]                    ; ulaIn1Mux:ulaIn1|Mux32          ; yes                    ;
+; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[2]                    ; ulaIn1Mux:ulaIn1|Mux32          ; yes                    ;
+; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[3]                    ; ulaIn1Mux:ulaIn1|Mux32          ; yes                    ;
+; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[4]                    ; ulaIn1Mux:ulaIn1|Mux32          ; yes                    ;
+; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[5]                    ; ulaIn1Mux:ulaIn1|Mux32          ; yes                    ;
+; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[6]                    ; ulaIn1Mux:ulaIn1|Mux32          ; yes                    ;
+; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[7]                    ; ulaIn1Mux:ulaIn1|Mux32          ; yes                    ;
+; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[8]                    ; ulaIn1Mux:ulaIn1|Mux32          ; yes                    ;
+; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[9]                    ; ulaIn1Mux:ulaIn1|Mux32          ; yes                    ;
+; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[10]                   ; ulaIn1Mux:ulaIn1|Mux32          ; yes                    ;
+; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[11]                   ; ulaIn1Mux:ulaIn1|Mux32          ; yes                    ;
+; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[12]                   ; ulaIn1Mux:ulaIn1|Mux32          ; yes                    ;
+; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[13]                   ; ulaIn1Mux:ulaIn1|Mux32          ; yes                    ;
+; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[14]                   ; ulaIn1Mux:ulaIn1|Mux32          ; yes                    ;
+; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[15]                   ; ulaIn1Mux:ulaIn1|Mux32          ; yes                    ;
+; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[16]                   ; ulaIn1Mux:ulaIn1|Mux32          ; yes                    ;
+; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[17]                   ; ulaIn1Mux:ulaIn1|Mux32          ; yes                    ;
+; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[18]                   ; ulaIn1Mux:ulaIn1|Mux32          ; yes                    ;
+; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[19]                   ; ulaIn1Mux:ulaIn1|Mux32          ; yes                    ;
+; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[20]                   ; ulaIn1Mux:ulaIn1|Mux32          ; yes                    ;
+; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[21]                   ; ulaIn1Mux:ulaIn1|Mux32          ; yes                    ;
+; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[22]                   ; ulaIn1Mux:ulaIn1|Mux32          ; yes                    ;
+; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[23]                   ; ulaIn1Mux:ulaIn1|Mux32          ; yes                    ;
+; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[24]                   ; ulaIn1Mux:ulaIn1|Mux32          ; yes                    ;
+; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[25]                   ; ulaIn1Mux:ulaIn1|Mux32          ; yes                    ;
+; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[26]                   ; ulaIn1Mux:ulaIn1|Mux32          ; yes                    ;
+; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[27]                   ; ulaIn1Mux:ulaIn1|Mux32          ; yes                    ;
+; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[28]                   ; ulaIn1Mux:ulaIn1|Mux32          ; yes                    ;
+; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[30]                   ; ulaIn1Mux:ulaIn1|Mux32          ; yes                    ;
+; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[29]                   ; ulaIn1Mux:ulaIn1|Mux32          ; yes                    ;
+; ulaIn1Mux:ulaIn1|ulaIn1MuxOut[31]                   ; ulaIn1Mux:ulaIn1|Mux32          ; yes                    ;
+; control:control|aluOp[3]                            ; control:control|WideOr16        ; yes                    ;
+; control:control|aluOp[2]                            ; control:control|WideOr16        ; yes                    ;
+; control:control|regWrite                            ; control:control|WideOr16        ; yes                    ;
+; branch_module:b_module|branch_Result                ; branch_module:b_module|WideNor0 ; yes                    ;
+; control:control|regDst                              ; control:control|WideOr16        ; yes                    ;
+; control:control|in1Mux[0]                           ; control:control|WideOr16        ; yes                    ;
+; control:control|in1Mux[1]                           ; control:control|WideOr16        ; yes                    ;
+; Number of user-specified and inferred latches = 42  ;                                 ;                        ;
++-----------------------------------------------------+---------------------------------+------------------------+
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
@@ -346,8 +348,8 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
 ; Total registers                              ; 1054  ;
-; Number of registers using Synchronous Clear  ; 997   ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Synchronous Clear  ; 1021  ;
+; Number of registers using Synchronous Load   ; 24    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 992   ;
@@ -360,55 +362,59 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output            ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------+
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[1][15]  ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[2][27]  ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[3][0]   ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[4][8]   ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[5][25]  ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[6][0]   ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[7][28]  ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[8][17]  ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[9][18]  ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[10][18] ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[11][18] ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[12][18] ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[13][18] ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[14][18] ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[15][18] ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[16][18] ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[17][4]  ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[18][12] ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[19][6]  ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[20][26] ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |MIPS|PC:pc|PC_out[18]                ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |MIPS|PC:pc|PC_out[8]                 ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[1][7]   ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[2][13]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[3][22]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[4][15]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[5][5]   ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[6][12]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[7][10]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[8][9]   ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[9][10]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[10][13] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[11][25] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[12][22] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[13][0]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[14][1]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[15][12] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[16][10] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[17][13] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[18][20] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[19][15] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[20][28] ;
 ; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[21][30] ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[22][14] ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[23][23] ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[24][19] ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[25][4]  ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[26][26] ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[27][24] ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[28][31] ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[29][29] ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[30][15] ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[31][30] ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |MIPS|ulaCore:ula|ShiftLeft0          ;
-; 4:1                ; 49 bits   ; 98 LEs        ; 98 LEs               ; 0 LEs                  ; No         ; |MIPS|ulaCore:ula|ShiftLeft0          ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[22][9]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[23][24] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[24][20] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[25][29] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[26][1]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[27][29] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[28][26] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[29][27] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[30][7]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |MIPS|regmem:regmem|regMemory[31][3]  ;
+; 5:1                ; 14 bits   ; 42 LEs        ; 0 LEs                ; 42 LEs                 ; Yes        ; |MIPS|PC:pc|PC_out[11]                ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |MIPS|ulaCore:ula|ShiftRight1         ;
+; 4:1                ; 49 bits   ; 98 LEs        ; 98 LEs               ; 0 LEs                  ; No         ; |MIPS|ulaCore:ula|ShiftRight0         ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |MIPS|ulaCore:ula|ShiftLeft0          ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |MIPS|ulaCore:ula|ShiftLeft0          ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |MIPS|ulaCore:ula|ShiftLeft0          ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |MIPS|ulaCore:ula|ShiftRight1         ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |MIPS|ulaCore:ula|ShiftRight0         ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |MIPS|ulaIn1Mux:ulaIn1|Mux18          ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |MIPS|ulaIn1Mux:ulaIn1|Mux12          ;
-; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; No         ; |MIPS|regmem:regmem|Mux0              ;
-; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; No         ; |MIPS|regmem:regmem|Mux48             ;
-; 14:1               ; 5 bits    ; 45 LEs        ; 35 LEs               ; 10 LEs                 ; No         ; |MIPS|control:control|Selector14      ;
-; 19:1               ; 5 bits    ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; No         ; |MIPS|ulaCore:ula|Mux24               ;
-; 22:1               ; 8 bits    ; 112 LEs       ; 104 LEs              ; 8 LEs                  ; No         ; |MIPS|ulaCore:ula|Mux11               ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |MIPS|ulaIn1Mux:ulaIn1|Mux19          ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |MIPS|ulaIn1Mux:ulaIn1|Mux15          ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |MIPS|memToRegMux:memToRegMux|Mux27   ;
+; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; No         ; |MIPS|regmem:regmem|Mux6              ;
+; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; No         ; |MIPS|regmem:regmem|Mux38             ;
+; 14:1               ; 5 bits    ; 45 LEs        ; 35 LEs               ; 10 LEs                 ; No         ; |MIPS|control:control|Selector16      ;
+; 19:1               ; 5 bits    ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; No         ; |MIPS|ulaCore:ula|Mux23               ;
+; 22:1               ; 8 bits    ; 112 LEs       ; 104 LEs              ; 8 LEs                  ; No         ; |MIPS|ulaCore:ula|Mux8                ;
 ; 21:1               ; 2 bits    ; 28 LEs        ; 24 LEs               ; 4 LEs                  ; No         ; |MIPS|ulaCore:ula|Mux22               ;
 ; 19:1               ; 3 bits    ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; No         ; |MIPS|ulaCore:ula|Mux19               ;
-; 22:1               ; 3 bits    ; 42 LEs        ; 42 LEs               ; 0 LEs                  ; No         ; |MIPS|ulaCore:ula|Mux30               ;
-; 25:1               ; 3 bits    ; 48 LEs        ; 45 LEs               ; 3 LEs                  ; No         ; |MIPS|ulaCore:ula|Mux1                ;
+; 22:1               ; 3 bits    ; 42 LEs        ; 42 LEs               ; 0 LEs                  ; No         ; |MIPS|ulaCore:ula|Mux29               ;
+; 25:1               ; 3 bits    ; 48 LEs        ; 45 LEs               ; 3 LEs                  ; No         ; |MIPS|ulaCore:ula|Mux3                ;
 ; 24:1               ; 2 bits    ; 32 LEs        ; 28 LEs               ; 4 LEs                  ; No         ; |MIPS|ulaCore:ula|Mux5                ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------+
 
@@ -435,14 +441,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "memToRegMux:memToRegMux"                                                                                                                            ;
-+----------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port     ; Type  ; Severity ; Details                                                                                                                                          ;
-+----------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------+
-; memToReg ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (2 bits) it drives.  Extra input bit(s) "memToReg[1..1]" will be connected to GND. ;
-; nextPC   ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND.     ;
-+----------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "memToRegMux:memToRegMux"                                                                                                                      ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                      ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; nextPC ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -463,15 +468,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "dual_out_sign_extend:sign_extend"                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; outImm[31..16] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "regMemMux:regMemWriteMux"                                                                                                                         ;
 +---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -479,27 +475,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
 ; regDest ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (2 bits) it drives.  Extra input bit(s) "regDest[1..1]" will be connected to GND. ;
 +---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "control:control"                                                                                                                ;
-+----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------+
-; Port     ; Type   ; Severity ; Details                                                                                                                     ;
-+----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------+
-; memToReg ; Output ; Warning  ; Output or bidir port (2 bits) is wider than the port expression (1 bits) it drives; bit(s) "memToReg[1..1]" have no fanouts ;
-; branch   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                         ;
-; jump     ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                    ;
-+----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------+
-
-
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "PC:pc"                                                                                                                                             ;
-+-------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Port        ; Type  ; Severity ; Details                                                                                                                                      ;
-+-------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; jump        ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
-; jump_Result ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
-+-------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -510,24 +485,27 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; arriav_ff             ; 1054                        ;
 ;     ENA SCLR          ; 992                         ;
 ;     SCLR              ; 5                           ;
-;     plain             ; 57                          ;
-; arriav_lcell_comb     ; 1494                        ;
-;     arith             ; 65                          ;
-;         1 data inputs ; 33                          ;
+;     SCLR SLD          ; 24                          ;
+;     plain             ; 33                          ;
+; arriav_lcell_comb     ; 1521                        ;
+;     arith             ; 64                          ;
+;         1 data inputs ; 31                          ;
+;         2 data inputs ; 1                           ;
 ;         5 data inputs ; 32                          ;
-;     extend            ; 9                           ;
-;         7 data inputs ; 9                           ;
-;     normal            ; 1420                        ;
+;     extend            ; 7                           ;
+;         7 data inputs ; 7                           ;
+;     normal            ; 1450                        ;
 ;         0 data inputs ; 1                           ;
+;         1 data inputs ; 1                           ;
 ;         2 data inputs ; 45                          ;
-;         3 data inputs ; 127                         ;
-;         4 data inputs ; 71                          ;
-;         5 data inputs ; 225                         ;
-;         6 data inputs ; 951                         ;
-; boundary_port         ; 196                         ;
+;         3 data inputs ; 133                         ;
+;         4 data inputs ; 82                          ;
+;         5 data inputs ; 240                         ;
+;         6 data inputs ; 948                         ;
+; boundary_port         ; 228                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 11.00                       ;
-; Average LUT depth     ; 8.84                        ;
+; Max LUT depth         ; 13.00                       ;
+; Average LUT depth     ; 9.89                        ;
 +-----------------------+-----------------------------+
 
 
@@ -536,7 +514,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:08     ;
+; Top            ; 00:00:09     ;
 +----------------+--------------+
 
 
@@ -546,7 +524,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Mon Sep 04 17:47:37 2023
+    Info: Processing started: Mon Sep 04 19:50:48 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off MIPS -c MIPS
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -576,7 +554,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file intmem.
     Info (12023): Found entity 1: intMem File: D:/GitHub/Arquitetura-projeto-2/intMem.v Line: 1
 Info (12021): Found 2 design units, including 2 entities, in source file pc.v
     Info (12023): Found entity 1: PC File: D:/GitHub/Arquitetura-projeto-2/PC.v Line: 1
-    Info (12023): Found entity 2: PCNext File: D:/GitHub/Arquitetura-projeto-2/PC.v Line: 21
+    Info (12023): Found entity 2: PCNext File: D:/GitHub/Arquitetura-projeto-2/PC.v Line: 15
 Info (12021): Found 1 design units, including 1 entities, in source file jump.v
     Info (12023): Found entity 1: jump File: D:/GitHub/Arquitetura-projeto-2/jump.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file branch_module.v
@@ -589,12 +567,17 @@ Warning (10036): Verilog HDL or VHDL warning at MIPS.v(29): object "rsMem" assig
 Warning (10036): Verilog HDL or VHDL warning at MIPS.v(30): object "rdMem" assigned a value but never read File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 30
 Info (12128): Elaborating entity "PC" for hierarchy "PC:pc" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 44
 Info (12128): Elaborating entity "PCNext" for hierarchy "PCNext:nextInstruction" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 45
-Info (12128): Elaborating entity "intMem" for hierarchy "intMem:intMem" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 48
+Info (12128): Elaborating entity "jump" for hierarchy "jump:jump" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 50
+Info (12128): Elaborating entity "branch_module" for hierarchy "branch_module:b_module" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 54
+Warning (10270): Verilog HDL Case Statement warning at branch_module.v(9): incomplete case statement has no default case item File: D:/GitHub/Arquitetura-projeto-2/branch_module.v Line: 9
+Warning (10240): Verilog HDL Always Construct warning at branch_module.v(9): inferring latch(es) for variable "branch_Result", which holds its previous value in one or more paths through the always construct File: D:/GitHub/Arquitetura-projeto-2/branch_module.v Line: 9
+Info (10041): Inferred latch for "branch_Result" at branch_module.v(9) File: D:/GitHub/Arquitetura-projeto-2/branch_module.v Line: 9
+Info (12128): Elaborating entity "intMem" for hierarchy "intMem:intMem" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 58
 Warning (10850): Verilog HDL warning at intMem.v(14): number of words (62) in memory file does not match the number of elements in the address range [0:63] File: D:/GitHub/Arquitetura-projeto-2/intMem.v Line: 14
 Warning (10030): Net "intMemory.data_a" at intMem.v(9) has no driver or initial value, using a default initial value '0' File: D:/GitHub/Arquitetura-projeto-2/intMem.v Line: 9
 Warning (10030): Net "intMemory.waddr_a" at intMem.v(9) has no driver or initial value, using a default initial value '0' File: D:/GitHub/Arquitetura-projeto-2/intMem.v Line: 9
 Warning (10030): Net "intMemory.we_a" at intMem.v(9) has no driver or initial value, using a default initial value '0' File: D:/GitHub/Arquitetura-projeto-2/intMem.v Line: 9
-Info (12128): Elaborating entity "control" for hierarchy "control:control" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 54
+Info (12128): Elaborating entity "control" for hierarchy "control:control" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 64
 Warning (10230): Verilog HDL assignment warning at control.v(20): truncated value with size 2 to match size of target (1) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 20
 Warning (10230): Verilog HDL assignment warning at control.v(58): truncated value with size 2 to match size of target (1) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 58
 Warning (10230): Verilog HDL assignment warning at control.v(118): truncated value with size 2 to match size of target (1) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 118
@@ -627,7 +610,7 @@ Info (10041): Inferred latch for "aluOp[3]" at control.v(11) File: D:/GitHub/Arq
 Info (10041): Inferred latch for "in2Mux" at control.v(11) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
 Info (10041): Inferred latch for "in1Mux[0]" at control.v(11) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
 Info (10041): Inferred latch for "in1Mux[1]" at control.v(11) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
-Info (12128): Elaborating entity "regMemMux" for hierarchy "regMemMux:regMemWriteMux" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 60
+Info (12128): Elaborating entity "regMemMux" for hierarchy "regMemMux:regMemWriteMux" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 70
 Warning (10270): Verilog HDL Case Statement warning at regMem.v(55): incomplete case statement has no default case item File: D:/GitHub/Arquitetura-projeto-2/regMem.v Line: 55
 Warning (10240): Verilog HDL Always Construct warning at regMem.v(55): inferring latch(es) for variable "regMemMuxOutput", which holds its previous value in one or more paths through the always construct File: D:/GitHub/Arquitetura-projeto-2/regMem.v Line: 55
 Info (10041): Inferred latch for "regMemMuxOutput[0]" at regMem.v(55) File: D:/GitHub/Arquitetura-projeto-2/regMem.v Line: 55
@@ -635,9 +618,9 @@ Info (10041): Inferred latch for "regMemMuxOutput[1]" at regMem.v(55) File: D:/G
 Info (10041): Inferred latch for "regMemMuxOutput[2]" at regMem.v(55) File: D:/GitHub/Arquitetura-projeto-2/regMem.v Line: 55
 Info (10041): Inferred latch for "regMemMuxOutput[3]" at regMem.v(55) File: D:/GitHub/Arquitetura-projeto-2/regMem.v Line: 55
 Info (10041): Inferred latch for "regMemMuxOutput[4]" at regMem.v(55) File: D:/GitHub/Arquitetura-projeto-2/regMem.v Line: 55
-Info (12128): Elaborating entity "regmem" for hierarchy "regmem:regmem" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 61
-Info (12128): Elaborating entity "dual_out_sign_extend" for hierarchy "dual_out_sign_extend:sign_extend" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 67
-Info (12128): Elaborating entity "ulaIn1Mux" for hierarchy "ulaIn1Mux:ulaIn1" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 71
+Info (12128): Elaborating entity "regmem" for hierarchy "regmem:regmem" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 71
+Info (12128): Elaborating entity "dual_out_sign_extend" for hierarchy "dual_out_sign_extend:sign_extend" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 77
+Info (12128): Elaborating entity "ulaIn1Mux" for hierarchy "ulaIn1Mux:ulaIn1" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 81
 Warning (10270): Verilog HDL Case Statement warning at ula.v(46): incomplete case statement has no default case item File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
 Warning (10240): Verilog HDL Always Construct warning at ula.v(46): inferring latch(es) for variable "ulaIn1MuxOut", which holds its previous value in one or more paths through the always construct File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
 Info (10041): Inferred latch for "ulaIn1MuxOut[0]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
@@ -672,13 +655,13 @@ Info (10041): Inferred latch for "ulaIn1MuxOut[28]" at ula.v(46) File: D:/GitHub
 Info (10041): Inferred latch for "ulaIn1MuxOut[29]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
 Info (10041): Inferred latch for "ulaIn1MuxOut[30]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
 Info (10041): Inferred latch for "ulaIn1MuxOut[31]" at ula.v(46) File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 46
-Info (12128): Elaborating entity "ulaIn2Mux" for hierarchy "ulaIn2Mux:ulaIn2" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 75
-Info (12128): Elaborating entity "ulaCore" for hierarchy "ulaCore:ula" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 78
+Info (12128): Elaborating entity "ulaIn2Mux" for hierarchy "ulaIn2Mux:ulaIn2" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 85
+Info (12128): Elaborating entity "ulaCore" for hierarchy "ulaCore:ula" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 88
 Warning (10764): Verilog HDL warning at ula.v(18): converting signed shift amount to unsigned File: D:/GitHub/Arquitetura-projeto-2/ula.v Line: 18
-Info (12128): Elaborating entity "dataMem" for hierarchy "dataMem:dataMem" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 82
+Info (12128): Elaborating entity "dataMem" for hierarchy "dataMem:dataMem" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 92
 Warning (10036): Verilog HDL or VHDL warning at dataMem.v(6): object "mainMemory" assigned a value but never read File: D:/GitHub/Arquitetura-projeto-2/dataMem.v Line: 6
 Warning (10034): Output port "readData" at dataMem.v(5) has no driver File: D:/GitHub/Arquitetura-projeto-2/dataMem.v Line: 5
-Info (12128): Elaborating entity "memToRegMux" for hierarchy "memToRegMux:memToRegMux" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 85
+Info (12128): Elaborating entity "memToRegMux" for hierarchy "memToRegMux:memToRegMux" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 95
 Warning (10270): Verilog HDL Case Statement warning at memToRegMux.v(7): incomplete case statement has no default case item File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
 Warning (10240): Verilog HDL Always Construct warning at memToRegMux.v(7): inferring latch(es) for variable "memToRegOutput", which holds its previous value in one or more paths through the always construct File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
 Info (10041): Inferred latch for "memToRegOutput[0]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
@@ -713,6 +696,14 @@ Info (10041): Inferred latch for "memToRegOutput[28]" at memToRegMux.v(7) File: 
 Info (10041): Inferred latch for "memToRegOutput[29]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
 Info (10041): Inferred latch for "memToRegOutput[30]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
 Info (10041): Inferred latch for "memToRegOutput[31]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (14026): LATCH primitive "regMemMux:regMemWriteMux|regMemMuxOutput[0]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/regMem.v Line: 55
+Warning (14026): LATCH primitive "regMemMux:regMemWriteMux|regMemMuxOutput[1]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/regMem.v Line: 55
+Warning (14026): LATCH primitive "regMemMux:regMemWriteMux|regMemMuxOutput[2]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/regMem.v Line: 55
+Warning (14026): LATCH primitive "regMemMux:regMemWriteMux|regMemMuxOutput[3]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/regMem.v Line: 55
+Warning (14026): LATCH primitive "regMemMux:regMemWriteMux|regMemMuxOutput[4]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/regMem.v Line: 55
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276004): RAM logic "intMem:intMem|intMemory" is uninferred due to inappropriate RAM size File: D:/GitHub/Arquitetura-projeto-2/intMem.v Line: 9
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "D:/GitHub/Arquitetura-projeto-2/db/MIPS.ram0_intMem_dc5c2df9.hdl.mif" contains "don't care" values -- overwriting them with 0s
 Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[0]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
 Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[1]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
 Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[2]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
@@ -745,15 +736,7 @@ Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[28]" is
 Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[29]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
 Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[30]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
 Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[31]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
-Warning (14026): LATCH primitive "regMemMux:regMemWriteMux|regMemMuxOutput[0]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/regMem.v Line: 55
-Warning (14026): LATCH primitive "regMemMux:regMemWriteMux|regMemMuxOutput[1]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/regMem.v Line: 55
-Warning (14026): LATCH primitive "regMemMux:regMemWriteMux|regMemMuxOutput[2]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/regMem.v Line: 55
-Warning (14026): LATCH primitive "regMemMux:regMemWriteMux|regMemMuxOutput[3]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/regMem.v Line: 55
-Warning (14026): LATCH primitive "regMemMux:regMemWriteMux|regMemMuxOutput[4]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/regMem.v Line: 55
-Info (276014): Found 1 instances of uninferred RAM logic
-    Info (276004): RAM logic "intMem:intMem|intMemory" is uninferred due to inappropriate RAM size File: D:/GitHub/Arquitetura-projeto-2/intMem.v Line: 9
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "D:/GitHub/Arquitetura-projeto-2/db/MIPS.ram0_intMem_dc5c2df9.hdl.mif" contains "don't care" values -- overwriting them with 0s
-Warning (12241): 6 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (12241): 4 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13012): Latch control:control|aluOp[0] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
     Warning (13013): Ports D and ENA on the latch are fed by the same signal intMem:intMem|instruction[28] File: D:/GitHub/Arquitetura-projeto-2/intMem.v Line: 19
 Warning (13012): Latch control:control|aluOp[1] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
@@ -830,6 +813,8 @@ Warning (13012): Latch control:control|aluOp[2] has unsafe behavior File: D:/Git
     Warning (13013): Ports D and ENA on the latch are fed by the same signal intMem:intMem|instruction[29] File: D:/GitHub/Arquitetura-projeto-2/intMem.v Line: 19
 Warning (13012): Latch control:control|regWrite has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 7
     Warning (13013): Ports D and ENA on the latch are fed by the same signal intMem:intMem|instruction[29] File: D:/GitHub/Arquitetura-projeto-2/intMem.v Line: 19
+Warning (13012): Latch branch_module:b_module|branch_Result has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/branch_module.v Line: 6
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal intMem:intMem|instruction[29] File: D:/GitHub/Arquitetura-projeto-2/intMem.v Line: 19
 Warning (13012): Latch control:control|regDst has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 7
     Warning (13013): Ports D and ENA on the latch are fed by the same signal intMem:intMem|instruction[26] File: D:/GitHub/Arquitetura-projeto-2/intMem.v Line: 19
 Warning (13012): Latch control:control|in1Mux[0] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
@@ -841,14 +826,14 @@ Warning (13024): Output pins are stuck at VCC or GND
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 2713 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2763 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
-    Info (21059): Implemented 194 output pins
-    Info (21061): Implemented 2517 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 168 warnings
-    Info: Peak virtual memory: 4845 megabytes
-    Info: Processing ended: Mon Sep 04 17:47:58 2023
-    Info: Elapsed time: 00:00:21
-    Info: Total CPU time (on all processors): 00:00:18
+    Info (21059): Implemented 226 output pins
+    Info (21061): Implemented 2535 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 172 warnings
+    Info: Peak virtual memory: 4848 megabytes
+    Info: Processing ended: Mon Sep 04 19:51:06 2023
+    Info: Elapsed time: 00:00:18
+    Info: Total CPU time (on all processors): 00:00:16
 
 

@@ -1,19 +1,13 @@
-module PC (clk, PC_next, PC_out, jump, jump_Result);
+module PC (clk, PC_out, jump_Result);
 
 input wire clk;
-input wire [31:0] PC_next, jump_Result;
-input wire jump;
+input wire [31:0] jump_Result;
 output reg [31:0] PC_out;
 
 
 
 always @(posedge clk) begin
-	if (jump == 0) begin
-		PC_out <= PC_next;
-	end
-	else begin
-		PC_out <= jump_Result;
-	end
+	PC_out <= jump_Result;	
 end
 
 endmodule
