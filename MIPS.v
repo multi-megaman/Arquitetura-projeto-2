@@ -36,7 +36,7 @@ module MIPS (clock, nextPC, instruction, aluResult, Zero_flag, regWriteData, can
 	wire       regDest ; //0 = rt
 	wire		  memWrite; //0 = false
 	wire		  memRead ; //1 = true
-	wire		  memToReg; //1 = readData
+	wire [1:0] memToReg, jump; //1 = readData mudei aqui
 	
 	//Contador de Programa (PC)
 	wire [31:0] PC_next;
@@ -51,7 +51,7 @@ module MIPS (clock, nextPC, instruction, aluResult, Zero_flag, regWriteData, can
 	wire [1:0] aluIn1MuxController ;
 	wire       aluIn2MuxController ;
 	wire [3:0] aluOP ;
-	control control( instruction[31:26] , instruction[5:0] , aluIn1MuxController, aluIn2MuxController , aluOP, memToReg, memRead, memWrite, regDest, canWriteReg, branch); //entrada, entrada, saida, saida, saida
+	control control( instruction[31:26] , instruction[5:0] , aluIn1MuxController, aluIn2MuxController , aluOP, memToReg, memRead, memWrite, regDest, canWriteReg, branch, jump); //entrada, entrada, saida, saida, saida
 	
 	
 	//Banco de registradores

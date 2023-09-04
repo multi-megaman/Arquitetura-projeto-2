@@ -1,22 +1,23 @@
 //Controlador central + controlador da ALU
-module control(OPcode, func, in1Mux, in2Mux, aluOp, memToReg, memRead, memWrite, regDst, regWrite, branch);
+module control(OPcode, func, in1Mux, in2Mux, aluOp, memToReg, memRead, memWrite, regDst, regWrite, branch, jump);
 	
 	input wire [5:0] OPcode;
 	input wire [5:0] func;
-	output reg [1:0] in1Mux;
-	output reg       in2Mux, memToReg, regDst, regWrite, branch, memRead, memWrite;
+	output reg [1:0] in1Mux, memToReg, jump;
+	output reg       in2Mux, regDst, regWrite, branch, memRead, memWrite;
 	output reg [3:0] aluOp;
 	
 	always @(*) begin
-		memToReg <= 1'b0;
+		memToReg <= 2'b00;
 		memRead <= 1'b0;
 		memWrite <= 1'b0;
+		jump <= 2'b00;
 		
 		case (OPcode)
 		
 			//Instrucoes do tipo R
 			6'b000000: begin
-				regDst <= 1'b1;
+				regDst <= 2'b01;
 				regWrite <= 1'b1;
 				branch <= 1'b0;
 				case (func)
@@ -54,9 +55,10 @@ module control(OPcode, func, in1Mux, in2Mux, aluOp, memToReg, memRead, memWrite,
 						in1Mux <= 2'bxx; //(don't care)
 						in2Mux <= 1'bx; //(don't care)
 						aluOp <= 4'bxxxx; //(don't care)
-						regDst <= 1'bx;
+						regDst <= 2'bxx;
 						branch <= 1'b0;
 						regWrite <= 1'b0;
+						jump <= 2'b10;
 						
 						
 					end
@@ -113,23 +115,25 @@ module control(OPcode, func, in1Mux, in2Mux, aluOp, memToReg, memRead, memWrite,
 				in1Mux <= 2'b00; //$rt
 				in2Mux <= 1'b0; //$rs
 				aluOp <= 4'b0111; //sub zero_flag
-				regDst <= 1'bx;
+				regDst <= 2'bxx;
 				branch <= 1'b1;
 				regWrite <= 1'b0;
+				jump <= 2'b11;
 			end
 			6'b000101:begin //bne
 				in1Mux <= 2'b00; //$rt
 				in2Mux <= 1'b0; //$rs
 				aluOp <= 4'b0111; //sub zero_flag
-				regDst <= 1'bx;
+				regDst <= 2'bxx;
 				branch <= 1'b1;
 				regWrite <= 1'b0;
+				jump <= 2'b11;
 			end
 			6'b001000:begin //addi
 				in1Mux <= 2'b01; //SingExt(imm)
 				in2Mux <= 1'b0; //$rs
 				aluOp <= 4'b0110; //add
-				regDst <= 1'b0;
+				regDst <= 2'b00;
 				branch <= 1'b0;
 				regWrite <= 1'b1;
 			end
@@ -137,7 +141,7 @@ module control(OPcode, func, in1Mux, in2Mux, aluOp, memToReg, memRead, memWrite,
 				in1Mux <= 2'b01; //SingExt(imm)
 				in2Mux <= 1'b0; //$rs
 				aluOp <= 4'b1100; //slt
-				regDst <= 1'b0;
+				regDst <= 2'b00;
 				branch <= 1'b0;
 				regWrite <= 1'b1;
 			
@@ -146,7 +150,7 @@ module control(OPcode, func, in1Mux, in2Mux, aluOp, memToReg, memRead, memWrite,
 				in1Mux <= 2'b01; //SingExt(imm)
 				in2Mux <= 1'b0; //$rs
 				aluOp <= 4'b1100; //slt
-				regDst <= 1'b0;
+				regDst <= 2'b00;
 				branch <= 1'b0;
 				regWrite <= 1'b1;
 			
@@ -155,7 +159,7 @@ module control(OPcode, func, in1Mux, in2Mux, aluOp, memToReg, memRead, memWrite,
 				in1Mux <= 2'b10; //{16'b0, imm}
 				in2Mux <= 1'b0; //$rs
 				aluOp <= 4'b1000; //and
-				regDst <= 1'b0;
+				regDst <= 2'b00;
 				branch <= 1'b0;
 				regWrite <= 1'b1;
 			end
@@ -163,7 +167,7 @@ module control(OPcode, func, in1Mux, in2Mux, aluOp, memToReg, memRead, memWrite,
 				in1Mux <= 2'b10; //{16'b0, imm}
 				in2Mux <= 1'b0; //$rs
 				aluOp <= 4'b1001; //or
-				regDst <= 1'b0;
+				regDst <= 2'b00;
 				branch <= 1'b0;
 				regWrite <= 1'b1;
 			end
@@ -171,7 +175,7 @@ module control(OPcode, func, in1Mux, in2Mux, aluOp, memToReg, memRead, memWrite,
 				in1Mux <= 2'b10; //{16'b0, imm}
 				in2Mux <= 1'b0; //$rs
 				aluOp <= 4'b1010; //xor
-				regDst <= 1'b0;
+				regDst <= 2'b00;
 				branch <= 1'b0;
 				regWrite <= 1'b1;
 			end
@@ -179,7 +183,7 @@ module control(OPcode, func, in1Mux, in2Mux, aluOp, memToReg, memRead, memWrite,
 				in1Mux <= 2'b10; //{16'b0, imm}
 				in2Mux <= 1'b0; //$rs
 				aluOp <= 4'b1110; //lui
-				regDst <= 1'b0;
+				regDst <= 2'b00;
 				branch <= 1'b0;
 				regWrite <= 1'b1;
 			
@@ -188,10 +192,10 @@ module control(OPcode, func, in1Mux, in2Mux, aluOp, memToReg, memRead, memWrite,
 				in1Mux <= 2'b01; //SingExt(imm)
 				in2Mux <= 1'b0; //$rs
 				aluOp <= 4'b0110; //add
-				regDst <= 1'b0;
+				regDst <= 2'b00;
 				branch <= 1'b0;
 				regWrite <= 1'b1;
-				memToReg <= 1'b1;
+				memToReg <= 2'b01;
 				memRead <= 1'b1;
 				memWrite <= 1'b0;
 			end
@@ -199,10 +203,10 @@ module control(OPcode, func, in1Mux, in2Mux, aluOp, memToReg, memRead, memWrite,
 				in1Mux <= 2'b01; //SingExt(imm)
 				in2Mux <= 1'b0; //$rs
 				aluOp <= 4'b0110; //add
-				regDst <= 1'bx;
+				regDst <= 2'bxx;
 				branch <= 1'b0;
 				regWrite <= 1'b0;
-				memToReg <= 1'bx;
+				memToReg <= 2'bxx;
 				memRead <= 1'b0;
 				memWrite <= 1'b1;
 			end
@@ -211,18 +215,21 @@ module control(OPcode, func, in1Mux, in2Mux, aluOp, memToReg, memRead, memWrite,
 			6'b000010:begin //j										PENSAR EM COMO IMPLEMENTAR ISSO DEPOIS
 				in1Mux <= 2'b01; //SingExt(imm)
 				in2Mux <= 1'b0; //$rs
-				aluOp <= 4'b0110; //add
-				regDst <= 1'bx;
+				aluOp <= 4'b1111; //default
+				regDst <= 2'bxx;
 				branch <= 1'b0;
 				regWrite <= 1'b0;
+				jump <= 2'b01;
 			end
 			6'b000011:begin //jal										PENSAR EM COMO IMPLEMENTAR ISSO DEPOIS
 				in1Mux <= 2'b01; //SingExt(imm)
 				in2Mux <= 1'b0; //$rs
 				aluOp <= 4'b0110; //add
-				regDst <= 1'bx;
+				regDst <= 2'bxx;
 				branch <= 1'b0;
-				regWrite <= 1'b0;
+				regWrite <= 1'b1;
+				jump <= 2'b01;
+				memToReg <= 2'b10;
 			end
 			
 		endcase

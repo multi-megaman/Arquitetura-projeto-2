@@ -1,5 +1,5 @@
 Analysis & Synthesis report for MIPS
-Sun Sep 03 16:02:43 2023
+Mon Sep 04 17:47:58 2023
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -19,13 +19,16 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
  11. Multiplexer Restructuring Statistics (Restructuring Performed)
  12. Parameter Settings for User Entity Instance: intMem:intMem
  13. Parameter Settings for User Entity Instance: regmem:regmem
- 14. Port Connectivity Checks: "ulaCore:ula"
- 15. Port Connectivity Checks: "ulaIn1Mux:ulaIn1"
- 16. Port Connectivity Checks: "dual_out_sign_extend:sign_extend"
- 17. Port Connectivity Checks: "control:control"
- 18. Post-Synthesis Netlist Statistics for Top Partition
- 19. Elapsed Time Per Partition
- 20. Analysis & Synthesis Messages
+ 14. Port Connectivity Checks: "memToRegMux:memToRegMux"
+ 15. Port Connectivity Checks: "ulaCore:ula"
+ 16. Port Connectivity Checks: "ulaIn1Mux:ulaIn1"
+ 17. Port Connectivity Checks: "dual_out_sign_extend:sign_extend"
+ 18. Port Connectivity Checks: "regMemMux:regMemWriteMux"
+ 19. Port Connectivity Checks: "control:control"
+ 20. Port Connectivity Checks: "PC:pc"
+ 21. Post-Synthesis Netlist Statistics for Top Partition
+ 22. Elapsed Time Per Partition
+ 23. Analysis & Synthesis Messages
 
 
 
@@ -52,7 +55,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun Sep 03 16:02:43 2023       ;
+; Analysis & Synthesis Status     ; Successful - Mon Sep 04 17:47:58 2023       ;
 ; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                   ; MIPS                                        ;
 ; Top-level Entity Name           ; MIPS                                        ;
@@ -164,22 +167,17 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 12          ;
-; Maximum allowed            ; 12          ;
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 12          ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.1%      ;
-;     Processor 3            ;   0.1%      ;
-;     Processor 4            ;   0.1%      ;
-;     Processor 5            ;   0.0%      ;
-;     Processor 6            ;   0.0%      ;
-;     Processor 7            ;   0.0%      ;
-;     Processor 8            ;   0.0%      ;
-;     Processors 9-12        ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -206,14 +204,14 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimate of Logic utilization (ALMs needed) ; 1307        ;
+; Estimate of Logic utilization (ALMs needed) ; 1308        ;
 ;                                             ;             ;
-; Combinational ALUT usage for logic          ; 1492        ;
-;     -- 7 input functions                    ; 10          ;
-;     -- 6 input functions                    ; 949         ;
-;     -- 5 input functions                    ; 258         ;
+; Combinational ALUT usage for logic          ; 1493        ;
+;     -- 7 input functions                    ; 9           ;
+;     -- 6 input functions                    ; 951         ;
+;     -- 5 input functions                    ; 257         ;
 ;     -- 4 input functions                    ; 71          ;
-;     -- <=3 input functions                  ; 204         ;
+;     -- <=3 input functions                  ; 205         ;
 ;                                             ;             ;
 ; Dedicated logic registers                   ; 1054        ;
 ;                                             ;             ;
@@ -223,7 +221,7 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;             ;
 ; Maximum fan-out node                        ; clock~input ;
 ; Maximum fan-out                             ; 1054        ;
-; Total fan-out                               ; 12389       ;
+; Total fan-out                               ; 12391       ;
 ; Average fan-out                             ; 4.22        ;
 +---------------------------------------------+-------------+
 
@@ -233,10 +231,10 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------+-------------+--------------+
 ; Compilation Hierarchy Node    ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name            ; Entity Name ; Library Name ;
 +-------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------+-------------+--------------+
-; |MIPS                         ; 1492 (0)            ; 1054 (0)                  ; 0                 ; 0          ; 196  ; 0            ; |MIPS                          ; MIPS        ; work         ;
+; |MIPS                         ; 1493 (0)            ; 1054 (0)                  ; 0                 ; 0          ; 196  ; 0            ; |MIPS                          ; MIPS        ; work         ;
 ;    |PC:pc|                    ; 0 (0)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |MIPS|PC:pc                    ; PC          ; work         ;
 ;    |PCNext:nextInstruction|   ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|PCNext:nextInstruction   ; PCNext      ; work         ;
-;    |control:control|          ; 28 (28)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|control:control          ; control     ; work         ;
+;    |control:control|          ; 29 (29)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|control:control          ; control     ; work         ;
 ;    |intMem:intMem|            ; 31 (31)             ; 30 (30)                   ; 0                 ; 0          ; 0    ; 0            ; |MIPS|intMem:intMem            ; intMem      ; work         ;
 ;    |memToRegMux:memToRegMux|  ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|memToRegMux:memToRegMux  ; memToRegMux ; work         ;
 ;    |regMemMux:regMemWriteMux| ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MIPS|regMemMux:regMemWriteMux ; regMemMux   ; work         ;
@@ -404,7 +402,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |MIPS|ulaIn1Mux:ulaIn1|Mux12          ;
 ; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; No         ; |MIPS|regmem:regmem|Mux0              ;
 ; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; No         ; |MIPS|regmem:regmem|Mux48             ;
-; 14:1               ; 5 bits    ; 45 LEs        ; 35 LEs               ; 10 LEs                 ; No         ; |MIPS|control:control|Selector12      ;
+; 14:1               ; 5 bits    ; 45 LEs        ; 35 LEs               ; 10 LEs                 ; No         ; |MIPS|control:control|Selector14      ;
 ; 19:1               ; 5 bits    ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; No         ; |MIPS|ulaCore:ula|Mux24               ;
 ; 22:1               ; 8 bits    ; 112 LEs       ; 104 LEs              ; 8 LEs                  ; No         ; |MIPS|ulaCore:ula|Mux11               ;
 ; 21:1               ; 2 bits    ; 28 LEs        ; 24 LEs               ; 4 LEs                  ; No         ; |MIPS|ulaCore:ula|Mux22               ;
@@ -437,6 +435,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "memToRegMux:memToRegMux"                                                                                                                            ;
++----------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type  ; Severity ; Details                                                                                                                                          ;
++----------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+; memToReg ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (2 bits) it drives.  Extra input bit(s) "memToReg[1..1]" will be connected to GND. ;
+; nextPC   ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND.     ;
++----------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "ulaCore:ula"                                                                                                                              ;
 +------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
@@ -464,13 +472,34 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "control:control"                                                                      ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-; Port   ; Type   ; Severity ; Details                                                                             ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-; branch ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regMemMux:regMemWriteMux"                                                                                                                         ;
++---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                                                                         ;
++---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; regDest ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (2 bits) it drives.  Extra input bit(s) "regDest[1..1]" will be connected to GND. ;
++---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "control:control"                                                                                                                ;
++----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                                                                     ;
++----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+; memToReg ; Output ; Warning  ; Output or bidir port (2 bits) is wider than the port expression (1 bits) it drives; bit(s) "memToReg[1..1]" have no fanouts ;
+; branch   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                         ;
+; jump     ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                    ;
++----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "PC:pc"                                                                                                                                             ;
++-------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port        ; Type  ; Severity ; Details                                                                                                                                      ;
++-------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; jump        ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; jump_Result ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++-------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -482,23 +511,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     ENA SCLR          ; 992                         ;
 ;     SCLR              ; 5                           ;
 ;     plain             ; 57                          ;
-; arriav_lcell_comb     ; 1493                        ;
+; arriav_lcell_comb     ; 1494                        ;
 ;     arith             ; 65                          ;
 ;         1 data inputs ; 33                          ;
 ;         5 data inputs ; 32                          ;
-;     extend            ; 10                          ;
-;         7 data inputs ; 10                          ;
-;     normal            ; 1418                        ;
+;     extend            ; 9                           ;
+;         7 data inputs ; 9                           ;
+;     normal            ; 1420                        ;
 ;         0 data inputs ; 1                           ;
-;         2 data inputs ; 44                          ;
+;         2 data inputs ; 45                          ;
 ;         3 data inputs ; 127                         ;
 ;         4 data inputs ; 71                          ;
-;         5 data inputs ; 226                         ;
-;         6 data inputs ; 949                         ;
+;         5 data inputs ; 225                         ;
+;         6 data inputs ; 951                         ;
 ; boundary_port         ; 196                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 11.00                       ;
-; Average LUT depth     ; 8.85                        ;
+; Average LUT depth     ; 8.84                        ;
 +-----------------------+-----------------------------+
 
 
@@ -517,10 +546,10 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Sun Sep 03 16:02:25 2023
+    Info: Processing started: Mon Sep 04 17:47:37 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off MIPS -c MIPS
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Warning (12019): Can't analyze file -- file ../quartus/ula.v is missing
 Warning (12019): Can't analyze file -- file ../quartus/ram.v is missing
 Info (12021): Found 1 design units, including 1 entities, in source file mips.v
@@ -547,7 +576,11 @@ Info (12021): Found 1 design units, including 1 entities, in source file intmem.
     Info (12023): Found entity 1: intMem File: D:/GitHub/Arquitetura-projeto-2/intMem.v Line: 1
 Info (12021): Found 2 design units, including 2 entities, in source file pc.v
     Info (12023): Found entity 1: PC File: D:/GitHub/Arquitetura-projeto-2/PC.v Line: 1
-    Info (12023): Found entity 2: PCNext File: D:/GitHub/Arquitetura-projeto-2/PC.v Line: 16
+    Info (12023): Found entity 2: PCNext File: D:/GitHub/Arquitetura-projeto-2/PC.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file jump.v
+    Info (12023): Found entity 1: jump File: D:/GitHub/Arquitetura-projeto-2/jump.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file branch_module.v
+    Info (12023): Found entity 1: branch_module File: D:/GitHub/Arquitetura-projeto-2/branch_module.v Line: 1
 Info (12127): Elaborating entity "MIPS" for the top level hierarchy
 Warning (10036): Verilog HDL or VHDL warning at MIPS.v(24): object "rt" assigned a value but never read File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 24
 Warning (10036): Verilog HDL or VHDL warning at MIPS.v(25): object "rs" assigned a value but never read File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 25
@@ -562,7 +595,22 @@ Warning (10030): Net "intMemory.data_a" at intMem.v(9) has no driver or initial 
 Warning (10030): Net "intMemory.waddr_a" at intMem.v(9) has no driver or initial value, using a default initial value '0' File: D:/GitHub/Arquitetura-projeto-2/intMem.v Line: 9
 Warning (10030): Net "intMemory.we_a" at intMem.v(9) has no driver or initial value, using a default initial value '0' File: D:/GitHub/Arquitetura-projeto-2/intMem.v Line: 9
 Info (12128): Elaborating entity "control" for hierarchy "control:control" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 54
-Warning (10270): Verilog HDL Case Statement warning at control.v(15): incomplete case statement has no default case item File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 15
+Warning (10230): Verilog HDL assignment warning at control.v(20): truncated value with size 2 to match size of target (1) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 20
+Warning (10230): Verilog HDL assignment warning at control.v(58): truncated value with size 2 to match size of target (1) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 58
+Warning (10230): Verilog HDL assignment warning at control.v(118): truncated value with size 2 to match size of target (1) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 118
+Warning (10230): Verilog HDL assignment warning at control.v(127): truncated value with size 2 to match size of target (1) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 127
+Warning (10230): Verilog HDL assignment warning at control.v(136): truncated value with size 2 to match size of target (1) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 136
+Warning (10230): Verilog HDL assignment warning at control.v(144): truncated value with size 2 to match size of target (1) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 144
+Warning (10230): Verilog HDL assignment warning at control.v(153): truncated value with size 2 to match size of target (1) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 153
+Warning (10230): Verilog HDL assignment warning at control.v(162): truncated value with size 2 to match size of target (1) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 162
+Warning (10230): Verilog HDL assignment warning at control.v(170): truncated value with size 2 to match size of target (1) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 170
+Warning (10230): Verilog HDL assignment warning at control.v(178): truncated value with size 2 to match size of target (1) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 178
+Warning (10230): Verilog HDL assignment warning at control.v(186): truncated value with size 2 to match size of target (1) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 186
+Warning (10230): Verilog HDL assignment warning at control.v(195): truncated value with size 2 to match size of target (1) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 195
+Warning (10230): Verilog HDL assignment warning at control.v(206): truncated value with size 2 to match size of target (1) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 206
+Warning (10230): Verilog HDL assignment warning at control.v(219): truncated value with size 2 to match size of target (1) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 219
+Warning (10230): Verilog HDL assignment warning at control.v(228): truncated value with size 2 to match size of target (1) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 228
+Warning (10270): Verilog HDL Case Statement warning at control.v(16): incomplete case statement has no default case item File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 16
 Warning (10240): Verilog HDL Always Construct warning at control.v(11): inferring latch(es) for variable "in1Mux", which holds its previous value in one or more paths through the always construct File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
 Warning (10240): Verilog HDL Always Construct warning at control.v(11): inferring latch(es) for variable "in2Mux", which holds its previous value in one or more paths through the always construct File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
 Warning (10240): Verilog HDL Always Construct warning at control.v(11): inferring latch(es) for variable "aluOp", which holds its previous value in one or more paths through the always construct File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
@@ -580,6 +628,13 @@ Info (10041): Inferred latch for "in2Mux" at control.v(11) File: D:/GitHub/Arqui
 Info (10041): Inferred latch for "in1Mux[0]" at control.v(11) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
 Info (10041): Inferred latch for "in1Mux[1]" at control.v(11) File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
 Info (12128): Elaborating entity "regMemMux" for hierarchy "regMemMux:regMemWriteMux" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 60
+Warning (10270): Verilog HDL Case Statement warning at regMem.v(55): incomplete case statement has no default case item File: D:/GitHub/Arquitetura-projeto-2/regMem.v Line: 55
+Warning (10240): Verilog HDL Always Construct warning at regMem.v(55): inferring latch(es) for variable "regMemMuxOutput", which holds its previous value in one or more paths through the always construct File: D:/GitHub/Arquitetura-projeto-2/regMem.v Line: 55
+Info (10041): Inferred latch for "regMemMuxOutput[0]" at regMem.v(55) File: D:/GitHub/Arquitetura-projeto-2/regMem.v Line: 55
+Info (10041): Inferred latch for "regMemMuxOutput[1]" at regMem.v(55) File: D:/GitHub/Arquitetura-projeto-2/regMem.v Line: 55
+Info (10041): Inferred latch for "regMemMuxOutput[2]" at regMem.v(55) File: D:/GitHub/Arquitetura-projeto-2/regMem.v Line: 55
+Info (10041): Inferred latch for "regMemMuxOutput[3]" at regMem.v(55) File: D:/GitHub/Arquitetura-projeto-2/regMem.v Line: 55
+Info (10041): Inferred latch for "regMemMuxOutput[4]" at regMem.v(55) File: D:/GitHub/Arquitetura-projeto-2/regMem.v Line: 55
 Info (12128): Elaborating entity "regmem" for hierarchy "regmem:regmem" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 61
 Info (12128): Elaborating entity "dual_out_sign_extend" for hierarchy "dual_out_sign_extend:sign_extend" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 67
 Info (12128): Elaborating entity "ulaIn1Mux" for hierarchy "ulaIn1Mux:ulaIn1" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 71
@@ -624,10 +679,81 @@ Info (12128): Elaborating entity "dataMem" for hierarchy "dataMem:dataMem" File:
 Warning (10036): Verilog HDL or VHDL warning at dataMem.v(6): object "mainMemory" assigned a value but never read File: D:/GitHub/Arquitetura-projeto-2/dataMem.v Line: 6
 Warning (10034): Output port "readData" at dataMem.v(5) has no driver File: D:/GitHub/Arquitetura-projeto-2/dataMem.v Line: 5
 Info (12128): Elaborating entity "memToRegMux" for hierarchy "memToRegMux:memToRegMux" File: D:/GitHub/Arquitetura-projeto-2/MIPS.v Line: 85
+Warning (10270): Verilog HDL Case Statement warning at memToRegMux.v(7): incomplete case statement has no default case item File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (10240): Verilog HDL Always Construct warning at memToRegMux.v(7): inferring latch(es) for variable "memToRegOutput", which holds its previous value in one or more paths through the always construct File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Info (10041): Inferred latch for "memToRegOutput[0]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Info (10041): Inferred latch for "memToRegOutput[1]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Info (10041): Inferred latch for "memToRegOutput[2]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Info (10041): Inferred latch for "memToRegOutput[3]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Info (10041): Inferred latch for "memToRegOutput[4]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Info (10041): Inferred latch for "memToRegOutput[5]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Info (10041): Inferred latch for "memToRegOutput[6]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Info (10041): Inferred latch for "memToRegOutput[7]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Info (10041): Inferred latch for "memToRegOutput[8]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Info (10041): Inferred latch for "memToRegOutput[9]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Info (10041): Inferred latch for "memToRegOutput[10]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Info (10041): Inferred latch for "memToRegOutput[11]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Info (10041): Inferred latch for "memToRegOutput[12]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Info (10041): Inferred latch for "memToRegOutput[13]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Info (10041): Inferred latch for "memToRegOutput[14]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Info (10041): Inferred latch for "memToRegOutput[15]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Info (10041): Inferred latch for "memToRegOutput[16]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Info (10041): Inferred latch for "memToRegOutput[17]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Info (10041): Inferred latch for "memToRegOutput[18]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Info (10041): Inferred latch for "memToRegOutput[19]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Info (10041): Inferred latch for "memToRegOutput[20]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Info (10041): Inferred latch for "memToRegOutput[21]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Info (10041): Inferred latch for "memToRegOutput[22]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Info (10041): Inferred latch for "memToRegOutput[23]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Info (10041): Inferred latch for "memToRegOutput[24]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Info (10041): Inferred latch for "memToRegOutput[25]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Info (10041): Inferred latch for "memToRegOutput[26]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Info (10041): Inferred latch for "memToRegOutput[27]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Info (10041): Inferred latch for "memToRegOutput[28]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Info (10041): Inferred latch for "memToRegOutput[29]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Info (10041): Inferred latch for "memToRegOutput[30]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Info (10041): Inferred latch for "memToRegOutput[31]" at memToRegMux.v(7) File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[0]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[1]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[2]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[3]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[4]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[5]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[6]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[7]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[8]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[9]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[10]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[11]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[12]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[13]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[14]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[15]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[16]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[17]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[18]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[19]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[20]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[21]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[22]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[23]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[24]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[25]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[26]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[27]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[28]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[29]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[30]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (14026): LATCH primitive "memToRegMux:memToRegMux|memToRegOutput[31]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/memToRegMux.v Line: 7
+Warning (14026): LATCH primitive "regMemMux:regMemWriteMux|regMemMuxOutput[0]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/regMem.v Line: 55
+Warning (14026): LATCH primitive "regMemMux:regMemWriteMux|regMemMuxOutput[1]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/regMem.v Line: 55
+Warning (14026): LATCH primitive "regMemMux:regMemWriteMux|regMemMuxOutput[2]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/regMem.v Line: 55
+Warning (14026): LATCH primitive "regMemMux:regMemWriteMux|regMemMuxOutput[3]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/regMem.v Line: 55
+Warning (14026): LATCH primitive "regMemMux:regMemWriteMux|regMemMuxOutput[4]" is permanently enabled File: D:/GitHub/Arquitetura-projeto-2/regMem.v Line: 55
 Info (276014): Found 1 instances of uninferred RAM logic
     Info (276004): RAM logic "intMem:intMem|intMemory" is uninferred due to inappropriate RAM size File: D:/GitHub/Arquitetura-projeto-2/intMem.v Line: 9
 Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "D:/GitHub/Arquitetura-projeto-2/db/MIPS.ram0_intMem_dc5c2df9.hdl.mif" contains "don't care" values -- overwriting them with 0s
-Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (12241): 6 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13012): Latch control:control|aluOp[0] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
     Warning (13013): Ports D and ENA on the latch are fed by the same signal intMem:intMem|instruction[28] File: D:/GitHub/Arquitetura-projeto-2/intMem.v Line: 19
 Warning (13012): Latch control:control|aluOp[1] has unsafe behavior File: D:/GitHub/Arquitetura-projeto-2/control.v Line: 11
@@ -715,14 +841,14 @@ Warning (13024): Output pins are stuck at VCC or GND
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 2712 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2713 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 194 output pins
-    Info (21061): Implemented 2516 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 112 warnings
-    Info: Peak virtual memory: 4900 megabytes
-    Info: Processing ended: Sun Sep 03 16:02:43 2023
-    Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:29
+    Info (21061): Implemented 2517 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 168 warnings
+    Info: Peak virtual memory: 4845 megabytes
+    Info: Processing ended: Mon Sep 04 17:47:58 2023
+    Info: Elapsed time: 00:00:21
+    Info: Total CPU time (on all processors): 00:00:18
 
 

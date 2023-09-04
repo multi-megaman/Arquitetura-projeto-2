@@ -49,12 +49,13 @@ endmodule
 
 module regMemMux ( rt , rd , regDest , regMemMuxOutput );
 	input wire [4:0] rt, rd;
-	input wire       regDest;
+	input wire [1:0] regDest;
 	output reg [4:0] regMemMuxOutput;
 	always @(*) begin
 		case (regDest)
-			1'b0: regMemMuxOutput <= rt;
-			1'b1: regMemMuxOutput <= rd;
+			2'b00: regMemMuxOutput <= rt;
+			2'b01: regMemMuxOutput <= rd;
+			2'b10: regMemMuxOutput <= 5'b11111;
 		endcase
 	end
 endmodule 
