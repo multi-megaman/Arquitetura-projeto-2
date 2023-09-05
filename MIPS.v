@@ -1,4 +1,10 @@
+//Grupo: Ru-Rural
+//integrantes: 
+//Pedro Henrique
+//Everton da Silva
+//Ricardo Pompilio
 
+//Top level do MIPS
 module MIPS (clock, PC_out,nextPC,jump_Result, instruction, aluResult, reset, readData);
 	// OPcode =  instruction [31:26]
 	// func = instruction [5:0]

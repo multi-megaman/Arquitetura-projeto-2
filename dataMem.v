@@ -1,3 +1,10 @@
+//Grupo: Ru-Rural
+//integrantes: 
+//Pedro Henrique
+//Everton da Silva
+//Ricardo Pompilio
+
+//memodira de dados (teve que ser sincrona pois a assincrona dava um erro desconhecido)
 module dataMem(clk, address, writeData, memWrite, memRead, readData);
 
 input wire [31:0] address, writeData ;

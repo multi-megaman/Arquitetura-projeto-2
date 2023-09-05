@@ -1,3 +1,10 @@
+//Grupo: Ru-Rural
+//integrantes: 
+//Pedro Henrique
+//Everton da Silva
+//Ricardo Pompilio
+
+//Modulo do PC, ele que vai enviar o endereco da instrucao para a memoria de instrucoes
 module PC (clk, PC_out, jump_Result);
 
 input wire clk;
@@ -12,6 +19,7 @@ end
 
 endmodule
 
+//Modulo do PCnext que so pega o pc atual e soma + 1
 module PCNext(actualPC,nextPC);
 	
 	input wire [31:0] actualPC;

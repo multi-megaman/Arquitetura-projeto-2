@@ -1,3 +1,9 @@
+//Grupo: Ru-Rural
+//integrantes: 
+//Pedro Henrique
+//Everton da Silva
+//Ricardo Pompilio
+
 //Controlador central + controlador da ALU
 module control(OPcode, func, in1Mux, in2Mux, aluOp, memToReg, memRead, memWrite, regDst, regWrite, branch, jump);
 	

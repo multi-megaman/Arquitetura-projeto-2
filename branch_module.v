@@ -1,3 +1,10 @@
+//Grupo: Ru-Rural
+//integrantes: 
+//Pedro Henrique
+//Everton da Silva
+//Ricardo Pompilio
+
+//Modulo que calcula os sinais corretos dos casos de branch
 module branch_module (branch, ula_Result, branch_Result, op_Code);
 
 	input wire branch;

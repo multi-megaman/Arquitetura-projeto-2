@@ -1,3 +1,10 @@
+//Grupo: Ru-Rural
+//integrantes: 
+//Pedro Henrique
+//Everton da Silva
+//Ricardo Pompilio
+
+//Modulo responsavel por enviar para o PC o endereco correto da proxima instrucao dependendo se for um jump, branch ou nenhum dos dois
 module jump (next_PC, instruction, jump_Result, jump, j_Reg, branch_Destiny, branch_Result);
 
 	input wire [31:0] next_PC, instruction, j_Reg, branch_Destiny;

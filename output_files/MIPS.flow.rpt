@@ -1,5 +1,5 @@
 Flow report for MIPS
-Tue Sep 05 10:39:27 2023
+Tue Sep 05 14:53:15 2023
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -41,7 +41,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Tue Sep 05 10:39:27 2023       ;
+; Flow Status                     ; Successful - Tue Sep 05 14:53:15 2023       ;
 ; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                   ; MIPS                                        ;
 ; Top-level Entity Name           ; MIPS                                        ;
@@ -119,7 +119,9 @@ https://fpgasoftware.intel.com/eula.
 ; EDA Netlist Writer   ; 00:00:03     ; 1.0                     ; 4805 MB             ; 00:00:02                           ;
 ; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4794 MB             ; 00:00:01                           ;
 ; EDA Netlist Writer   ; 00:00:03     ; 1.0                     ; 4810 MB             ; 00:00:02                           ;
-; Total                ; 00:08:48     ; --                      ; --                  ; 00:11:19                           ;
+; EDA Netlist Writer   ; 00:00:06     ; 1.0                     ; 4789 MB             ; 00:00:03                           ;
+; EDA Netlist Writer   ; 00:00:05     ; 1.0                     ; 4810 MB             ; 00:00:05                           ;
+; Total                ; 00:08:59     ; --                      ; --                  ; 00:11:27                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -135,6 +137,8 @@ https://fpgasoftware.intel.com/eula.
 ; EDA Netlist Writer   ; DESKTOP-HC1C6D9  ; Windows 10 ; 10.0       ; x86_64         ;
 ; EDA Netlist Writer   ; DESKTOP-HC1C6D9  ; Windows 10 ; 10.0       ; x86_64         ;
 ; EDA Netlist Writer   ; DESKTOP-HC1C6D9  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-Q3PHHM4  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-Q3PHHM4  ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 
@@ -147,6 +151,8 @@ quartus_asm --read_settings_files=off --write_settings_files=off MIPS -c MIPS
 quartus_sta MIPS -c MIPS
 quartus_eda --read_settings_files=off --write_settings_files=off MIPS -c MIPS
 quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off MIPS -c MIPS --vector_source=D:/GitHub/Arquitetura-projeto-2/Waveform10.vwf --testbench_file=D:/GitHub/Arquitetura-projeto-2/simulation/qsim/Waveform10.vwf.vt
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory=D:/GitHub/Arquitetura-projeto-2/simulation/qsim/ MIPS -c MIPS
+quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off MIPS -c MIPS --vector_source=D:/GitHub/Arquitetura-projeto-2/Waveform11.vwf --testbench_file=D:/GitHub/Arquitetura-projeto-2/simulation/qsim/Waveform11.vwf.vt
 quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory=D:/GitHub/Arquitetura-projeto-2/simulation/qsim/ MIPS -c MIPS
 
 

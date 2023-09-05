@@ -1,3 +1,10 @@
+//Grupo: Ru-Rural
+//integrantes: 
+//Pedro Henrique
+//Everton da Silva
+//Ricardo Pompilio
+
+//Memoria ROM onde as instrucoes ficam armazenadas
 module intMem (clk, address, instruction);
    parameter MEM_WIDTH = 64;
 	parameter DATA_WIDTH = 32;

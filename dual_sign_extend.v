@@ -1,3 +1,9 @@
+//Grupo: Ru-Rural
+//integrantes: 
+//Pedro Henrique
+//Everton da Silva
+//Ricardo Pompilio
+
 //extensor de sinal com duas saidas, o imediato com o sinal extendido e o imediato extendido apenas com zeros
 module dual_out_sign_extend (
     imm, outExtended, outImm

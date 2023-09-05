@@ -1,3 +1,9 @@
+//Grupo: Ru-Rural
+//integrantes: 
+//Pedro Henrique
+//Everton da Silva
+//Ricardo Pompilio
+
 //banco de registradores (por motivos de "eu inverti as entradas da ULA" o readReg1 fica com o $rs e o readReg2 fica com o $rt)
 module regmem(clk, readReg1 , readReg2 , writeReg , writeData , canWrite , outputData1 , outputData2, reset );
 	parameter MEM_WIDTH = 32;
@@ -47,6 +53,7 @@ module regmem(clk, readReg1 , readReg2 , writeReg , writeData , canWrite , outpu
 
 endmodule 
 
+//Mux que define qual vai ser o registrador destino do valor a ser escrito na regMem
 module regMemMux ( rt , rd , regDest , regMemMuxOutput );
 	input wire [4:0] rt, rd;
 	input wire [1:0] regDest;

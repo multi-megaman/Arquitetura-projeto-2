@@ -1,3 +1,10 @@
+//Grupo: Ru-Rural
+//integrantes: 
+//Pedro Henrique
+//Everton da Silva
+//Ricardo Pompilio
+
+//Mux que define qual vai ser o dado que vai ser escrito no regmem
 module memToRegMux(readData, aluResult, memToReg, memToRegOutput, nextPC);
 	input wire [31:0] readData, aluResult, nextPC;
 	input wire [1:0]	memToReg;

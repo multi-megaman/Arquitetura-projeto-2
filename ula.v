@@ -1,3 +1,10 @@
+//Grupo: Ru-Rural
+//integrantes: 
+//Pedro Henrique
+//Everton da Silva
+//Ricardo Pompilio
+
+//O coracao da ula, esse modulo que faz as operacoes logicas e aritmeticas
 module ulaCore (In1, In2, OP, result, Zero_flag);
 
 	input wire [31:0] In1, In2; // In1 = $rt or SingExt(imm) or {16'b0, imm}    In2 = $rs or $shamt
@@ -34,7 +41,7 @@ module ulaCore (In1, In2, OP, result, Zero_flag);
 	assign Zero_flag = (result == 32'b0); // 1 if result == 0 else 0
 endmodule 
 
-//Mux da In1 do AluCore
+//Mux da In1 do AluCore, ele que decide qual vai ser a primeira entrada do mux
 module ulaIn1Mux(ulaIn1Rt, ulaIn1Imm, ulaIn1ExImm, ulaIn1MuxController, ulaIn1MuxOut);
 	
 	input wire [31:0] ulaIn1Rt, ulaIn1ExImm;
@@ -52,7 +59,7 @@ module ulaIn1Mux(ulaIn1Rt, ulaIn1Imm, ulaIn1ExImm, ulaIn1MuxController, ulaIn1Mu
 
 endmodule 
 
-//Mux da In2 do AluCore
+//Mux da In2 do AluCore, ele que decide qual vai ser a primeira entrada do mux
 module ulaIn2Mux(ulaIn2Rs, ulaIn2Shamt, ulaIn2MuxController, ulaIn2MuxOut);
 	
 	input wire [31:0] ulaIn2Rs;
