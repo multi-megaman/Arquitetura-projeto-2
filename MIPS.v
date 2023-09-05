@@ -1,5 +1,5 @@
 
-module MIPS (clock, PC_out,nextPC, instruction, aluResult, Zero_flag, regWriteData, canWriteReg, reset, regMemOut1, regMemOut2);
+module MIPS (clock, PC_out,nextPC,jump_Result, instruction, aluResult, reset, readData);
 	// OPcode =  instruction [31:26]
 	// func = instruction [5:0]
 	// rt = instruction [20:16]
@@ -11,7 +11,7 @@ module MIPS (clock, PC_out,nextPC, instruction, aluResult, Zero_flag, regWriteDa
    output wire [31:0] nextPC;
 	output wire [31:0] instruction ;
 	output wire [31:0] aluResult ;
-	output Zero_flag ;
+	wire Zero_flag;
 	
 	//Valores de testes
 	//instrucao de exemplo de add $rs + $rt     = 000000 00001 00010 11111 01010 100000 -> resultado deve ser a soma de de R[$rs] com R[$rt]
@@ -28,26 +28,25 @@ module MIPS (clock, PC_out,nextPC, instruction, aluResult, Zero_flag, regWriteDa
 	wire [4:0] rtMem = 5'b00101;
 	wire [4:0] rsMem = 5'b00001;
 	wire [4:0] rdMem = 5'b00010;
-	output wire [31:0] regWriteData;
+	wire [31:0] regWriteData;
 	
 	//testes para sinais do controlador
 	wire 		  branch;
-	output wire 		  canWriteReg ; //1 = true
+	wire 		  canWriteReg ; //1 = true
 	wire       regDest ; //0 = rt
 	wire		  memWrite; //0 = false
 	wire		  memRead ; //1 = true
 	wire [1:0] memToReg, jump_Wire; //1 = readData mudei aqui
 	
 	//Contador de Programa (PC)
-	wire [31:0] PC_next;
 	output wire [31:0] PC_out;
 	PC pc(clock, PC_out, jump_Result);
 	PCNext nextInstruction(PC_out, nextPC);
 	
 	
 	//modulo que serve como mutiplexador para instruções de jump
-	wire [31:0] jump_Result;
-	jump jump (PC_next, instruction, jump_Result, jump_Wire, regMemOut2, zeroFillImm, branch_Result);
+	output wire [31:0] jump_Result;
+	jump jump (nextPC, instruction, jump_Result, jump_Wire, regMemOut2, exImm, branch_Result);
 	
 	//modulo que faz a verificação das instruções de branch
 	wire 			branch_Result;
@@ -65,7 +64,7 @@ module MIPS (clock, PC_out,nextPC, instruction, aluResult, Zero_flag, regWriteDa
 	
 	
 	//Banco de registradores
-	output wire [31:0] regMemOut1, regMemOut2;
+	wire [31:0] regMemOut1, regMemOut2;
 	wire [4:0] regMemWriteMuxOutput;
 	regMemMux regMemWriteMux (instruction [20:16] /*rt*/, instruction [15:11]/*rd*/, regDest, regMemWriteMuxOutput ); //entrada, entrada, entrada, saida
 	regmem regmem(clock, instruction [20:16]/*rt*/ , instruction [25:21] /*rs*/ , regMemWriteMuxOutput , regWriteData , canWriteReg , regMemOut1 , regMemOut2, reset  ); //entrada, entrada, entrada, entrada, entrada, saida, saida
@@ -88,7 +87,7 @@ module MIPS (clock, PC_out,nextPC, instruction, aluResult, Zero_flag, regWriteDa
 	ulaCore ula( aluIn1MuxOut , aluIn2MuxOut , aluOP , aluResult , Zero_flag ); // entrada, entrada, entrada, saida, saida
 	
 	//dataMem
-	wire [31:0] readData;
+	output wire [31:0] readData;
 	dataMem dataMem(clock, aluResult, regMemOut1/*rt*/, memWrite , memRead , readData );
 	
 	//memToReg mux

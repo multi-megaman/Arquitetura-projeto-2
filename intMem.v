@@ -16,7 +16,7 @@ module intMem (clk, address, instruction);
 		end
 	
 	
-	always @(posedge clk) begin
+	always @(*) begin
 	    instruction <= intMemory[address];
 	end
 	

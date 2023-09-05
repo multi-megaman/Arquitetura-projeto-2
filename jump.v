@@ -8,11 +8,11 @@ module jump (next_PC, instruction, jump_Result, jump, j_Reg, branch_Destiny, bra
 	always @(*) begin
 		case (jump)
 			2'b00: jump_Result <= next_PC;
-			2'b01: jump_Result <= {next_PC[31:28],2'b00 ,instruction[25:0]};
+			2'b01: jump_Result <= {2'b00, next_PC[31:28] ,instruction[25:0]};
 			2'b10: jump_Result <= j_Reg;
 			2'b11: begin
 				if (branch_Result == 1) begin
-					jump_Result <= branch_Destiny;
+					jump_Result <= next_PC + branch_Destiny;
 				end
 				
 				else begin

@@ -2,7 +2,7 @@ module dataMem(clk, address, writeData, memWrite, memRead, readData);
 
 input wire [31:0] address, writeData ;
 input wire 			memWrite, memRead ;
-output reg [31:0] readData ;
+output wire [31:0] readData ;
 reg [31:0] mainMemory [0:255] ; 
 
 input clk;
@@ -11,6 +11,8 @@ always @(posedge clk) begin
         mainMemory[address] <= writeData ;
     end
 end
+
+assign readData = mainMemory[address];
 
 //always @(writeData) begin
 //    if (memRead == 1'b1) begin
