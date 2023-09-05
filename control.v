@@ -9,8 +9,8 @@ module control(OPcode, func, in1Mux, in2Mux, aluOp, memToReg, memRead, memWrite,
 	
 	input wire [5:0] OPcode;
 	input wire [5:0] func;
-	output reg [1:0] in1Mux, memToReg, jump;
-	output reg       in2Mux, regDst, regWrite, branch, memRead, memWrite;
+	output reg [1:0] in1Mux, memToReg, jump, regDst;
+	output reg       in2Mux, regWrite, branch, memRead, memWrite;
 	output reg [3:0] aluOp;
 	
 	always @(*) begin
@@ -231,11 +231,22 @@ module control(OPcode, func, in1Mux, in2Mux, aluOp, memToReg, memRead, memWrite,
 				in1Mux <= 2'b01; //SingExt(imm)
 				in2Mux <= 1'b0; //$rs
 				aluOp <= 4'b0110; //add
-				regDst <= 2'bxx;
+				regDst <= 2'b10;
 				branch <= 1'b0;
 				regWrite <= 1'b1;
 				jump <= 2'b01;
 				memToReg <= 2'b10;
+			end
+			
+			default: begin
+				in1Mux <= 2'bxx; //SingExt(imm)
+				in2Mux <= 1'bx; //$rs
+				aluOp <= 4'bxxxx; //add
+				regDst <= 2'bxx;
+				branch <= 1'bx;
+				regWrite <= 1'bx;
+				jump <= 2'bxx;
+				memToReg <= 2'bxx;
 			end
 			
 		endcase

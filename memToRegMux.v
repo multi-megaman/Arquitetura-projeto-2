@@ -15,6 +15,7 @@ module memToRegMux(readData, aluResult, memToReg, memToRegOutput, nextPC);
 			2'b00: memToRegOutput <= aluResult;
 			2'b01: memToRegOutput <= readData;
 			2'b10: memToRegOutput <= nextPC;
+			default: memToRegOutput <= 32'bz;
 		endcase
 	end
 

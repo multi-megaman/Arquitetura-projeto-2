@@ -7,7 +7,7 @@ Note: if both ModelSim-Altera and ModelSim executables are available, ModelSim-A
 
 **** Generating the ModelSim Testbench ****
 
-quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off MIPS -c MIPS --vector_source="D:/GitHub/Arquitetura-projeto-2/Waveform11.vwf" --testbench_file="D:/GitHub/Arquitetura-projeto-2/simulation/qsim/Waveform11.vwf.vt"
+quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off MIPS -c MIPS --vector_source="D:/GitHub/Arquitetura-projeto-2/Waveform13.vwf" --testbench_file="D:/GitHub/Arquitetura-projeto-2/simulation/qsim/Waveform13.vwf.vt"
 
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
@@ -26,8 +26,8 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Tue Sep 05 14:53:04 2023
-Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off MIPS -c MIPS --vector_source=D:/GitHub/Arquitetura-projeto-2/Waveform11.vwf --testbench_file=D:/GitHub/Arquitetura-projeto-2/simulation/qsim/Waveform11.vwf.vt
+    Info: Processing started: Tue Sep 05 17:43:36 2023
+Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off MIPS -c MIPS --vector_source=D:/GitHub/Arquitetura-projeto-2/Waveform13.vwf --testbench_file=D:/GitHub/Arquitetura-projeto-2/simulation/qsim/Waveform13.vwf.vt
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 
 file when writing test bench files
@@ -57,15 +57,15 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Tue Sep 05 14:53:10 2023
+    Info: Processing started: Tue Sep 05 17:43:38 2023
 Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory=D:/GitHub/Arquitetura-projeto-2/simulation/qsim/ MIPS -c MIPS
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (204019): Generated file MIPS.vo in folder "D:/GitHub/Arquitetura-projeto-2/simulation/qsim//" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4810 megabytes
-    Info: Processing ended: Tue Sep 05 14:53:15 2023
-    Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:05
+    Info: Peak virtual memory: 4811 megabytes
+    Info: Processing ended: Tue Sep 05 17:43:41 2023
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
 
 Completed successfully. 
 
@@ -81,15 +81,13 @@ C:/intelFPGA/20.1/modelsim_ase/win32aloem/vsim -c -do MIPS.do
 
 Reading pref.tcl
 
-
 # 2020.1
 
 # do MIPS.do
 
 # ** Warning: (vlib-34) Library already exists at "work".
-
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:53:17 on Sep 05,2023
+# Start time: 17:43:42 on Sep 05,2023
 # vlog -work work MIPS.vo 
 
 # -- Compiling module MIPS
@@ -97,22 +95,22 @@ Reading pref.tcl
 # 
 # Top level modules:
 # 	MIPS
-
-# End time: 14:53:20 on Sep 05,2023, Elapsed time: 0:00:03
+# End time: 17:43:44 on Sep 05,2023, Elapsed time: 0:00:02
 # Errors: 0, Warnings: 0
+
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:53:20 on Sep 05,2023
-# vlog -work work Waveform11.vwf.vt 
+# Start time: 17:43:44 on Sep 05,2023
+# vlog -work work Waveform13.vwf.vt 
 
 # -- Compiling module MIPS_vlg_vec_tst
 # 
 # Top level modules:
 # 	MIPS_vlg_vec_tst
-# End time: 14:53:21 on Sep 05,2023, Elapsed time: 0:00:01
+# End time: 17:43:45 on Sep 05,2023, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 
 # vsim -c -t 1ps -L cyclonev_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.MIPS_vlg_vec_tst 
-# Start time: 14:53:21 on Sep 05,2023
+# Start time: 17:43:45 on Sep 05,2023
 # Loading work.MIPS_vlg_vec_tst
 # Loading work.MIPS
 # Loading cyclonev_ver.cyclonev_io_obuf
@@ -121,9 +119,8 @@ Reading pref.tcl
 # Loading cyclonev_ver.cyclonev_lcell_comb
 # Loading altera_ver.dffeas
 # Loading altera_ver.PRIM_GDFF_LOW
-# ** Warning: Design size of 81594 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# ** Warning: Design size of 81681 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
 # Expect performance to be adversely affected.
-
 # after#25
 
 # Simulation time: 0 ps
@@ -142,54 +139,40 @@ Reading pref.tcl
 
 # Simulation time: 0 ps
 
-# Simulation time: 305000 ps
+# Simulation time: 355000 ps
 
-# Simulation time: 305000 ps
+# Simulation time: 355000 ps
 
-# Simulation time: 305000 ps
+# Simulation time: 355000 ps
 
-# Simulation time: 305000 ps
+# Simulation time: 355000 ps
 
-# Simulation time: 305000 ps
+# Simulation time: 355000 ps
 
-# Simulation time: 305000 ps
+# Simulation time: 355000 ps
 
-# Simulation time: 305000 ps
+# Simulation time: 355000 ps
 
-# Simulation time: 305000 ps
+# Simulation time: 355000 ps
 
-# Simulation time: 595000 ps
+# Simulation time: 965000 ps
 
-# Simulation time: 595000 ps
-
-# Simulation time: 595000 ps
-
-# Simulation time: 595000 ps
-
-# Simulation time: 595000 ps
-
-# Simulation time: 595000 ps
-
-# Simulation time: 595000 ps
-
-# Simulation time: 595000 ps
-
-# ** Note: $finish    : Waveform11.vwf.vt(57)
+# ** Note: $finish    : Waveform13.vwf.vt(57)
 #    Time: 1 us  Iteration: 0  Instance: /MIPS_vlg_vec_tst
-# End time: 14:54:25 on Sep 05,2023, Elapsed time: 0:01:04
+# End time: 17:44:30 on Sep 05,2023, Elapsed time: 0:00:45
 # Errors: 0, Warnings: 1
 
 Completed successfully. 
 
 **** Converting ModelSim VCD to vector waveform ****
 
-Reading D:/GitHub/Arquitetura-projeto-2/Waveform11.vwf...
+Reading D:/GitHub/Arquitetura-projeto-2/Waveform13.vwf...
 
 Reading D:/GitHub/Arquitetura-projeto-2/simulation/qsim/MIPS.msim.vcd...
 
 Processing channel transitions... 
 
-Writing the resulting VWF to D:/GitHub/Arquitetura-projeto-2/simulation/qsim/MIPS_20230905145425.sim.vwf
+Writing the resulting VWF to D:/GitHub/Arquitetura-projeto-2/simulation/qsim/MIPS_20230905174430.sim.vwf
 
 Finished VCD to VWF conversion.
 

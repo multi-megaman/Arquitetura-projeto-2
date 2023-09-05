@@ -54,6 +54,7 @@ module ulaIn1Mux(ulaIn1Rt, ulaIn1Imm, ulaIn1ExImm, ulaIn1MuxController, ulaIn1Mu
 			2'b00: ulaIn1MuxOut <= ulaIn1Rt;
 			2'b01: ulaIn1MuxOut <= ulaIn1ExImm;
 			2'b10: ulaIn1MuxOut <= {16'b0, ulaIn1Imm };
+			default: ulaIn1MuxOut <= 32'bz;
 		endcase
 	end
 
@@ -71,6 +72,7 @@ module ulaIn2Mux(ulaIn2Rs, ulaIn2Shamt, ulaIn2MuxController, ulaIn2MuxOut);
 		case (ulaIn2MuxController)
 			1'b0: ulaIn2MuxOut <= ulaIn2Rs;
 			1'b1: ulaIn2MuxOut <= {27'b0, ulaIn2Shamt };
+			default: ulaIn2MuxOut <= 32'bz;
 		endcase
 	end
 

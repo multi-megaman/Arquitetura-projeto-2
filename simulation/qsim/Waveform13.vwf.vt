@@ -19,7 +19,7 @@
 // the top level entity of the current Quartus project .The user can use this   
 // testbench to simulate his design using a third-party simulation tool .       
 // *****************************************************************************
-// Generated on "09/03/2023 13:09:12"
+// Generated on "09/05/2023 17:43:37"
                                                                                 
 // Verilog Test Bench (with test vectors) for design :                          MIPS
 // 
@@ -31,24 +31,26 @@ module MIPS_vlg_vec_tst();
 // constants                                           
 // general purpose registers
 reg clock;
+reg reset;
 // wires                                               
-wire Zero_flag;
+wire [31:0] PC_out;
 wire [31:0] aluResult;
-wire canWriteReg;
 wire [31:0] instruction;
+wire [31:0] jump_Result;
 wire [31:0] nextPC;
-wire [31:0] regWriteData;
+wire [31:0] readData;
 
 // assign statements (if any)                          
 MIPS i1 (
 // port map - connection between master ports and signals/registers   
-	.Zero_flag(Zero_flag),
+	.PC_out(PC_out),
 	.aluResult(aluResult),
-	.canWriteReg(canWriteReg),
 	.clock(clock),
 	.instruction(instruction),
+	.jump_Result(jump_Result),
 	.nextPC(nextPC),
-	.regWriteData(regWriteData)
+	.readData(readData),
+	.reset(reset)
 );
 initial 
 begin 
@@ -61,6 +63,12 @@ begin
 	clock = 1'b0;
 	clock = #5000 1'b1;
 	#5000;
+end 
+
+// reset
+initial
+begin
+	reset = 1'b0;
 end 
 endmodule
 

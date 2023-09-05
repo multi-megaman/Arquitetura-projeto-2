@@ -39,7 +39,7 @@ module MIPS (clock, PC_out,nextPC,jump_Result, instruction, aluResult, reset, re
 	//testes para sinais do controlador
 	wire 		  branch;
 	wire 		  canWriteReg ; //1 = true
-	wire       regDest ; //0 = rt
+	wire[1:0]  regDest ;
 	wire		  memWrite; //0 = false
 	wire		  memRead ; //1 = true
 	wire [1:0] memToReg, jump_Wire; //1 = readData mudei aqui
@@ -97,5 +97,5 @@ module MIPS (clock, PC_out,nextPC,jump_Result, instruction, aluResult, reset, re
 	dataMem dataMem(clock, aluResult, regMemOut1/*rt*/, memWrite , memRead , readData );
 	
 	//memToReg mux
-	memToRegMux memToRegMux ( readData ,  aluResult , memToReg , regWriteData );
+	memToRegMux memToRegMux ( readData ,  aluResult , memToReg , regWriteData, nextPC );
 endmodule 
